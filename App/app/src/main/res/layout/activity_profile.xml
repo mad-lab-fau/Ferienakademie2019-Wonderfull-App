@@ -44,7 +44,7 @@
         android:id="@+id/weightText"
         android:layout_width="89dp"
         android:layout_height="29dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/gewicht"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/heightText"
