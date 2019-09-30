@@ -12,10 +12,10 @@
         android:layout_height="100dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:src="@drawable/profilbild"
+        android:src="@drawable/img_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/profilbild" />
+        tools:srcCompat="@drawable/img_profile" />
 
     <TextView
         android:id="@+id/fullName"
