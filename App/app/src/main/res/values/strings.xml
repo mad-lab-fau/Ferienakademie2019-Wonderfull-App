@@ -47,10 +47,14 @@
 
     <string name="energyLevel_headline">Energielevel</string>
     <string name="drinklevel_headline">Trinkstatus</string>
+    <string name="groupstatus_headline">Gruppenstatus</string>
     <string name="break_text">Pause machen!</string>
     <string name="drink_perfect">Perfekt!</string>
-    <string name="drink_good">Gut!"</string>
+    <string name="drink_good">Gut!</string>
     <string name="drink_bad">Bitte trinken!</string>
+    <string name="group_good">Gruppe zusammen!</string>
+    <string name="group_lost">Gruppe verloren!</string>
+    <string name="group_missing">Jemand fehlt!</string>
 
     <string name="wanderung_planen">Wanderung planen</string>
     <string name="wanderung_starten">Wanderung starten</string>
@@ -74,7 +78,7 @@
     <string name="h_he">Höhe</string>
     <string name="menu_sensor">Sensors</string>
     <string name="string_barometer">Barometer Value: %1$s mBar</string>
-
+    <string name="distance">Distanz (km):</string>
 
 
 </resources>
