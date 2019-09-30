@@ -139,4 +139,17 @@
         android:inputType="phone"
         app:layout_constraintStart_toEndOf="@+id/emergencyContact1"
         app:layout_constraintTop_toTopOf="@+id/emergencyContact1" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="399dp"
+        tools:layout_editor_absoluteY="338dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
