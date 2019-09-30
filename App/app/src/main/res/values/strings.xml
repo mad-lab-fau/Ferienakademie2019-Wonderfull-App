@@ -65,7 +65,6 @@
     <string name="allergientim">Glutenintoleranz</string>
     <string name="allergien">Allergien und Unverträglichkeiten:</string>
     <string name="time">Zeit:</string>
-    <string name="distanz">Distanz (km):</string>
     <string name="h_henzunahme">Höhenzunahme (m):</string>
     <string name="aktivit_t">Aktivität</string>
     <string name="activityTimeVal">04:59:02</string>
@@ -75,7 +74,7 @@
     <string name="h_he">Höhe</string>
     <string name="menu_sensor">Sensors</string>
     <string name="string_barometer">Barometer Value: %1$s mBar</string>
-
+    <string name="distance">Distanz (km)</string>
 
 
 </resources>
