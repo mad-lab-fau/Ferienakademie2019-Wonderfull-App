@@ -10,20 +10,46 @@ import android.widget.TextView;
 
 public class HikeMainscreen extends AppCompatActivity {
 
-    public static final int ENERGY_LEVEL = 25;
-    public static final int DRINK_STATUS = 54;
+    public static final int ENERGY_LEVEL = 22;
+    public static final int DRINK_STATUS = 70;
+    public static final boolean GROUP = true;
+    public static final int GROUP_STATUS = 0; //0=together, 1=someone is missing, 2=group lost
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hike_mainscreen_without_group);
+        if(GROUP){
+            setContentView(R.layout.activity_hike_mainscreen_with_group);
+            ImageView group = (ImageView) findViewById(R.id.imageView3);
+            TextView group_text = (TextView) findViewById(R.id.textView7);
+
+            switch (GROUP_STATUS){
+                case 0:
+                    group.setImageResource(R.drawable.group_ok);
+                    group_text.setText(R.string.group_good);
+                    break;
+                case 1:
+                    group.setImageResource(R.drawable.someone_lost);
+                    group_text.setText(R.string.group_missing);
+                    break;
+                case 2:
+                    group.setImageResource(R.drawable.group_lost);
+                    group_text.setText(R.string.group_lost);
+                    break;
+                default:
+                    setContentView(R.layout.activity_hike_mainscreen_without_group);
+            }
+
+        } else {
+            setContentView(R.layout.activity_hike_mainscreen_without_group);
+        }
+
         ImageView battery = (ImageView) findViewById(R.id.imageView);
         ImageView drop = (ImageView) findViewById(R.id.imageView2);
         TextView energy_text = (TextView) findViewById(R.id.textView3);
         TextView drink_text = (TextView) findViewById(R.id.textView4);
         TextView break_text = (TextView) findViewById(R.id.breaktext);
         energy_text.setText(ENERGY_LEVEL+"%");
-        drink_text.setText(DRINK_STATUS+"%");
         break_text.setVisibility(View.INVISIBLE);
 
         if(ENERGY_LEVEL >=90){
@@ -109,6 +135,16 @@ public class HikeMainscreen extends AppCompatActivity {
                 }
             }
 
+        }
+
+        if(DRINK_STATUS >=66){
+            drink_text.setText(R.string.drink_perfect);
+        }else{
+            if(DRINK_STATUS >=33){
+                drink_text.setText(R.string.drink_good);
+            }else{
+                drink_text.setText(R.string.drink_bad);
+            }
         }
     }
 }
