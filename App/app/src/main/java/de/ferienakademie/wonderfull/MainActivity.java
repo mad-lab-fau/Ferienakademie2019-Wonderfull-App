@@ -62,6 +62,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent mainIntent = new Intent(this, EmergencyActivity.class);
                 startActivity(mainIntent);
                 return true;
+            case R.id.menu_sensor:
+                startActivity(new Intent(this, SensorActivity.class));
+                return true;
             default:
                 return false;
         }
