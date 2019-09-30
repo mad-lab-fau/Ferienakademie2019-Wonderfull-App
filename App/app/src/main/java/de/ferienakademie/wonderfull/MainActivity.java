@@ -1,22 +1,22 @@
 package de.ferienakademie.wonderfull;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.NavigationUI;
-
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 
-import com.google.android.material.navigation.NavigationView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.navigation.ui.AppBarConfiguration;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private AppBarConfiguration mAppBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +45,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED
+                || ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            Log.d("EmergencyActivity", "Asking for permission");
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS, Manifest.permission.READ_PHONE_STATE}, 100);
+        }
+
     }
 
 
@@ -57,16 +63,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case (R.id.menu_emergency):
-                Log.d("MainMenu", "menu_emergency");
                 Intent mainIntent = new Intent(this, EmergencyActivity.class);
                 startActivity(mainIntent);
+                return true;
+            case (R.id.menu_profile):
+                Intent profilIntent = new Intent(this, profile.class);
+                startActivity(profilIntent);
+                return true;
+            case (R.id.menu_hike):
+                Intent hikeIntent = new Intent(this, HikeMainscreen.class);
+                startActivity(hikeIntent);
+                return true;
+            case R.id.menu_sensor:
+                startActivity(new Intent(this, SensorActivity.class));
                 return true;
             default:
                 return false;
         }
     }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
