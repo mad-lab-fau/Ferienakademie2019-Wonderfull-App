@@ -74,7 +74,7 @@
                 android:layout_width="fill_parent"
                 android:layout_marginTop="1dp"
                 android:layout_marginRight="16dp"
-                android:layout_margin_Left="16dp">
+                android:layout_marginLeft="16dp">
 
                 <TextView
                     android:id="@+id/activityTime"
@@ -106,7 +106,7 @@
                 android:layout_width="fill_parent"
                 android:layout_marginTop="1dp"
                 android:layout_marginRight="16dp"
-                android:layout_margin_Left="16dp">
+                android:layout_marginLeft="16dp">
 
                 <TextView
                     android:id="@+id/altitudeText"
@@ -140,7 +140,7 @@
                 android:layout_width="fill_parent"
                 android:layout_marginTop="1dp"
                 android:layout_marginRight="16dp"
-                android:layout_margin_Left="16dp">
+                android:layout_marginLeft="16dp">
 
             <TextView
                 android:id="@+id/pace"
