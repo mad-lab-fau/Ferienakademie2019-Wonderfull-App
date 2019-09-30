@@ -54,6 +54,10 @@
 
     <string name="wanderung_planen">Wanderung planen</string>
     <string name="wanderung_starten">Wanderung starten</string>
+    <string name="distanz">Distanz</string>
+    <string name="verticalDistance_upwards">Aufstieg (in m):</string>
+    <string name="verticalDistance_downwards">Abstieg (in m):</string>
+    <string name="berechneteWanderzeit">geschätzte Wanderzeit:</string>
     <string name="button_start">button_start</string>
     <string name="button_plan">button_plan</string>
     <string name="erkrankungentim">Herzhypertrophie, Leberzirrhose, Trizepssehnenruptur</string>
@@ -71,6 +75,7 @@
     <string name="h_he">Höhe</string>
     <string name="menu_sensor">Sensors</string>
     <string name="string_barometer">Barometer Value: %1$s mBar</string>
+
 
 
 </resources>
