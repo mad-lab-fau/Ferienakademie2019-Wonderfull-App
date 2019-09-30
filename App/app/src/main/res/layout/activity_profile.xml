@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@drawable/img_profile" />
-    
+
     <TextView
         android:id="@+id/fullName"
         android:layout_width="164dp"
