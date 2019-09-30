@@ -15,7 +15,8 @@
             android:label="@string/title_activity_main_menu"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".EmergencyActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".profile">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -11,22 +11,20 @@
         android:layout_width="129dp"
         android:layout_height="137dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@drawable/profilbild" />
 
     <TextView
         android:id="@+id/fullName"
-        android:layout_width="276dp"
-        android:layout_height="82dp"
-        android:layout_marginStart="32dp"
+        android:layout_width="167dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="64dp"
         android:layout_marginTop="64dp"
-        android:layout_marginEnd="8dp"
         android:text="@string/tim_wiesel"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/profileImage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,7 +34,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="64dp"
         android:text="@string/gr_e"
-        android:textSize="15sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/fullName"
         app:layout_constraintTop_toBottomOf="@+id/fullName" />
 
@@ -46,7 +44,7 @@
         android:layout_height="29dp"
         android:layout_marginTop="8dp"
         android:text="@string/gewicht"
-        android:textSize="15sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/heightText"
         app:layout_constraintTop_toBottomOf="@+id/heightText" />
 
@@ -55,7 +53,7 @@
         android:layout_width="202dp"
         android:layout_height="29dp"
         android:text="@string/_1_80_m"
-        android:textSize="15sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/heightText"
         app:layout_constraintTop_toTopOf="@+id/heightText" />
 
@@ -64,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_80_kg"
-        android:textSize="15sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/weightText"
         app:layout_constraintTop_toTopOf="@+id/weightText" />
 
@@ -74,7 +72,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:text="@string/notfallkontakte"
-        android:textSize="15sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/medicationText"
         app:layout_constraintTop_toBottomOf="@+id/medicationText" />
@@ -85,7 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:text="@string/vorerkrankungen"
-        android:textSize="15sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/weightText"
         app:layout_constraintTop_toBottomOf="@+id/weightText" />
@@ -96,7 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:text="@string/medikamente"
-        android:textSize="15sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/diseasesText"
         app:layout_constraintTop_toBottomOf="@+id/diseasesText" />
@@ -107,7 +105,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/beispielerkrankungen"
-        android:textSize="15sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/diseasesText"
         app:layout_constraintTop_toBottomOf="@+id/diseasesText" />
 
@@ -117,7 +115,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/beispielmedikation"
-        android:textSize="15sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/medicationText"
         app:layout_constraintTop_toBottomOf="@+id/medicationText" />
 
@@ -127,7 +125,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/jon_doe"
-        android:textSize="15sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/emergencyContacts"
         app:layout_constraintTop_toBottomOf="@+id/emergencyContacts" />
 
@@ -139,17 +137,5 @@
         android:inputType="phone"
         app:layout_constraintStart_toEndOf="@+id/emergencyContact1"
         app:layout_constraintTop_toTopOf="@+id/emergencyContact1" />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="399dp"
-        tools:layout_editor_absoluteY="338dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
