@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         ImageButton playClick;
-        playClick = findViewById(R.id.ImageButton_play);
+        playClick = findViewById(R.id.ImageButton_start);
         playClick.setOnClickListener(this);
     }
 
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
 
-            case R.id.ImageButton_play:
+            case R.id.ImageButton_start:
                 //code what should happen
                 break;
        }
