@@ -25,6 +25,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ImageButton playClick;
         playClick = findViewById(R.id.ImageButton_start);
         playClick.setOnClickListener(this);
+
+        playClick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, MainMenuActivity.class));
+            }
+        });
+
+        ImageButton planClick;
+        planClick = findViewById(R.id.ImageButton_plan);
+        planClick.setOnClickListener(this);
+
+        planClick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, plan_hiking.class));
+            }
+        });
+
     }
 
 
@@ -47,7 +66,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return false;
         }
     }
-
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -55,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.ImageButton_start:
                 //code what should happen
                 break;
-       }
+        }
     }
 
 }
