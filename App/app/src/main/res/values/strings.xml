@@ -22,22 +22,22 @@
     <string name="menu_send">Send</string>
     <string name="menu_emergency">Notfall</string>
 
-    <string name="_1_80_m">1,80 m</string>
+    <string name="_1_80_m">1,93 m</string>
     <string name="gewicht">Gewicht:</string>
-    <string name="_80_kg">80 kg</string>
+    <string name="_80_kg">129 kg</string>
     <string name="gr_e">Größe:</string>
-    <string name="notfallkontakte">Notfallkontakte</string>
-    <string name="beispielerkrankungen">... Beispielerkrankungen</string>
-    <string name="beispielmedikation">...Beispielmedikation</string>
-    <string name="jon_doe">Jon Doe</string>
+    <string name="notfallkontakte">Notfallkontakte:</string>
+    <string name="beispielerkrankungen">… Beispielerkrankungen</string>
+    <string name="beispielmedikation">Anabolika, Ritalin</string>
+    <string name="jon_doe">Jon Doe (Freund): +49 157 6432168</string>
     <string name="profil_bearbeiten">Profil bearbeiten</string>
     <string name="profilbild_hochladen">Profilbild hochladen</string>
     <string name="vorname">Vorname:</string>
     <string name="name">Name:</string>
     <string name="gr_e_m">Größe [m]:</string>
     <string name="gewicht_kg">Gewicht [kg]:</string>
-    <string name="vorerkrankungen">Vorerkrankungen:</string>
-    <string name="medikamente">Medikamente</string>
+    <string name="vorerkrankungen">Erkrankungen &amp; Befunde:</string>
+    <string name="medikamente">Medikation:</string>
     <string name="notafllkontakte">Notafllkontakte</string>
     <string name="tim">Tim</string>
     <string name="wiesel">Wiesel</string>
@@ -52,6 +52,10 @@
     <string name="wanderung_starten">Wanderung starten</string>
     <string name="button_start">button_start</string>
     <string name="button_plan">button_plan</string>
+    <string name="erkrankungentim">Herzhypertrophie, Leberzirrhose, Trizepssehnenruptur</string>
+    <string name="altertim">17. Dezember 1981 (37 Jahre alt)</string>
+    <string name="allergientim">Glutenintoleranz</string>
+    <string name="allergien">Allergien und Unverträglichkeiten:</string>
 
 
 </resources>
