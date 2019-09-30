@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 public class HikeMainscreen extends AppCompatActivity {
 
-    public static final int ENERGY_LEVEL = 25;
-    public static final int DRINK_STATUS = 54;
+    public static final int ENERGY_LEVEL = 22;
+    public static final int DRINK_STATUS = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,6 @@ public class HikeMainscreen extends AppCompatActivity {
         TextView drink_text = (TextView) findViewById(R.id.textView4);
         TextView break_text = (TextView) findViewById(R.id.breaktext);
         energy_text.setText(ENERGY_LEVEL+"%");
-        drink_text.setText(DRINK_STATUS+"%");
         break_text.setVisibility(View.INVISIBLE);
 
         if(ENERGY_LEVEL >=90){
@@ -109,6 +108,16 @@ public class HikeMainscreen extends AppCompatActivity {
                 }
             }
 
+        }
+
+        if(DRINK_STATUS >=66){
+            drink_text.setText(R.string.drink_perfect);
+        }else{
+            if(DRINK_STATUS >=33){
+                drink_text.setText(R.string.drink_good);
+            }else{
+                drink_text.setText(R.string.drink_bad);
+            }
         }
     }
 }
