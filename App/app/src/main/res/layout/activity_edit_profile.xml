@@ -110,7 +110,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="92dp"
-        android:text="@string/notafllkontakte"
+        android:text="@string/notfallkontakte"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/medicationText" />
