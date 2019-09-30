@@ -12,4 +12,10 @@
         android:title="Profil"
         app:showAsAction="never"/>
 
+    <item
+        android:id="@+id/menu_hike"
+        android:orderInCategory="80"
+        android:title="Überblick"
+        app:showAsAction="never" />
+
 </menu>

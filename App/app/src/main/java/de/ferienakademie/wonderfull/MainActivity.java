@@ -1,12 +1,15 @@
 package de.ferienakademie.wonderfull;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         playClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, MainMenuActivity.class));
+                startActivity(new Intent(MainActivity.this, HikeMainscreen.class));
             }
         });
 
@@ -47,6 +50,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(MainActivity.this, plan_hiking.class));
             }
         });
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED
+                || ActivityCompat.checkSelfPermission(this,Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED){
+            Log.d("EmergencyActivity", "Asking for permission");
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS, Manifest.permission.READ_PHONE_STATE}, 100);
+        }
 
     }
 
@@ -68,6 +77,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case (R.id.menu_profile):
                 Intent profilIntent = new Intent(this, profile.class);
                 startActivity(profilIntent);
+                return true;
+            case (R.id.menu_hike):
+                Intent hikeIntent = new Intent(this, HikeMainscreen.class);
+                startActivity(hikeIntent);
                 return true;
             default:
                 return false;

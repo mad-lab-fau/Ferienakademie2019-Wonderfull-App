@@ -1,10 +1,14 @@
 package de.ferienakademie.wonderfull;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,7 +22,7 @@ public class EmergencyActivity extends AppCompatActivity {
     private String emergencyText = "%s wird in %d Sekunden angerufen.";
     private int time = 30;
     private Timer timer;
-    private String phoneNumber = "01781336385";
+    private String phoneNumber = "00491781336385"; // "004915734766438"
     private String smsText = "Test";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +69,16 @@ public class EmergencyActivity extends AppCompatActivity {
     }
 
     private void sendSMS(){
-        SmsManager smsManager = SmsManager.getDefault();
-        smsManager.sendTextMessage(phoneNumber, null, smsText, null, null);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED
+                || ActivityCompat.checkSelfPermission(this,Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED){
+            Log.d("EmergencyActivity", "Asking for permission");
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS, Manifest.permission.READ_PHONE_STATE}, 100);
+        } else{
+            Log.d("EmergencyActivtity", "I will send an SMS now!");
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(phoneNumber, null, smsText, null, null);
+        }
+
     }
 
 
