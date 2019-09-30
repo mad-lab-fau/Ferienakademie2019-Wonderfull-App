@@ -47,5 +47,10 @@
     <string name="energyLevel_headline">Energielevel</string>
     <string name="drinklevel_headline">Trinkstatus</string>
 
+    <string name="wanderung_planen">Wanderung planen</string>
+    <string name="wanderung_starten">Wanderung starten</string>
+    <string name="button_start">button_start</string>
+    <string name="button_plan">button_plan</string>
+
 
 </resources>
