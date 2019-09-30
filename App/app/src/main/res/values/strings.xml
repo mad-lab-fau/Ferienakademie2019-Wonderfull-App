@@ -74,7 +74,7 @@
     <string name="h_he">Höhe</string>
     <string name="menu_sensor">Sensors</string>
     <string name="string_barometer">Barometer Value: %1$s mBar</string>
-    <string name="distance">Distanz (km)</string>
+    <string name="distance">Distanz (km):</string>
 
 
 </resources>

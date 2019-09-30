@@ -16,33 +16,32 @@
         <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:stretchColumns="1">
+            android:stretchColumns="1"
+            >
 
-            <TableRow android:layout_width="fill_parent">
 
-                <TextView
-                    android:id="@+id/aktivitaet"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="16dp"
-                    android:gravity="center"
-                    android:text="@string/aktivit_t"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+            <TextView
+                android:id="@+id/aktivitaet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="@string/aktivit_t"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
-            </TableRow>
 
             <TableRow
-                android:layout_width="fill_parent"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp">
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="32dp"
+                >
 
                 <TextView
                     android:id="@+id/timeText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
+                    android:layout_weight="0.28"
+                    android:layout_width="0dp"
+                    android:layout_height="15dp"
                     android:gravity="center"
                     android:text="@string/time"
                     android:textSize="12sp"
@@ -50,19 +49,19 @@
 
                 <TextView
                     android:id="@+id/distance"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
+                    android:layout_weight="0.28"
+                    android:layout_width="0dp"
+                    android:layout_height="15dp"
                     android:gravity="center"
-                    android:text="@string/distanz"
+                    android:text="@string/distance"
                     android:textSize="12sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/altitude"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
+                    android:layout_weight="0.44"
+                    android:layout_width="0dp"
+                    android:layout_height="15dp"
                     android:gravity="center"
                     android:text="@string/h_henzunahme"
                     android:textSize="12sp"
@@ -74,28 +73,31 @@
                 android:layout_width="fill_parent"
                 android:layout_marginTop="1dp"
                 android:layout_marginRight="16dp"
-                android:layout_margin_Left="16dp">
+                android:layout_marginLeft="16dp">
 
                 <TextView
                     android:id="@+id/activityTime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_weight="0.28"
+                    android:layout_width="0dp"
+                    android:layout_height="15dp"
                     android:gravity="center"
                     android:text="@string/activityTimeVal"
                     android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/acticityDistance"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.28"
+                    android:layout_height="15dp"
                     android:gravity="center"
                     android:text="@string/activityDistanceVal"
                     android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/activityAltitude"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.44"
+                    android:layout_height="15dp"
                     android:gravity="center"
                     android:text="@string/activityAltitudeVal"
                     android:textSize="12sp" />
@@ -106,13 +108,12 @@
                 android:layout_width="fill_parent"
                 android:layout_marginTop="1dp"
                 android:layout_marginRight="16dp"
-                android:layout_margin_Left="16dp">
+                android:layout_marginLeft="16dp">
 
                 <TextView
                     android:id="@+id/altitudeText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
                     android:text="@string/h_he"
                     android:textSize="15sp"
@@ -140,19 +141,18 @@
                 android:layout_width="fill_parent"
                 android:layout_marginTop="1dp"
                 android:layout_marginRight="16dp"
-                android:layout_margin_Left="16dp">
+                android:layout_marginLeft="16dp">
 
-            <TextView
-                android:id="@+id/pace"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/pace"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageAltitude" />
+                <TextView
+                    android:id="@+id/pace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/pace"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageAltitude" />
 
             </TableRow>
 
