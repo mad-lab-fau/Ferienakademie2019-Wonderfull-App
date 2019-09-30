@@ -79,6 +79,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.menu_sensor:
                 startActivity(new Intent(this, SensorActivity.class));
                 return true;
+            case R.id.menu_plots:
+                startActivity(new Intent(this, Graphen.class));
+                return true;
             default:
                 return false;
         }
