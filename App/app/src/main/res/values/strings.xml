@@ -56,6 +56,15 @@
     <string name="altertim">17. Dezember 1981 (37 Jahre alt)</string>
     <string name="allergientim">Glutenintoleranz</string>
     <string name="allergien">Allergien und Unverträglichkeiten:</string>
+    <string name="time">Zeit:</string>
+    <string name="distanz">Distanz (km):</string>
+    <string name="h_henzunahme">Höhenzunahme (m):</string>
+    <string name="aktivit_t">Aktivität</string>
+    <string name="activityTimeVal">04:59:02</string>
+    <string name="activityDistanceVal">20,51</string>
+    <string name="activityAltitudeVal">1.200</string>
+    <string name="pace">Geschwindigkeit</string>
+    <string name="h_he">Höhe</string>
 
 
 </resources>
