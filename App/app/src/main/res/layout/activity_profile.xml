@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".profile">
+
+    <ImageView
+        android:id="@+id/profileImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars[0]" />
+
+    <TextView
+        android:id="@+id/fullName"
+        android:layout_width="276dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/tim_wiesel"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/profileImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/heightText"
+        android:layout_width="74dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/gr_e"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/fullName"
+        app:layout_constraintTop_toBottomOf="@+id/fullName" />
+
+    <TextView
+        android:id="@+id/weightText"
+        android:layout_width="89dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/gewicht"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/heightText"
+        app:layout_constraintTop_toBottomOf="@+id/heightText" />
+
+    <TextView
+        android:id="@+id/height"
+        android:layout_width="202dp"
+        android:layout_height="29dp"
+        android:text="@string/_1_80_m"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/heightText"
+        app:layout_constraintTop_toTopOf="@+id/heightText" />
+
+    <TextView
+        android:id="@+id/weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_80_kg"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/weightText"
+        app:layout_constraintTop_toTopOf="@+id/weightText" />
+
+    <TextView
+        android:id="@+id/emergencyContacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="@string/notfallkontakte"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/medicationText"
+        app:layout_constraintTop_toBottomOf="@+id/medicationText" />
+
+    <TextView
+        android:id="@+id/diseasesText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Vorerkrankungen"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/weightText"
+        app:layout_constraintTop_toBottomOf="@+id/weightText" />
+
+    <TextView
+        android:id="@+id/medicationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Medikamente"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/diseasesText"
+        app:layout_constraintTop_toBottomOf="@+id/diseasesText" />
+
+    <TextView
+        android:id="@+id/diseases"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/beispielerkrankungen"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/diseasesText"
+        app:layout_constraintTop_toBottomOf="@+id/diseasesText" />
+
+    <TextView
+        android:id="@+id/medication"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/beispielmedikation"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/medicationText"
+        app:layout_constraintTop_toBottomOf="@+id/medicationText" />
+
+    <TextView
+        android:id="@+id/emergencyContact1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/jon_doe"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/emergencyContacts"
+        app:layout_constraintTop_toBottomOf="@+id/emergencyContacts" />
+
+    <EditText
+        android:id="@+id/phoneNumber1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="phone"
+        app:layout_constraintStart_toEndOf="@+id/emergencyContact1"
+        app:layout_constraintTop_toTopOf="@+id/emergencyContact1" />
+</androidx.constraintlayout.widget.ConstraintLayout>
