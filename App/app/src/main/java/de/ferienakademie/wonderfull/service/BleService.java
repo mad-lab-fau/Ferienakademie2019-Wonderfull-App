@@ -79,6 +79,10 @@ public class BleService extends Service {
 
         @Override
         public void onNewData(SensorDataFrame data) {
+            // TODO data from the sensor enters the service HERE! => here you can implement
+            //  your algorithms (and pass the results to the activity in a similar way)
+
+
             // send sensor data to activity
             if (mSensorCallback != null) {
                 mSensorCallback.onDataReceived(data);
