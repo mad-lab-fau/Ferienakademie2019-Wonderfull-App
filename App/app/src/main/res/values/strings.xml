@@ -47,6 +47,10 @@
 
     <string name="energyLevel_headline">Energielevel</string>
     <string name="drinklevel_headline">Trinkstatus</string>
+    <string name="break_text">Pause machen!</string>
+    <string name="drink_perfect">Perfekt!</string>
+    <string name="drink_good">Gut!"</string>
+    <string name="drink_bad">Bitte trinken!</string>
 
     <string name="wanderung_planen">Wanderung planen</string>
     <string name="wanderung_starten">Wanderung starten</string>
@@ -65,6 +69,8 @@
     <string name="activityAltitudeVal">1.200</string>
     <string name="pace">Geschwindigkeit</string>
     <string name="h_he">Höhe</string>
+    <string name="menu_sensor">Sensors</string>
+    <string name="string_barometer">Barometer Value: %1$s mBar</string>
 
 
 </resources>
