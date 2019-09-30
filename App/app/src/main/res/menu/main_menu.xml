@@ -24,4 +24,10 @@
         android:orderInCategory="20"
         android:title="@string/menu_sensor"
         android:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_plots"
+        android:orderInCategory="70"
+        android:title="Plots"
+        android:showAsAction="never" />
 </menu>
