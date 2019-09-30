@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="de.ferienakademie.wonderfull">
     <uses-permission android:name="android.permission.SEND_SMS" ></uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -14,6 +15,7 @@
         <activity android:name=".EmergencyActivity" />
         <activity android:name=".profile"/>
         <activity android:name=".plan_hiking"/>
+        <activity android:name=".HikeMainscreen"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".profile"/>
     </application>
 
 </manifest>
