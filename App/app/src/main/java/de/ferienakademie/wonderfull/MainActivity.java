@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         playClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, MainMenuActivity.class));
+                startActivity(new Intent(MainActivity.this, HikeMainscreen.class));
             }
         });
 
