@@ -52,6 +52,8 @@
     <string name="wanderung_starten">Wanderung starten</string>
     <string name="button_start">button_start</string>
     <string name="button_plan">button_plan</string>
+    <string name="menu_sensor">Sensors</string>
+    <string name="string_barometer">Barometer Value: %1$s mBar</string>
 
 
 </resources>

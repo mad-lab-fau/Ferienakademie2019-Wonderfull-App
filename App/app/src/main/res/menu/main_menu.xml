@@ -6,4 +6,10 @@
         android:orderInCategory="100"
         android:title="@string/menu_emergency"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_sensor"
+        android:orderInCategory="20"
+        android:title="@string/menu_sensor"
+        app:showAsAction="never" />
 </menu>
