@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.google.android.material.navigation.NavigationView;
@@ -22,8 +23,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageButton playClick;
-        playClick = findViewById(R.id.ImageButton_start);
+        Button playClick;
+        playClick = findViewById(R.id.start);
         playClick.setOnClickListener(this);
 
         playClick.setOnClickListener(new View.OnClickListener() {
@@ -33,8 +34,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        ImageButton planClick;
-        planClick = findViewById(R.id.ImageButton_plan);
+        Button planClick;
+        planClick = findViewById(R.id.plan);
         planClick.setOnClickListener(this);
 
         planClick.setOnClickListener(new View.OnClickListener() {
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
 
-            case R.id.ImageButton_start:
+            case R.id.start:
                 //code what should happen
                 break;
         }
