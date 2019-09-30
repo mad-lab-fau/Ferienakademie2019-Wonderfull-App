@@ -3,6 +3,7 @@ package de.ferienakademie.wonderfull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
@@ -16,6 +17,8 @@ import android.widget.ImageButton;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private AppBarConfiguration mAppBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +42,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case (R.id.menu_emergency):
-                Log.d("MainMenu", "menu_emergency");
                 Intent mainIntent = new Intent(this, EmergencyActivity.class);
                 startActivity(mainIntent);
+                return true;
+            case (R.id.menu_profile):
+                Intent profilIntent = new Intent(this, profile.class);
+                startActivity(profilIntent);
                 return true;
             default:
                 return false;

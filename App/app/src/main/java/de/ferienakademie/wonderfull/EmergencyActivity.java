@@ -65,8 +65,8 @@ public class EmergencyActivity extends AppCompatActivity {
     }
 
     private void sendSMS(){
-        //SmsManager smsManager = SmsManager.getDefault(); TODO
-        //smsManager.sendTextMessage(phoneNumber, null, smsText, null, null);
+        SmsManager smsManager = SmsManager.getDefault();
+        smsManager.sendTextMessage(phoneNumber, null, smsText, null, null);
     }
 
 
