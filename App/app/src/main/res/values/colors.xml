@@ -6,6 +6,5 @@
     <color name="lightRed">#ff8080</color>
     <color name="lightGreen">#80ff80</color>
     <color name="black">#000000</color>
-    <!--<color name="white">#FFFFFF</color>-->
-
+    <color name="white">#FFFFFF</color>
 </resources>

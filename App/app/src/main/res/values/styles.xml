@@ -13,19 +13,19 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Headline" parent="@android:style/TextAppearance.Medium">
-        <item name="android:textSize">30sp</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:typeface">sans</item>
+    <style name="Headline" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:typeface">sans</item>
     </style>
 
-    <style name="percentage" parent="@android:style/TextAppearance.Medium">
-        <item name="android:textSize">50sp</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:typeface">sans</item>
-        <item name="android:gravity">center</item>
+    <style name="percentage" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">50sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

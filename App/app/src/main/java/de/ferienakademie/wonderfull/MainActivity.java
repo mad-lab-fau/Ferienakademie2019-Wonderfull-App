@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.ImageButton_play:
                 //code what should happen
                 break;
-        }
+       }
     }
 
 }
