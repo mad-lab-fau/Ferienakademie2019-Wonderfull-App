@@ -47,6 +47,10 @@
 
     <string name="energyLevel_headline">Energielevel</string>
     <string name="drinklevel_headline">Trinkstatus</string>
+    <string name="break_text">Pause machen!</string>
+    <string name="drink_perfect">Perfekt!</string>
+    <string name="drink_good">Gut!"</string>
+    <string name="drink_bad">Bitte trinken!</string>
 
     <string name="wanderung_planen">Wanderung planen</string>
     <string name="wanderung_starten">Wanderung starten</string>
