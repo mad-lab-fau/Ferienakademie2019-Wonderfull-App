@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.telephony.SmsManager;
+import android.widget.Toast;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -47,7 +49,12 @@ public class EmergencyActivity extends AppCompatActivity {
 
                 if (time == 0){
                     timer.cancel();
-                    sendSMS();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            sendSMS();
+                        }
+                    });
 
                 }
 
@@ -73,11 +80,20 @@ public class EmergencyActivity extends AppCompatActivity {
                 || ActivityCompat.checkSelfPermission(this,Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED){
             Log.d("EmergencyActivity", "Asking for permission");
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS, Manifest.permission.READ_PHONE_STATE}, 100);
-        } else{
-            Log.d("EmergencyActivtity", "I will send an SMS now!");
-            SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(phoneNumber, null, smsText, null, null);
         }
+
+        Log.d("EmergencyActivtity", "I will send an SMS now!");
+        SmsManager smsManager = SmsManager.getDefault();
+        smsManager.sendTextMessage(phoneNumber, null, smsText, null, null);
+
+        Context context = getApplicationContext();
+        CharSequence text = "SMS was send to John Doe."; //TODO real name
+        Toast toast = Toast.makeText(context, text, Toast.LENGTH_LONG);
+        toast.show();
+
+        Intent mainIntent = new Intent(this, MainActivity.class);
+        startActivity(mainIntent);
+
 
     }
 
