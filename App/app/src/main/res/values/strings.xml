@@ -60,6 +60,8 @@
     <string name="altertim">17. Dezember 1981 (37 Jahre alt)</string>
     <string name="allergientim">Glutenintoleranz</string>
     <string name="allergien">Allergien und Unverträglichkeiten:</string>
+    <string name="menu_sensor">Sensors</string>
+    <string name="string_barometer">Barometer Value: %1$s mBar</string>
 
 
 </resources>
