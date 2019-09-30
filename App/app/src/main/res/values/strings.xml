@@ -41,11 +41,15 @@
     <string name="notafllkontakte">Notafllkontakte</string>
     <string name="tim">Tim</string>
     <string name="wiesel">Wiesel</string>
+    <string name="tim_wiesel">Tim Wiesel</string>
     <string name="beispielkrankheit">Beispielkrankheit</string>
     <string name="beispielmedikament">Beispielmedikament</string>
 
     <string name="energyLevel_headline">Energielevel</string>
     <string name="drinklevel_headline">Trinkstatus</string>
+
+    <string name="wanderung_planen">Wanderung planen</string>
+    <string name="wanderung_starten">Wanderung starten</string>
 
 
 </resources>

@@ -37,7 +37,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="16dp"
-        android:text="@string/energylevel_headline"
+        android:text="@string/energyLevel_headline"
         android:textAppearance="@style/Headline"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
