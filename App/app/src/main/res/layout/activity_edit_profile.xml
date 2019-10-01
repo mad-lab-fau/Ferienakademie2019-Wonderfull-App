@@ -35,8 +35,8 @@
         android:layout_marginTop="32dp"
         android:text="@string/profilbild_hochladen"
         android:textSize="15sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintStart_toEndOf="@id/imageView"
+        app:layout_constraintTop_toTopOf="@id/imageView" />
 
     <TextView
         android:id="@+id/surnameText"
@@ -47,7 +47,7 @@
         android:text="@string/vorname"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@id/imageView" />
 
     <TextView
         android:id="@+id/nameText"
@@ -58,7 +58,7 @@
         android:text="@string/name"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/surnameText" />
+        app:layout_constraintTop_toBottomOf="@id/surnameText" />
 
     <TextView
         android:id="@+id/heightText"
@@ -69,7 +69,7 @@
         android:text="@string/gr_e_m"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameText" />
+        app:layout_constraintTop_toBottomOf="@id/nameText" />
 
     <TextView
         android:id="@+id/weightText"
@@ -80,7 +80,7 @@
         android:text="@string/gewicht_kg"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/heightText" />
+        app:layout_constraintTop_toBottomOf="@id/heightText" />
 
     <TextView
         android:id="@+id/diseasesText"
@@ -91,7 +91,7 @@
         android:text="@string/vorerkrankungen"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weightText" />
+        app:layout_constraintTop_toBottomOf="@id/weightText" />
 
     <TextView
         android:id="@+id/medicationText"
@@ -102,7 +102,7 @@
         android:text="@string/medikamente"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/diseasesText" />
+        app:layout_constraintTop_toBottomOf="@id/diseasesText" />
 
     <TextView
         android:id="@+id/emergencyContactsText"
@@ -113,7 +113,7 @@
         android:text="@string/notfallkontakte"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/medicationText" />
+        app:layout_constraintTop_toBottomOf="@id/medicationText" />
 
     <EditText
         android:id="@+id/surnameEdit"
@@ -124,8 +124,8 @@
         android:inputType="textPersonName"
         android:text="@string/tim"
         android:textSize="15sp"
-        app:layout_constraintStart_toEndOf="@+id/surnameText"
-        app:layout_constraintTop_toTopOf="@+id/surnameText" />
+        app:layout_constraintStart_toEndOf="@id/surnameText"
+        app:layout_constraintTop_toTopOf="@id/surnameText" />
 
     <EditText
         android:id="@+id/nameEdit"
@@ -135,8 +135,8 @@
         android:inputType="textPersonName"
         android:text="@string/wiesel"
         android:textSize="15sp"
-        app:layout_constraintStart_toEndOf="@+id/nameText"
-        app:layout_constraintTop_toTopOf="@+id/nameText" />
+        app:layout_constraintStart_toEndOf="@id/nameText"
+        app:layout_constraintTop_toTopOf="@id/nameText" />
 
     <EditText
         android:id="@+id/heightEdit"
@@ -144,8 +144,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="numberDecimal"
-        app:layout_constraintStart_toEndOf="@+id/heightText"
-        app:layout_constraintTop_toTopOf="@+id/heightText" />
+        app:layout_constraintStart_toEndOf="@id/heightText"
+        app:layout_constraintTop_toTopOf="@id/heightText" />
 
     <EditText
         android:id="@+id/weightEdit"
@@ -153,8 +153,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="numberDecimal"
-        app:layout_constraintStart_toEndOf="@+id/weightText"
-        app:layout_constraintTop_toTopOf="@+id/weightText" />
+        app:layout_constraintStart_toEndOf="@id/weightText"
+        app:layout_constraintTop_toTopOf="@id/weightText" />
 
     <EditText
         android:id="@+id/diseasesEdit"
@@ -167,7 +167,7 @@
         android:text="@string/beispielkrankheit"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/diseasesText" />
+        app:layout_constraintTop_toBottomOf="@id/diseasesText" />
 
     <EditText
         android:id="@+id/medicationEdit"
@@ -180,7 +180,7 @@
         android:text="@string/beispielmedikament"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/medicationText" />
+        app:layout_constraintTop_toBottomOf="@id/medicationText" />
 
     <EditText
         android:id="@+id/emergencyContactName1"
@@ -193,7 +193,7 @@
         android:text="@string/jon_doe"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emergencyContactsText" />
+        app:layout_constraintTop_toBottomOf="@id/emergencyContactsText" />
 
     <EditText
         android:id="@+id/emergencyNumber1"
@@ -202,7 +202,7 @@
         android:layout_marginStart="8dp"
         android:ems="10"
         android:inputType="phone"
-        app:layout_constraintStart_toEndOf="@+id/emergencyContactName1"
-        app:layout_constraintTop_toTopOf="@+id/emergencyContactName1" />
+        app:layout_constraintStart_toEndOf="@id/emergencyContactName1"
+        app:layout_constraintTop_toTopOf="@id/emergencyContactName1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
