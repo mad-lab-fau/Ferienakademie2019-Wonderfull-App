@@ -20,10 +20,11 @@ import android.os.Bundle;
 
 public class plan_hiking extends AppCompatActivity {
 
-   // private ImageButton calc;
+
+
     private Integer gesamtStrecke = 15;
     private Integer hoch = 600;
-    //private Integer runter = 400;
+    private Integer runter = 400;
     private TextView unitText;
 
 
@@ -42,7 +43,7 @@ public class plan_hiking extends AppCompatActivity {
     }
 
     public int getGesamtStrecke(){
-    return gesamtStrecke;
+        return gesamtStrecke;
     }
 
     public void setHoch(){
@@ -54,19 +55,30 @@ public class plan_hiking extends AppCompatActivity {
         return hoch;
     }
 
+    public void setRunter(){
+        EditText nachUnten = findViewById(R.id.nach_unten);
+        runter=Integer.parseInt(nachUnten.getText().toString());
+    }
+
+    public int getRunter(){
+        return runter;
+    }
+
     // helper methods
     int hikingTime;
     public void getTime(View v){
         setGesamtStrecke();
         setHoch();
-        //int hikingTime;
+        setRunter();
         double hikingTimeUp;
         double hikingTimeFlat;
+        double hikingTimeDown;
         hikingTimeUp =(getHoch()/400)*60;
+        hikingTimeDown = (getRunter()/800)*60;
         hikingTimeFlat = (getGesamtStrecke()/4)*60;
-        if(hikingTimeUp >= hikingTimeFlat){
-            hikingTime = (int) (hikingTimeUp + 0.5* hikingTimeFlat);
-        } else{hikingTime = (int) (0.5*hikingTimeUp + hikingTimeFlat);};
+        if(hikingTimeUp >= hikingTimeDown){
+            hikingTime = (int) (hikingTimeFlat + hikingTimeUp + 0.5* hikingTimeDown);
+        } else{hikingTime = (int) (hikingTimeFlat + hikingTimeDown + 0.5*hikingTimeUp);};
         getUnits();
     }
 
