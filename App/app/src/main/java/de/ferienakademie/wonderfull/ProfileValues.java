@@ -3,10 +3,9 @@ package de.ferienakademie.wonderfull;
 public class ProfileValues {
 
     public enum Fitness {
-        Profi("Profiwanderer"),
-        Erfahrener ("Erfahrener Wanderer"),
-        Gelegenheit ("Gelegenheitswander"),
-        Anfänger ("Wanderanfänger");
+        Profi("Profi"),
+        Gelegenheit ("Gelegenheit"),
+        Anfänger ("Anfänger");
 
         private String name = "";
 
@@ -106,6 +105,36 @@ public class ProfileValues {
 
     public void setFitness(String fitness){
         this.fitness = Fitness.valueOf(fitness);
+    }
+
+    public void setFitness(Fitness fitness){
+        this.fitness = fitness;
+    }
+
+    public int fitnessToInt(){
+        switch (fitness){
+            case Profi:
+                return 0;
+            case Gelegenheit:
+                return 1;
+            case Anfänger:
+                return 2;
+            default:
+                return -1;
+        }
+    }
+
+    public Fitness intToFitness(int num){
+        switch (num){
+            case 0:
+                return Fitness.Profi;
+            case 1:
+                return Fitness.Gelegenheit;
+            case 2:
+                return Fitness.Anfänger;
+            default:
+                return null;
+        }
     }
 
 }
