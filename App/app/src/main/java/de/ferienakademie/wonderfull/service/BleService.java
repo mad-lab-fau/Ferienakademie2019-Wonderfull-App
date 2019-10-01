@@ -79,10 +79,11 @@ public class BleService extends Service {
     private double fs;
     private int window_size;
 
-    private ArrayList<Double> baroBuffer = new ArrayList<>(100);
-    private ArrayList<Double> acc_xBuffer = new ArrayList<>(100);
-    private ArrayList<Double> acc_yBuffer = new ArrayList<>(100);
-    private ArrayList<Double> acc_zBuffer = new ArrayList<>(100);
+
+    private ArrayList<Double> baroBuffer = new ArrayList<>();
+    private ArrayList<Double> acc_xBuffer = new ArrayList<>();
+    private ArrayList<Double> acc_yBuffer = new ArrayList<>();
+    private ArrayList<Double> acc_zBuffer = new ArrayList<>();
 
     private boolean fall = false;
     double height = 0;
@@ -104,14 +105,16 @@ public class BleService extends Service {
 
         private int counter = 0;
 
+
         public double computeMean(ArrayList<Double> buffer) {
+            int zähler = 0;
             double mean = 0;
             for (int k = 0; k < buffer.size(); k++) {
                 mean += buffer.get(k);
-                counter++;
+                zähler++;
             }
 
-            mean = mean / counter;
+            mean = mean / zähler;
             return mean;
         }
 
@@ -122,11 +125,10 @@ public class BleService extends Service {
             NilsPodDataFrame df = (NilsPodDataFrame) data;
 
             fs = df.getOriginatingSensor().getSamplingRate();
-            Log.d("SensorActivty", "Fs: " + Double.toString(fs));
             window_size = (int) (8.2 * fs);
 
 
-            if (counter == window_size) {
+            if (counter >= window_size) {
                 // call method to compute mean here
                 double mean = computeMean(baroBuffer);
                 height = 44330 * (1.0 - (Math.pow((mean / 1013.0), 0.1903)));
@@ -150,7 +152,6 @@ public class BleService extends Service {
                 acc_yBuffer.add(df.getAccelY());
                 acc_zBuffer.add(df.getAccelZ());
                 counter++;
-                //Log.d("SensorActivity", Integer.toString(counter));
 
             }
 
