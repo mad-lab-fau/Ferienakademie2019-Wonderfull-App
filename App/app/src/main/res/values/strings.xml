@@ -26,6 +26,7 @@
     <string name="gewicht">Gewicht:</string>
     <string name="_80_kg">129 kg</string>
     <string name="gr_e">Größe:</string>
+    <string name="notfallkontakte">Notfallkontakte:</string>
     <string name="beispielerkrankungen">… Beispielerkrankungen</string>
     <string name="beispielmedikation">Anabolika, Ritalin</string>
     <string name="jon_doe">Jon Doe (Freund): +49 157 6432168</string>
@@ -57,9 +58,9 @@
 
     <string name="wanderung_planen">Wanderung planen</string>
     <string name="wanderung_starten">Wanderung starten</string>
-    <string name="distanz">Distanz in km</string>
-    <string name="verticalDistance_upwards">Aufstieg (in Hm):</string>
-    <string name="verticalDistance_downwards">Abstieg (in Hm):</string>
+    <string name="distanz">Distanz [km]:</string>
+    <string name="verticalDistance_upwards">Aufstieg [Hm]:</string>
+    <string name="verticalDistance_downwards">Abstieg [Hm]:</string>
     <string name="berechneteWanderzeit">geschätzte Wanderzeit:</string>
     <string name="button_start">button_start</string>
     <string name="button_plan">button_plan</string>
@@ -93,11 +94,18 @@
     </string-array>
 
     <string name="herzfrequenz">Herzfrequenz:</string>
+    <string name="herzfrequenz_p"> </string>
     <string name="hoehenmeter">Höhenmeter:</string>
-    <string name="strecke">Zurückgelegte Strecke:</string>
+    <string name="hoehenmeter_p"> </string>
+    <string name="strecke">Zurückgelegte\nStrecke:</string>
+    <string name="strecke_p"> </string>
     <string name="zeit">Wanderzeit:</string>
+    <string name="zeit_p"> </string>
     <string name="schritte">Schrittzähler:</string>
+    <string name="schritte_p"> </string>
     <string name="pause">Pause in:</string>
-    <string name="notfallkontakte">Notfallkontakte</string>
+    <string name="pause_p"> </string>
+
+    <string name="energy_title">Energie-Level:</string>
 
 </resources>

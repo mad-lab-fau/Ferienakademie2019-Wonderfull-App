@@ -7,28 +7,34 @@ import android.widget.TextView;
 
 public class EnergyDetails extends AppCompatActivity {
 
+    private String energy_title = "Energie-Level: %s";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_energy_details);
 
-        TextView herzfrequenz = (TextView) findViewById(R.id.herzfrequenz);
-        herzfrequenz.append(" " + "80" + "hz");
+        String energy_level = getIntent().getStringExtra("ENERGY_LEVEL");
 
-        TextView hoehenmeter = (TextView) findViewById(R.id.hoehenmeter);
-        hoehenmeter.append(" " + "80" + "mBar");
+        /*TextView herzfrequenz_p = (TextView) findViewById(R.id.herzfrequenz_p);
+        herzfrequenz_p.append(" " + "80" + " Hz"); */
 
-        TextView strecke = (TextView) findViewById(R.id.strecke);
-        strecke.append(" " + "2,5" + "km");
+        TextView hoehenmeter_p = (TextView) findViewById(R.id.hoehenmeter_p);
+        hoehenmeter_p.append("80" + " mBar");
 
-        TextView zeit = (TextView) findViewById(R.id.zeit);
-        zeit.append(" " + "50" + "min");
+        TextView strecke_p = (TextView) findViewById(R.id.strecke_p);
+        strecke_p.append("2,5" + " km");
 
-        TextView schritte = (TextView) findViewById(R.id.schritte);
-        schritte.append(" " + "1042");
+        TextView schritte_p = (TextView) findViewById(R.id.schritte_p);
+        schritte_p.append("1042");
 
         TextView pause = (TextView) findViewById(R.id.pause);
-        pause.append(" " + "15" + "min");
+        pause.append("15" + " min");
+
+        TextView zeit_p = (TextView) findViewById(R.id.zeit_p);
+        zeit_p.append("50" + " min");
+
+        this.setTitle(String.format(energy_title, energy_level+"%"));
 
     }
 }
