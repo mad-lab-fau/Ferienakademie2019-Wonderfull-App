@@ -8,7 +8,7 @@ public class ProfileValues {
         Gelegenheit ("Gelegenheitswander"),
         Anfänger ("Wanderanfänger");
 
-        private String name;
+        private String name = "";
 
         Fitness(String name){
             this.name = name;
@@ -19,14 +19,14 @@ public class ProfileValues {
         }
     }
 
-    private String name;
-    private String surname;
+    private String name = "";
+    private String surname = "";
     private float size;
     private float weight;
-    private String diseases;
-    private String medication;
-    private String allergies;
-    private Fitness fitness;
+    private String diseases = "";
+    private String medication = "";
+    private String allergies = "";
+    private Fitness fitness = Fitness.Gelegenheit;
 
     public static final String NAME = "name";
     public static final String SURNAME = "surname";
@@ -50,8 +50,16 @@ public class ProfileValues {
         return size;
     }
 
+    public String getSizeString(){
+        return Float.toString(size);
+    }
+
     public float getWeight() {
         return weight;
+    }
+
+    public String getWeightString(){
+        return Float.toString(weight);
     }
 
     public String getAllergies() {

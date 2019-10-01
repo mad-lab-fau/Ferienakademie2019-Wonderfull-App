@@ -58,16 +58,16 @@
 
     <string name="wanderung_planen">Wanderung planen</string>
     <string name="wanderung_starten">Wanderung starten</string>
-    <string name="distanz">Distanz</string>
-    <string name="verticalDistance_upwards">Aufstieg (in m):</string>
-    <string name="verticalDistance_downwards">Abstieg (in m):</string>
+    <string name="distanz">Distanz [km]:</string>
+    <string name="verticalDistance_upwards">Aufstieg [Hm]:</string>
+    <string name="verticalDistance_downwards">Abstieg [Hm]:</string>
     <string name="berechneteWanderzeit">geschätzte Wanderzeit:</string>
     <string name="button_start">button_start</string>
     <string name="button_plan">button_plan</string>
     <string name="erkrankungentim">Herzhypertrophie, Leberzirrhose, Trizepssehnenruptur</string>
     <string name="altertim">17. Dezember 1981 (37 Jahre alt)</string>
     <string name="allergientim">Glutenintoleranz</string>
-    <string name="allergien">Allergien und Unverträglichkeiten:</string>
+    <string name="allergien">Allergien und \nUnverträglichkeiten:</string>
     <string name="time">Zeit:</string>
     <string name="h_henzunahme">Höhenzunahme (m):</string>
     <string name="aktivit_t">Aktivität</string>
@@ -79,7 +79,12 @@
     <string name="menu_sensor">Sensors</string>
     <string name="string_barometer">Barometer Value: %1$s mBar</string>
     <string name="distance">Distanz (km):</string>
-    
+
+    <string name="edit_title">Profil bearbeiten</string>
+    <string name="edit_save">Speichern</string>
+    <string name="edit_plus">+</string>
+    <string name="edit_minus">-</string>
+
     <string name="herzfrequenz">Herzfrequenz:</string>
     <string name="herzfrequenz_p"> </string>
     <string name="hoehenmeter">Höhenmeter:</string>

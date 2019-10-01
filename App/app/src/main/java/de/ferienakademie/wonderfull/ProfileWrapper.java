@@ -101,7 +101,7 @@ public class ProfileWrapper extends SQLiteOpenHelper {
 
     }
 
-    public ProfileValues setProfile(){
+    public ProfileValues getProfile(){
         SQLiteDatabase db =this.getReadableDatabase();
 
         String selectQuery = "SELECT * FROM " + PROFILE_TABLE_NAME;

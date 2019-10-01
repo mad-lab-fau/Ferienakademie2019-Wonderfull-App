@@ -7,4 +7,7 @@
     <color name="lightGreen">#80ff80</color>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
+
+    <color name="backgroundGreen">#E5F9E3</color> //hellGrün
+    <color name="darkGreen">#0F5D16</color> //dunkelGrün
 </resources>
