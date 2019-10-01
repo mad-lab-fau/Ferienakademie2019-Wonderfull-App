@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.List;
@@ -103,7 +105,12 @@ public class EditProfile extends AppCompatActivity {
     }
 
     public void addContact(View v){
+        LinearLayout emergencyContactsLayout = findViewById(R.id.edit_current_contacts);
+        TableLayout newContactTable = new TableLayout(this);
 
+        TableRow contactNameRow = new TableRow(this);
+        TextView contactName = new TextView(this);
+        contactName.setText("Name: ");
     }
 
 }
