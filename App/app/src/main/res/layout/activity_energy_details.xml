@@ -6,84 +6,183 @@
     android:layout_height="match_parent"
     tools:context=".EnergyDetails">
 
-
-    <TextView
-        android:id="@+id/herzfrequenz"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="20dp"
-        android:text="@string/herzfrequenz"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/hoehenmeter"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="@string/hoehenmeter"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/herzfrequenz" />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/strecke"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="@string/strecke"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hoehenmeter" />
 
-    <TextView
-        android:id="@+id/zeit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="@string/zeit"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/strecke" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:padding="5dp"
+                android:layout_weight="1"
+                android:background="#FFFFFF">
 
-    <TextView
-        android:id="@+id/schritte"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="@string/schritte"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/zeit" />
+
+                <TextView
+                    android:id="@+id/herzfrequenz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center_vertical"
+                    android:paddingStart="10dp"
+                    android:text="@string/herzfrequenz"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/herzfrequenz_p"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="#FFFFFF"
+                    android:gravity="start"
+                    android:paddingStart="2dp"
+                    android:text="@string/herzfrequenz_p"
+                    android:textSize="22sp" />
+
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:padding="5dp"
+                android:layout_weight="1"
+                android:background="#FFFFFF">
+
+                <TextView
+                    android:id="@+id/hoehenmeter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingStart="10dp"
+                    android:text="@string/hoehenmeter"
+                    android:textSize="22sp" />
+
+
+                <TextView
+                    android:id="@+id/hoehenmeter_p"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingStart="2dp"
+                    android:text="@string/hoehenmeter_p"
+                    android:textSize="22sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:padding="5dp"
+                android:layout_weight="1"
+                android:background="#FFFFFF">
+
+                <TextView
+                    android:id="@+id/strecke"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center_vertical"
+                    android:paddingStart="10dp"
+                    android:text="@string/strecke"
+                    android:textSize="22sp" />
+
+
+                <TextView
+                    android:id="@+id/strecke_p"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="#FFFFFF"
+                    android:gravity="bottom"
+                    android:paddingStart="2dp"
+                    android:text="@string/strecke_p"
+                    android:textSize="22sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:padding="5dp"
+                android:layout_weight="1"
+                android:background="#FFFFFF">
+
+                <TextView
+                    android:id="@+id/schritte"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center_vertical"
+                    android:paddingStart="10dp"
+                    android:text="@string/schritte"
+                    android:textSize="22sp" />
+
+
+                <TextView
+                    android:id="@+id/schritte_p"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center_vertical"
+                    android:paddingStart="2dp"
+                    android:text="@string/schritte_p"
+                    android:textSize="22sp" />
+
+            </TableRow>
+
+
+        </TableLayout>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/pause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginBottom="150dp"
+        android:background="#0f5d16"
         android:padding="10dp"
         android:text="@string/pause"
         android:textSize="25sp"
-        android:background="#0f5d16"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/schritte" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <!--
+        <TextView
+            android:id="@+id/zeit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/zeit"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/strecke" />
+        -->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
