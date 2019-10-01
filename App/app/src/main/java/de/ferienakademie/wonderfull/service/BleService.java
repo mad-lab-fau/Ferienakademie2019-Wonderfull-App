@@ -37,6 +37,7 @@ import de.fau.sensorlib.sensors.Recordable;
 import de.fau.sensorlib.sensors.Resettable;
 import de.fau.sensorlib.sensors.logging.Session;
 import de.fau.sensorlib.sensors.logging.SessionDownloader;
+import de.ferienakademie.wonderfull.OnFallDetectionCallback;
 
 import static de.fau.sensorlib.sensors.NilsPodSensor.*;
 
@@ -58,6 +59,8 @@ public class BleService extends Service {
     private SensorCallback mSensorCallback;
 
     private NilsPodCallback mNilsPodActivityCallback;
+
+    private OnFallDetectionCallback mFallDetectionCallback;
 
     /**
      * Handler for communication Activity -> Service
@@ -82,12 +85,13 @@ public class BleService extends Service {
     private ArrayList<Double> acc_zBuffer = new ArrayList<>(100);
 
     private boolean fall = false;
+    double height = 0;
 
     public boolean getFall() {
-      return fall;
+        return fall;
     }
 
-    public void setFall(boolean answer){
+    public void setFall(boolean answer) {
         fall = answer;
     }
 
@@ -99,9 +103,10 @@ public class BleService extends Service {
     private SensorDataProcessor mSensorDataProcessor = new SensorDataProcessor() {
 
         private int counter = 0;
-        public double computeMean(ArrayList<Double> buffer){
+
+        public double computeMean(ArrayList<Double> buffer) {
             double mean = 0;
-            for (int k = 0; k < buffer.size() ; k++) {
+            for (int k = 0; k < buffer.size(); k++) {
                 mean += buffer.get(k);
                 counter++;
             }
@@ -109,6 +114,7 @@ public class BleService extends Service {
             mean = mean / counter;
             return mean;
         }
+
         @Override
         public void onNewData(SensorDataFrame data) {
             // TODO data from the sensor enters the service HERE! => here you can implement
@@ -116,19 +122,25 @@ public class BleService extends Service {
             NilsPodDataFrame df = (NilsPodDataFrame) data;
 
             fs = df.getOriginatingSensor().getSamplingRate();
-            window_size = (int)(8.2*fs);
+            window_size = (int) (8.2 * fs);
 
 
             if (counter == window_size) {
                 // call method to compute mean here
                 double mean = computeMean(baroBuffer);
-                double height = 44330 * (1.0 - (Math.pow((mean / 1013.0), 0.1903)));
+                height = 44330 * (1.0 - (Math.pow((mean / 1013.0), 0.1903)));
 
-                fall = fall_detection.fall_detections((Double[]) acc_xBuffer.toArray(),  (Double[]) acc_yBuffer.toArray(), (Double[]) acc_zBuffer.toArray(), fs);
-                baroBuffer.subList(0, (int)(window_size/2+1)).clear();
-                acc_xBuffer.subList(0, (int)(window_size/2+1)).clear();
-                acc_yBuffer.subList(0, (int)(window_size/2+1)).clear();
-                acc_zBuffer.subList(0, (int)(window_size/2+1)).clear();
+                mFallDetectionCallback.onNewHeightData(df.getTimestamp(), height);
+
+                if (fall_detection.fall_detections((Double[]) acc_xBuffer.toArray(), (Double[]) acc_yBuffer.toArray(), (Double[]) acc_zBuffer.toArray(), fs)) {
+                    mFallDetectionCallback.onFallDetected(System.currentTimeMillis());
+                }
+
+
+                baroBuffer.subList(0, (int) (window_size / 2 + 1)).clear();
+                acc_xBuffer.subList(0, (int) (window_size / 2 + 1)).clear();
+                acc_yBuffer.subList(0, (int) (window_size / 2 + 1)).clear();
+                acc_zBuffer.subList(0, (int) (window_size / 2 + 1)).clear();
 
                 counter = acc_xBuffer.size();
             } else {
@@ -301,6 +313,10 @@ public class BleService extends Service {
             mNilsPodActivityCallback.onOperationStateChanged(sensor, operationState);
         }
     };
+
+    public void setFallDetectionCallback(OnFallDetectionCallback callback) {
+        mFallDetectionCallback = callback;
+    }
 
 
     /**
