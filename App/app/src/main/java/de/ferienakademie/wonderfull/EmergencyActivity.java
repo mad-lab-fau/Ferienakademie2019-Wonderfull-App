@@ -76,9 +76,9 @@ public class EmergencyActivity extends AppCompatActivity {
     }
 
     private void sendSMS(){
+        timer.cancel();
 
-
-        /*if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED
                 || ActivityCompat.checkSelfPermission(this,Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED){
             Log.d("EmergencyActivity", "Asking for permission");
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS, Manifest.permission.READ_PHONE_STATE}, 100);
@@ -94,7 +94,7 @@ public class EmergencyActivity extends AppCompatActivity {
         toast.show();
 
         Intent mainIntent = new Intent(this, MainActivity.class);
-        startActivity(mainIntent);*/ // TODO add again
+        startActivity(mainIntent);
 
 
     }

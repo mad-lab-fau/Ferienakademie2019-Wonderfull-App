@@ -45,11 +45,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        /*if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED
                 || ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
             Log.d("EmergencyActivity", "Asking for permission");
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS, Manifest.permission.READ_PHONE_STATE}, 100);
-        }*/ // TODO add again
+        }
 
     }
 
@@ -78,6 +78,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return true;
             case R.id.menu_sensor:
                 startActivity(new Intent(this, SensorActivity.class));
+                return true;
+            case R.id.menu_plots:
+                startActivity(new Intent(this, Graphen.class));
                 return true;
             default:
                 return false;
