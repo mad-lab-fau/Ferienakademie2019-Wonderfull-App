@@ -2,20 +2,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="de.ferienakademie.wonderfull">
-    <uses-permission android:name="android.permission.SEND_SMS" ></uses-permission>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
 
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/app_logo"
         android:label="@string/app_name"
         android:noHistory="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/app_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <activity android:name=".EnergyDetails"/>
         <activity android:name=".SensorActivity"></activity>
         <activity android:name=".EmergencyActivity" />
         <activity android:name=".profile"/>
@@ -36,7 +38,5 @@
             android:name=".service.BleService"
             android:exported="false" />
     </application>
-
-    <uses-permission android:name="android.permission.SEND_SMS" />
 
 </manifest>

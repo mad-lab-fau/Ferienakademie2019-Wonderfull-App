@@ -36,7 +36,7 @@
     <string name="name">Name:</string>
     <string name="gr_e_m">Größe [m]:</string>
     <string name="gewicht_kg">Gewicht [kg]:</string>
-    <string name="vorerkrankungen">Erkrankungen \nund Befunde:</string>
+    <string name="vorerkrankungen">Erkrankungen &amp; Befunde:</string>
     <string name="medikamente">Medikation:</string>
     <string name="notafllkontakte">Notafllkontakte</string>
     <string name="tim">Tim</string>
@@ -58,9 +58,9 @@
 
     <string name="wanderung_planen">Wanderung planen</string>
     <string name="wanderung_starten">Wanderung starten</string>
-    <string name="distanz">Distanz</string>
-    <string name="verticalDistance_upwards">Aufstieg (in m):</string>
-    <string name="verticalDistance_downwards">Abstieg (in m):</string>
+    <string name="distanz">Distanz in km</string>
+    <string name="verticalDistance_upwards">Aufstieg (in Hm):</string>
+    <string name="verticalDistance_downwards">Abstieg (in Hm):</string>
     <string name="berechneteWanderzeit">geschätzte Wanderzeit:</string>
     <string name="button_start">button_start</string>
     <string name="button_plan">button_plan</string>
@@ -84,5 +84,12 @@
     <string name="edit_save">Speichern</string>
     <string name="edit_plus">+</string>
     <string name="edit_minus">-</string>
+
+<string name="herzfrequenz">Herzfrequenz:</string>
+    <string name="hoehenmeter">Höhenmeter:</string>
+    <string name="strecke">Zurückgelegte Strecke:</string>
+    <string name="zeit">Wanderzeit:</string>
+    <string name="schritte">Schrittzähler:</string>
+    <string name="pause">Pause in:</string>
 
 </resources>

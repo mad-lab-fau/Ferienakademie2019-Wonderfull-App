@@ -10,10 +10,10 @@ import android.widget.TextView;
 
 public class HikeMainscreen extends AppCompatActivity {
 
-    public static final int ENERGY_LEVEL = 22;
-    public static final int DRINK_STATUS = 70;
+    public int ENERGY_LEVEL = 22;
+    public int DRINK_STATUS = 70;
     public static final boolean GROUP = true;
-    public static final int GROUP_STATUS = 0; //0=together, 1=someone is missing, 2=group lost
+    public int GROUP_STATUS = 0; //0=together, 1=someone is missing, 2=group lost
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,22 +23,17 @@ public class HikeMainscreen extends AppCompatActivity {
             ImageView group = (ImageView) findViewById(R.id.imageView3);
             TextView group_text = (TextView) findViewById(R.id.textView7);
 
-            switch (GROUP_STATUS){
-                case 0:
-                    group.setImageResource(R.drawable.group_ok);
-                    group_text.setText(R.string.group_good);
-                    break;
-                case 1:
-                    group.setImageResource(R.drawable.someone_lost);
-                    group_text.setText(R.string.group_missing);
-                    break;
-                case 2:
-                    group.setImageResource(R.drawable.group_lost);
-                    group_text.setText(R.string.group_lost);
-                    break;
-                default:
-                    setContentView(R.layout.activity_hike_mainscreen_without_group);
-            }
+            switchGroupIcon(group,group_text);
+
+            group.setClickable(true);
+            group.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    GROUP_STATUS++;
+                    GROUP_STATUS = GROUP_STATUS%3;
+                    switchGroupIcon(group,group_text);
+                }
+            });
 
         } else {
             setContentView(R.layout.activity_hike_mainscreen_without_group);
@@ -49,6 +44,34 @@ public class HikeMainscreen extends AppCompatActivity {
         TextView energy_text = (TextView) findViewById(R.id.textView3);
         TextView drink_text = (TextView) findViewById(R.id.textView4);
         TextView break_text = (TextView) findViewById(R.id.breaktext);
+
+        drop.setClickable(true);
+        drop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DRINK_STATUS+=33;
+                DRINK_STATUS = DRINK_STATUS%100;
+                switchDrinkStatus(drop,drink_text);
+            }
+        });
+
+        battery.setClickable(true);
+        battery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ENERGY_LEVEL+=33;
+                ENERGY_LEVEL = ENERGY_LEVEL%100;
+                switchEnergyLevel(battery,energy_text,break_text);
+            }
+        });
+
+        switchEnergyLevel(battery, energy_text, break_text);
+
+        switchDrinkStatus(drop, drink_text);
+
+    }
+
+    public void switchEnergyLevel(ImageView battery, TextView energy_text, TextView break_text){
         energy_text.setText(ENERGY_LEVEL+"%");
         break_text.setVisibility(View.INVISIBLE);
 
@@ -81,8 +104,8 @@ public class HikeMainscreen extends AppCompatActivity {
                                             battery.setImageResource(R.drawable.battery2);
                                             break_text.setVisibility(View.VISIBLE);
                                         } else {
-                                                battery.setImageResource(R.drawable.battery1);
-                                                break_text.setVisibility(View.VISIBLE);
+                                            battery.setImageResource(R.drawable.battery1);
+                                            break_text.setVisibility(View.VISIBLE);
                                         }
                                     }
                                 }
@@ -92,8 +115,28 @@ public class HikeMainscreen extends AppCompatActivity {
                 }
             }
         }
+    }
 
+    public void switchGroupIcon(ImageView group, TextView group_text){
+        switch (GROUP_STATUS){
+            case 0:
+                group.setImageResource(R.drawable.group_ok);
+                group_text.setText(R.string.group_good);
+                break;
+            case 1:
+                group.setImageResource(R.drawable.someone_lost);
+                group_text.setText(R.string.group_missing);
+                break;
+            case 2:
+                group.setImageResource(R.drawable.group_lost);
+                group_text.setText(R.string.group_lost);
+                break;
+            default:
+                setContentView(R.layout.activity_hike_mainscreen_without_group);
+        }
+    }
 
+    public void switchDrinkStatus(ImageView drop, TextView drink_text){
         if(DRINK_STATUS >=90){
             drop.setImageResource(R.drawable.drop10);
         }  else {
