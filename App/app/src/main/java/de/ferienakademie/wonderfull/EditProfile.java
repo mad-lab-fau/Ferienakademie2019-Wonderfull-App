@@ -2,17 +2,16 @@ package de.ferienakademie.wonderfull;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.List;
-
-import de.ferienakademie.wonderfull.ProfileWrapper;
 
 public class EditProfile extends AppCompatActivity {
 
@@ -20,6 +19,8 @@ public class EditProfile extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
@@ -30,6 +31,7 @@ public class EditProfile extends AppCompatActivity {
 
         // insert profile values into edit screen
         EditText surname = findViewById(R.id.edit_surname);
+        Log.d("EditProfile", "surname " + profile.getSurname());
         surname.setText(profile.getSurname());
 
         EditText name = findViewById(R.id.edit_name);
@@ -49,6 +51,9 @@ public class EditProfile extends AppCompatActivity {
 
         EditText allergies = findViewById(R.id.edit_allergies);
         allergies.setText(profile.getAllergies());
+
+        Spinner niveau = findViewById(R.id.edit_select_level);
+        niveau.setSelection(profile.fitnessToInt());
 
         // insert contacts into edit screen
         LinearLayout emergencyContactsLayout = findViewById(R.id.edit_current_contacts);
@@ -72,8 +77,29 @@ public class EditProfile extends AppCompatActivity {
         EditText name = findViewById(R.id.edit_name);
         profile.setName(name.getText().toString());
 
+        EditText size = findViewById(R.id.edit_size);
+        profile.setSize(Float.parseFloat(size.getText().toString()));
+
+        EditText weight = findViewById(R.id.edit_weight);
+        profile.setWeight(Float.parseFloat(weight.getText().toString()));
+
+        EditText diseases = findViewById(R.id.edit_diseases);
+        profile.setDiseases(diseases.getText().toString());
+
+        EditText allergies = findViewById(R.id.edit_allergies);
+        profile.setAllergies(allergies.getText().toString());
+
+        EditText medication = findViewById(R.id.edit_medication);
+        profile.setMedication(medication.getText().toString());
+
+        Spinner niveau = findViewById(R.id.edit_select_level);
+        profile.setFitness(profile.intToFitness(niveau.getSelectedItemPosition()));
+
         // write values to database
+        Log.d("EditProfile", "name: " + profile.getSurname());
         profileDB.setProfile(profile);
+
+        startActivity(new Intent(this, profile.class));
     }
 
     public void addContact(View v){

@@ -36,7 +36,7 @@
     <string name="name">Name:</string>
     <string name="gr_e_m">Größe [m]:</string>
     <string name="gewicht_kg">Gewicht [kg]:</string>
-    <string name="vorerkrankungen">Erkrankungen &amp; Befunde:</string>
+    <string name="vorerkrankungen">Erkrankungen \nund Befunde:</string>
     <string name="medikamente">Medikation:</string>
     <string name="notafllkontakte">Notafllkontakte</string>
     <string name="tim">Tim</string>
@@ -84,6 +84,14 @@
     <string name="edit_save">Speichern</string>
     <string name="edit_plus">+</string>
     <string name="edit_minus">-</string>
+    <string name="edit_contacts">Notfallkontakte</string>
+    <string name="edit_level">Wanderniveau</string>
+
+    <string-array name="level_spinner">
+        <item>Profiwanderer</item>
+        <item>Gelegenheitswanderer</item>
+        <item>Anfängerwanderer</item>
+    </string-array>
 
     <string name="herzfrequenz">Herzfrequenz:</string>
     <string name="herzfrequenz_p"> </string>

@@ -345,6 +345,9 @@ public class SensorActivity extends AppCompatActivity implements OnStreamingFoot
     public void onFallDetected(double timestamp) {
         // THIS IS CALLED FROM THE SERVICE WHEN FALL WAS DETECTED
         // TODO HANDLE FALL, e.g. CALL EMERGENCY, START TIME OUT ETC.
+        Log.d("SensorActivity", "Detected Fall!");
+        Intent mainIntent = new Intent(this, EmergencyActivity.class);
+        startActivity(mainIntent);
     }
 
     @Override

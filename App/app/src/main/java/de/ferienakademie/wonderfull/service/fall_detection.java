@@ -1,5 +1,7 @@
 package de.ferienakademie.wonderfull.service;
 
+import android.util.Log;
+
 import java.lang.Math;
 
 import java.util.ArrayList;
@@ -41,6 +43,7 @@ public class fall_detection {
             if (norm[i] >= peak_thr) {
                 Event a = new Event(i, norm[i]);
                 impact.add(a);
+                Log.d("SensorActivity", "Firsst Impact!");
             }
         }
 
