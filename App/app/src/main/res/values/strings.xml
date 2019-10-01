@@ -58,9 +58,9 @@
 
     <string name="wanderung_planen">Wanderung planen</string>
     <string name="wanderung_starten">Wanderung starten</string>
-    <string name="distanz">Distanz in km</string>
-    <string name="verticalDistance_upwards">Aufstieg (in Hm):</string>
-    <string name="verticalDistance_downwards">Abstieg (in Hm):</string>
+    <string name="distanz">Distanz [km]:</string>
+    <string name="verticalDistance_upwards">Aufstieg [Hm]:</string>
+    <string name="verticalDistance_downwards">Abstieg [Hm]:</string>
     <string name="berechneteWanderzeit">geschätzte Wanderzeit:</string>
     <string name="button_start">button_start</string>
     <string name="button_plan">button_plan</string>

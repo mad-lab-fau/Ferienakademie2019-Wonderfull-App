@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".EnergyDetails"/>
         <activity android:name=".SensorActivity"></activity>
         <activity android:name=".EmergencyActivity" />
         <activity android:name=".profile"/>
@@ -25,7 +25,7 @@
         <activity android:name=".HikeMainscreen"/>
         <activity android:name=".Graphen"/>
         <activity android:name=".EditProfile"/>
-        <activity android:name=".EnergyDetails">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
