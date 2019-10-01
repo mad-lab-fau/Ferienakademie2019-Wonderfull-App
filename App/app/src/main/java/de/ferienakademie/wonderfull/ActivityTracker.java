@@ -1,9 +1,12 @@
+package de.ferienakademie.wonderfull;
+
+import android.annotation.TargetApi;
+
 import java.util.Arrays;
 import java.lang.Math;
-import java.awt.geom.Point2D;
+
 import java.util.stream.Stream;
 import java.util.stream.IntStream;
-import java.util.stream.DoubleStream;
 import java.util.ArrayList;
 
 public class ActivityTracker
@@ -96,20 +99,28 @@ public class ActivityTracker
     public double getTimeD() { return accumulatedTimeD; }
     public double getTimeH() { return accumulatedTimeH; }
     public double getTimeP() { return accumulatedTimePause; }
+    @TargetApi(24)
     public double getDistanceA() { return distancesA.parallelStream().mapToDouble(box -> box.doubleValue()).sum(); }
+    @TargetApi(24)
     public double getDistanceD() { return distancesD.parallelStream().mapToDouble(box -> box.doubleValue()).sum(); }
+    @TargetApi(24)
     public double getDistanceH() { return distancesH.parallelStream().mapToDouble(box -> box.doubleValue()).sum(); }
 
+    @TargetApi(24)
     public Stream<Activity> streamActivities() { return activities.stream(); }
+    @TargetApi(24)
     public Stream<Double> streamDistancesA() { return distancesA.stream(); }
+    @TargetApi(24)
     public Stream<Double> streamDistancesD() { return distancesD.stream(); }
+    @TargetApi(24)
     public Stream<Double> streamDistancesH() { return distancesH.stream(); }
 
+    @TargetApi(24)
     private double computeHorizontalDistance(double[] longitude, double[] latitude, double[] gpsTime, double newAltitudeDelta, double oldAltitudeDelta, double windowTime)
     {
         if (longitude.length > 0)
         {
-            var distance = IntStream.iterate(0, i -> i + 1)
+            double distance = IntStream.iterate(0, i -> i + 1)
                                     .limit(longitude.length - 1)
                                     .parallel()
                                     .mapToDouble(i -> computeHaversineDistance(longitude[i], latitude[i], longitude[i + 1], latitude[i + 1]))
@@ -127,7 +138,8 @@ public class ActivityTracker
         }
     }
 
-    private Point2D.Double computeVerticalDistances(double[] altitude)
+    @TargetApi(24)
+    private Point2D computeVerticalDistances(double[] altitude)
     {
         double[] altitudes;
         if (!hasProcessedBefore)
@@ -141,7 +153,7 @@ public class ActivityTracker
             altitudes = altitude;
         }
 
-        var deltaAltitude = IntStream.iterate(0, i -> i + 1)
+        double[] deltaAltitude = IntStream.iterate(0, i -> i + 1)
                                      .limit(altitudes.length - 1)
                                      .parallel()
                                      .mapToDouble(i -> altitudes[i + 1] - altitudes[i])
@@ -156,18 +168,19 @@ public class ActivityTracker
                           .filter(delta -> delta > 0)
                           .sum();
 
-        return new Point2D.Double(down, up);
+        return new Point2D(down, up);
     }
 
+    @TargetApi(24)
     public WindowStats process(double[] baro, double[] baroTime, double[] longitude, double[] latitude, double[] gpsTime)
     {
-        var altitude = Arrays.stream(baro)
+        double[] altitude = Arrays.stream(baro)
                              .map(value -> computeAltitude(filter.filter(value)))
                              .toArray();
 
         double oldAltitudeDelta = hasProcessedBefore ? distanceA - distanceD : 0.0;
 
-        var verticalDistances = computeVerticalDistances(altitude);
+        Point2D verticalDistances = computeVerticalDistances(altitude);
         distanceD = verticalDistances.x;
         distanceA = verticalDistances.y;
         double newAltitudeDelta = distanceA - distanceD;
@@ -222,7 +235,7 @@ public class ActivityTracker
 
         hasProcessedBefore = true;
 
-        var stats = new WindowStats();
+        WindowStats stats = new WindowStats();
         stats.activity = lastActivity;
         stats.start = baroTime[0];
         stats.end = lastTime;

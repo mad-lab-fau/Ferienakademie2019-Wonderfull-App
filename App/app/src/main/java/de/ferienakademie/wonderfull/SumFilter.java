@@ -1,3 +1,7 @@
+package de.ferienakademie.wonderfull;
+
+import android.annotation.TargetApi;
+
 import java.util.Arrays;
 
 public class SumFilter
@@ -22,6 +26,7 @@ public class SumFilter
         this(DEFAULT_SIZE);
     }
 
+    @TargetApi(24)
     public double filter(double sample)
     {
         if (this.usedCapacity < this.size)

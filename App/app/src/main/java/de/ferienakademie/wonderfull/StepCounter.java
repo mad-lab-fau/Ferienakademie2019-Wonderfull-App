@@ -1,8 +1,11 @@
+package de.ferienakademie.wonderfull;
+
+import android.annotation.TargetApi;
+
 import java.util.Arrays;
 import java.lang.Math;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
-import java.awt.geom.Point2D;
 
 public class StepCounter
 {
@@ -47,7 +50,8 @@ public class StepCounter
     public double getMinThreshold() { return this.minThresh; }
     public double getDynamicThreshold() { return 0.5 * (this.maxThresh + this.minThresh); }
     public double getMaxThreshold() { return this.maxThresh; }
-    
+
+    @TargetApi(24)
     public double[] process(double[] accelerationX, double[] accelerationY, double[] accelerationZ, double[] accelerationTime)
     {
         // assert accelerationX.length == accelerationY.length ... == time.length
@@ -61,7 +65,7 @@ public class StepCounter
         }
 
         // normalize and filter and prepend last (normalized) acceleration
-        var data = DoubleStream.concat
+        double[] data = DoubleStream.concat
                    (
                        DoubleStream.of(this.lastAcceleration),
                        IntStream.iterate(0, i -> i + 1)
@@ -69,18 +73,18 @@ public class StepCounter
                                 .mapToDouble(i -> filter.filter(normalize(accelerationX[i], accelerationY[i], accelerationZ[i])))
                    ).toArray();
 
-        var minmax = Arrays.stream(data)
+        Point2D minmax = Arrays.stream(data)
                            .skip(2) // skip lastAcceleration (now preprended to data) and first data value (will be initial value for reduction)
                            .parallel()
                            .boxed()
                            .reduce
                            (
-                                new Point2D.Double(data[1], data[1]),
-                                (acc, box) -> new Point2D.Double(Math.min(acc.x, box.doubleValue()), Math.max(acc.y, box.doubleValue())),
-                                (a, b) -> new Point2D.Double(Math.min(a.x, b.x), Math.max(a.y, b.y))
+                                new Point2D(data[1], data[1]),
+                                (acc, box) -> new Point2D(Math.min(acc.x, box.doubleValue()), Math.max(acc.y, box.doubleValue())),
+                                (a, b) -> new Point2D(Math.min(a.x, b.x), Math.max(a.y, b.y))
                            );
 
-        var steps = DoubleStream.concat
+        double[] steps = DoubleStream.concat
                     (
                         DoubleStream.of(this.lastStepTime), // prepend last step to steps
                         IntStream.iterate(0, i -> i + 1)
@@ -92,13 +96,13 @@ public class StepCounter
                                  .mapToDouble(i -> 0.5 * (time[i] + time[i + 1])) // approximate step time with midpoint of time before and after threshold-crossing
                     ).toArray();
                 
-        var stepDeltas = IntStream.iterate(0, i -> i + 1)
+        double[] stepDeltas = IntStream.iterate(0, i -> i + 1)
                                   .limit(steps.length - 1)
                                   .parallel()
                                   .mapToDouble(i -> Math.abs(steps[i + 1] - steps[i]))
                                   .toArray();
 
-        var stepTimes = IntStream.iterate(0, i -> i + 1)
+        double[] stepTimes = IntStream.iterate(0, i -> i + 1)
                                  .limit(stepDeltas.length)
                                  .parallel()
                                  .filter(i -> this.minDeltaTime < stepDeltas[i] && stepDeltas[i] < this.maxDeltaTime)
