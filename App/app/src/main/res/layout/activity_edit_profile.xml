@@ -6,203 +6,287 @@
     android:layout_height="match_parent"
     tools:context=".EditProfile">
 
-    <TextView
-        android:id="@+id/editProfile"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/profil_bearbeiten"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:fillViewport="false"
+        android:paddingTop="100dp">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="@+id/editProfile"
-        app:layout_constraintTop_toBottomOf="@+id/editProfile"
-        tools:srcCompat="@tools:sample/avatars[0]" />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shrinkColumns="2"
+            android:stretchColumns="1">
 
-    <Button
-        android:id="@+id/uploadProfileImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/profilbild_hochladen"
-        android:textSize="15sp"
-        app:layout_constraintStart_toEndOf="@id/imageView"
-        app:layout_constraintTop_toTopOf="@id/imageView" />
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/vorname"
+                    android:textSize="20sp"/>
 
-    <TextView
-        android:id="@+id/surnameText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/vorname"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView" />
+                <EditText
+                    android:id="@+id/edit_surname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_span="2"/>
+            </TableRow>
 
-    <TextView
-        android:id="@+id/nameText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/name"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/surnameText" />
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/name"
+                    android:textSize="20sp"/>
 
-    <TextView
-        android:id="@+id/heightText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/gr_e_m"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nameText" />
+                <EditText
+                    android:id="@+id/edit_name"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_span="2"/>
+            </TableRow>
 
-    <TextView
-        android:id="@+id/weightText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/gewicht_kg"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/heightText" />
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/gr_e_m"
+                    android:textSize="20sp"/>
 
-    <TextView
-        android:id="@+id/diseasesText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/vorerkrankungen"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/weightText" />
+                <EditText
+                    android:id="@+id/edit_size"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_span="2"/>
+            </TableRow>
 
-    <TextView
-        android:id="@+id/medicationText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="92dp"
-        android:text="@string/medikamente"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/diseasesText" />
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/gewicht_kg"
+                    android:textSize="20sp"/>
 
-    <TextView
-        android:id="@+id/emergencyContactsText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="92dp"
-        android:text="@string/notfallkontakte"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/medicationText" />
+                <EditText
+                    android:id="@+id/edit_weight"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_span="2"/>
+            </TableRow>
 
-    <EditText
-        android:id="@+id/surnameEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/tim"
-        android:textSize="15sp"
-        app:layout_constraintStart_toEndOf="@id/surnameText"
-        app:layout_constraintTop_toTopOf="@id/surnameText" />
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/vorerkrankungen"
+                    android:textSize="20sp"/>
 
-    <EditText
-        android:id="@+id/nameEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/wiesel"
-        android:textSize="15sp"
-        app:layout_constraintStart_toEndOf="@id/nameText"
-        app:layout_constraintTop_toTopOf="@id/nameText" />
+                <EditText
+                    android:id="@+id/edit_diseases"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="20sp"
+                    android:inputType="textMultiLine"
+                    android:lines="3"
+                    android:layout_span="2"/>
+            </TableRow>
 
-    <EditText
-        android:id="@+id/heightEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        app:layout_constraintStart_toEndOf="@id/heightText"
-        app:layout_constraintTop_toTopOf="@id/heightText" />
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/medikamente"
+                    android:textSize="20sp"/>
 
-    <EditText
-        android:id="@+id/weightEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        app:layout_constraintStart_toEndOf="@id/weightText"
-        app:layout_constraintTop_toTopOf="@id/weightText" />
+                <EditText
+                    android:id="@+id/edit_medication"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="20sp"
+                    android:inputType="textMultiLine"
+                    android:lines="3"
+                    android:layout_span="2"/>
+            </TableRow>
 
-    <EditText
-        android:id="@+id/diseasesEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/beispielkrankheit"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/diseasesText" />
 
-    <EditText
-        android:id="@+id/medicationEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/beispielmedikament"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/medicationText" />
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/allergien"
+                    android:textSize="20sp"/>
 
-    <EditText
-        android:id="@+id/emergencyContactName1"
-        android:layout_width="113dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/jon_doe"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/emergencyContactsText" />
+                <EditText
+                    android:id="@+id/edit_allergies"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="20sp"
+                    android:inputType="textMultiLine"
+                    android:lines="3"
+                    android:layout_span="2"/>
+            </TableRow>
 
-    <EditText
-        android:id="@+id/emergencyNumber1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:ems="10"
-        android:inputType="phone"
-        app:layout_constraintStart_toEndOf="@id/emergencyContactName1"
-        app:layout_constraintTop_toTopOf="@id/emergencyContactName1" />
+            <TableRow>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/notfallkontakte"
+                    android:textSize="20sp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_span="2"/>
+
+                <Button
+                    android:id="@+id/edit_add_contact"
+                    android:layout_height="30dp"
+                    android:layout_width="30dp"
+                    android:background="@drawable/round_button"
+                    android:text="@string/edit_plus"
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="20sp"
+                    android:onClick="addContact"/>
+
+            </TableRow>
+
+            <TableRow>
+                <LinearLayout
+                    android:id="@+id/edit_current_contacts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_span="3"
+                    android:orientation="vertical"/>
+
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""/>
+
+                <Button
+                    android:id="@+id/edit_save"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@string/edit_save"
+                    android:onClick="saveProfile"/>
+            </TableRow>
+
+
+        </TableLayout>
+
+
+
+
+        <!--
+        <TextView
+            android:id="@+id/emergencyContactsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="92dp"
+            android:text="@string/notfallkontakte"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/medicationText" />
+
+
+
+        <EditText
+            android:id="@+id/nameEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/wiesel"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@id/nameText"
+            app:layout_constraintTop_toTopOf="@id/nameText" />
+
+        <EditText
+            android:id="@+id/heightEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            app:layout_constraintStart_toEndOf="@id/heightText"
+            app:layout_constraintTop_toTopOf="@id/heightText" />
+
+        <EditText
+            android:id="@+id/weightEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            app:layout_constraintStart_toEndOf="@id/weightText"
+            app:layout_constraintTop_toTopOf="@id/weightText" />
+
+        <EditText
+            android:id="@+id/diseasesEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/beispielkrankheit"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/diseasesText" />
+
+        <EditText
+            android:id="@+id/medicationEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/beispielmedikament"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/medicationText" />
+
+        <EditText
+            android:id="@+id/emergencyContactName1"
+            android:layout_width="113dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/jon_doe"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/emergencyContactsText" />
+
+        <EditText
+            android:id="@+id/emergencyNumber1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:ems="10"
+            android:inputType="phone"
+            app:layout_constraintStart_toEndOf="@id/emergencyContactName1"
+            app:layout_constraintTop_toTopOf="@id/emergencyContactName1" /> -->
+
+    </ScrollView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
