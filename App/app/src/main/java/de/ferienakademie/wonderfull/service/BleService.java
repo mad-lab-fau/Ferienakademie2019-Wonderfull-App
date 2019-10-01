@@ -38,6 +38,9 @@ import de.fau.sensorlib.sensors.Resettable;
 import de.fau.sensorlib.sensors.logging.Session;
 import de.fau.sensorlib.sensors.logging.SessionDownloader;
 
+import static de.fau.sensorlib.sensors.NilsPodSensor.*;
+
+
 /**
  * Background Service for handling Bluetooth Low Energy connection to Sensors
  */
@@ -70,6 +73,24 @@ public class BleService extends Service {
 
     private ConcurrentLinkedQueue<AbstractSensor> mConnectingQueue = new ConcurrentLinkedQueue<>();
 
+    private double fs;
+    private int window_size;
+
+    private ArrayList<Double> baroBuffer = new ArrayList<>(100);
+    private ArrayList<Double> acc_xBuffer = new ArrayList<>(100);
+    private ArrayList<Double> acc_yBuffer = new ArrayList<>(100);
+    private ArrayList<Double> acc_zBuffer = new ArrayList<>(100);
+
+    private boolean fall = false;
+
+    public boolean getFall() {
+      return fall;
+    }
+
+    public void setFall(boolean answer){
+        fall = answer;
+    }
+
 
     /**
      * Sensor Data Processor for receiving information about connection state changes and new data
@@ -77,11 +98,47 @@ public class BleService extends Service {
      */
     private SensorDataProcessor mSensorDataProcessor = new SensorDataProcessor() {
 
+        private int counter = 0;
+        public double computeMean(ArrayList<Double> buffer){
+            double mean = 0;
+            for (int k = 0; k < buffer.size() ; k++) {
+                mean += buffer.get(k);
+                counter++;
+            }
+
+            mean = mean / counter;
+            return mean;
+        }
         @Override
         public void onNewData(SensorDataFrame data) {
             // TODO data from the sensor enters the service HERE! => here you can implement
             //  your algorithms (and pass the results to the activity in a similar way)
+            NilsPodDataFrame df = (NilsPodDataFrame) data;
 
+            fs = df.getOriginatingSensor().getSamplingRate();
+            window_size = (int)(8.2*fs);
+
+
+            if (counter == window_size) {
+                // call method to compute mean here
+                double mean = computeMean(baroBuffer);
+                double height = 44330 * (1.0 - (Math.pow((mean / 1013.0), 0.1903)));
+
+                fall = fall_detection.fall_detections((Double[]) acc_xBuffer.toArray(),  (Double[]) acc_yBuffer.toArray(), (Double[]) acc_zBuffer.toArray(), fs);
+                baroBuffer.subList(0, (int)(window_size/2+1)).clear();
+                acc_xBuffer.subList(0, (int)(window_size/2+1)).clear();
+                acc_yBuffer.subList(0, (int)(window_size/2+1)).clear();
+                acc_zBuffer.subList(0, (int)(window_size/2+1)).clear();
+
+                counter = acc_xBuffer.size();
+            } else {
+                baroBuffer.add(df.getBarometricPressure());
+                acc_xBuffer.add(df.getAccelX());
+                acc_yBuffer.add(df.getAccelY());
+                acc_zBuffer.add(df.getAccelZ());
+                counter++;
+
+            }
 
             // send sensor data to activity
             if (mSensorCallback != null) {
@@ -94,6 +151,7 @@ public class BleService extends Service {
         public void onSensorCreated(AbstractSensor sensor) {
             Log.d(TAG, "onSensorCreated");
             mInternalHandler.sendEmptyMessage(InternalHandler.MSG_CONNECTION_STATE_CHANGE);
+            counter = 0;
         }
 
         @Override
