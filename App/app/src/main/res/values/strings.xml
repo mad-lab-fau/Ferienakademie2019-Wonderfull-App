@@ -96,4 +96,7 @@
     <string name="schritte_p"> </string>
     <string name="pause">Pause in:</string>
     <string name="pause_p"> </string>
+
+    <string name="energy_title">Energie-Level:</string>
+
 </resources>

@@ -168,7 +168,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
-
     <!--
         <TextView
             android:id="@+id/zeit"
@@ -183,6 +182,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/strecke" />
         -->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

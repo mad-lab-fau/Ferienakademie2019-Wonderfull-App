@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 public class EnergyDetails extends AppCompatActivity {
 
+    private String energy_title = "Energie-Level: %s";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +33,8 @@ public class EnergyDetails extends AppCompatActivity {
         /*
         TextView zeit_p = (TextView) findViewById(R.id.zeit_p);
         zeit_p.append(" " + "50" + " min"); */
+
+        this.setTitle(String.format(energy_title, "45%"));
 
     }
 }
