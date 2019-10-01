@@ -36,7 +36,7 @@ import de.fau.sensorlib.widgets.StatusBar;
 import de.fau.sensorlib.widgets.StreamingFooter;
 import de.ferienakademie.wonderfull.service.BleServiceManager;
 
-public class SensorActivity extends AppCompatActivity implements OnStreamingFooterClickListener, SensorCallback, NilsPodCallback {
+public class SensorActivity extends AppCompatActivity implements OnStreamingFooterClickListener, SensorCallback, NilsPodCallback, OnFallDetectionCallback {
 
     private static final String TAG = SensorActivity.class.getSimpleName();
 
@@ -72,6 +72,8 @@ public class SensorActivity extends AppCompatActivity implements OnStreamingFoot
         mServiceManager = new BleServiceManager(this);
         mServiceManager.setSensorCallback(this);
         mServiceManager.setLoggingCallback(this);
+        mServiceManager.setFallDetectionCallback(this);
+
     }
 
     @Override
@@ -337,5 +339,16 @@ public class SensorActivity extends AppCompatActivity implements OnStreamingFoot
     public void onOperationStateChanged(AbstractNilsPodSensor sensor, AbstractNilsPodSensor.NilsPodOperationState operationState) {
         mSensorEventGenerator.broadcastMessage(sensor, SensorMessage.OPERATION_STATE_CHANGED,
                 operationState.toString());
+    }
+
+    @Override
+    public void onFallDetected(double timestamp) {
+        // THIS IS CALLED FROM THE SERVICE WHEN FALL WAS DETECTED
+        // TODO HANDLE FALL, e.g. CALL EMERGENCY, START TIME OUT ETC.
+    }
+
+    @Override
+    public void onNewHeightData(double timestamp, double height) {
+        // TODO UPDATE PLOT
     }
 }

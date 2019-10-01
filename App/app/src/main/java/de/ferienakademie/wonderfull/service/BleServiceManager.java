@@ -20,6 +20,7 @@ import de.fau.sensorlib.SensorCallback;
 import de.fau.sensorlib.SensorInfo;
 import de.fau.sensorlib.sensors.AbstractSensor;
 import de.fau.sensorlib.sensors.NilsPodCallback;
+import de.ferienakademie.wonderfull.OnFallDetectionCallback;
 
 /**
  * Class handling the connection to the Android Background Service.
@@ -37,6 +38,7 @@ public class BleServiceManager implements ServiceConnection {
 
     private SensorCallback mSensorCallback;
     private NilsPodCallback mNilsPodCallback;
+    private OnFallDetectionCallback mFallDetectionCallback;
 
     private ArrayList<SensorInfo> mSelectedSensors;
 
@@ -64,6 +66,11 @@ public class BleServiceManager implements ServiceConnection {
     public void setLoggingCallback(NilsPodCallback callback) {
         mNilsPodCallback = callback;
     }
+
+    public void setFallDetectionCallback(OnFallDetectionCallback callback) {
+        mFallDetectionCallback = callback;
+    }
+
 
     /**
      * Binds the Service and connects to the selected sensors.
@@ -164,6 +171,7 @@ public class BleServiceManager implements ServiceConnection {
         mService = ((BleService.BleServiceBinder) service).getService();
         mService.setSensorCallback(mSensorCallback);
         mService.setNilsPodCallback(mNilsPodCallback);
+        mService.setFallDetectionCallback(mFallDetectionCallback);
 
         mServiceHandler = mService.getHandler();
 
