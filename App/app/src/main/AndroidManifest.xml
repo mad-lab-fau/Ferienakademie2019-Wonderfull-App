@@ -22,7 +22,8 @@
         <activity android:name=".plan_hiking"/>
         <activity android:name=".HikeMainscreen"/>
         <activity android:name=".Graphen"/>
-        <activity android:name=".EditProfile"/>
+        <activity android:name=".EditProfile"
+            android:label="@string/edit_title"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
