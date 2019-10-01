@@ -30,25 +30,25 @@
 
 
                 <TextView
-                    android:id="@+id/herzfrequenz"
+                    android:id="@+id/zeit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="1dp"
                     android:background="#FFFFFF"
                     android:gravity="center_vertical"
                     android:paddingStart="10dp"
-                    android:text="@string/herzfrequenz"
+                    android:text="@string/zeit"
                     android:textSize="22sp" />
 
                 <TextView
-                    android:id="@+id/herzfrequenz_p"
+                    android:id="@+id/zeit_p"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="1dp"
                     android:background="#FFFFFF"
                     android:gravity="start"
                     android:paddingStart="2dp"
-                    android:text="@string/herzfrequenz_p"
+                    android:text="@string/zeit_p"
                     android:textSize="22sp" />
 
 
@@ -167,20 +167,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <!--
-        <TextView
-            android:id="@+id/zeit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:text="@string/zeit"
-            android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/strecke" />
-        -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

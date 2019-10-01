@@ -92,6 +92,7 @@
     <string name="strecke">Zurückgelegte\nStrecke:</string>
     <string name="strecke_p"> </string>
     <string name="zeit">Wanderzeit:</string>
+    <string name="zeit_p"> </string>
     <string name="schritte">Schrittzähler:</string>
     <string name="schritte_p"> </string>
     <string name="pause">Pause in:</string>
