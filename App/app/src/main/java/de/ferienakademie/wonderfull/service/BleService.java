@@ -122,6 +122,7 @@ public class BleService extends Service {
             NilsPodDataFrame df = (NilsPodDataFrame) data;
 
             fs = df.getOriginatingSensor().getSamplingRate();
+            Log.d("SensorActivty", "Fs: " + Double.toString(fs));
             window_size = (int) (8.2 * fs);
 
 
@@ -149,6 +150,7 @@ public class BleService extends Service {
                 acc_yBuffer.add(df.getAccelY());
                 acc_zBuffer.add(df.getAccelZ());
                 counter++;
+                //Log.d("SensorActivity", Integer.toString(counter));
 
             }
 
