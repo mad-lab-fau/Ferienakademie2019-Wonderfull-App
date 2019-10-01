@@ -4,7 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundGreen"
     tools:context=".plan_hiking">
+
+
+
 
     <TextView
         android:id="@+id/horizontalDistance"
@@ -60,7 +64,7 @@
         android:layout_height="36dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="bottom|center_horizontal"
         android:ems="10"
         android:inputType="text"
         android:textSize="12sp"
@@ -110,10 +114,10 @@
         android:layout_height="87dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.171"
+        app:layout_constraintHorizontal_bias="0.115"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.085"
+        app:layout_constraintVertical_bias="0.102"
         app:srcCompat="@drawable/distance_to_travel" />
 
     <ImageButton
@@ -121,6 +125,7 @@
         android:layout_width="87dp"
         android:layout_height="77dp"
         android:scaleType="fitXY"
+        android:onClick="getTime"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.138"
@@ -129,15 +134,16 @@
         app:layout_constraintVertical_bias="0.848"
         app:srcCompat="@drawable/paper_pencil_and_calculator"/>
 
-    EditText total = (EditText) findViewById(R.id.streckenLaenge);
-    Integer.parseInt(total.getText().toString());
 
-    EditText hoch = (EditText) findViewById(R.id.nach_oben);
-    Integer.parseInt(hoch.getText().toString());
-
-    EditText runter = (EditText) findViewById(R.id.nach_unten);
-    Integer.parseInt(runter.getText().toString());
-
-
+    <TextView
+        android:id="@+id/zeit_Einheit"
+        android:layout_width="105dp"
+        android:layout_height="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.673"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.821" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
