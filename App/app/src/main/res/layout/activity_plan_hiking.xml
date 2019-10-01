@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundGreen"
+    android:background="@color/white"
     tools:context=".plan_hiking">
 
 
@@ -124,7 +124,7 @@
         android:id="@+id/imageButton"
         android:layout_width="48dp"
         android:layout_height="43dp"
-        android:background="#E5F9E3"
+        android:background="@color/white"
         android:onClick="getTime"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"

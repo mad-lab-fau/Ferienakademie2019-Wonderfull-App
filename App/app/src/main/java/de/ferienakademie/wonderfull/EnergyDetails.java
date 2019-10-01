@@ -14,6 +14,8 @@ public class EnergyDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_energy_details);
 
+        String energy_level = getIntent().getStringExtra("ENERGY_LEVEL");
+
         /*TextView herzfrequenz_p = (TextView) findViewById(R.id.herzfrequenz_p);
         herzfrequenz_p.append(" " + "80" + " Hz"); */
 
@@ -32,7 +34,7 @@ public class EnergyDetails extends AppCompatActivity {
         TextView zeit_p = (TextView) findViewById(R.id.zeit_p);
         zeit_p.append("50" + " min");
 
-        this.setTitle(String.format(energy_title, "45%"));
+        this.setTitle(String.format(energy_title, energy_level+"%"));
 
     }
 }

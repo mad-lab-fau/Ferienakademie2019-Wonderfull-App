@@ -2,6 +2,7 @@ package de.ferienakademie.wonderfull;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -48,6 +49,16 @@ public class HikeMainscreen extends AppCompatActivity {
         TextView energy_text = (TextView) findViewById(R.id.textView3);
         TextView drink_text = (TextView) findViewById(R.id.textView4);
         TextView break_text = (TextView) findViewById(R.id.breaktext);
+
+        energy_text.setClickable(true);
+        energy_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HikeMainscreen.this, EnergyDetails.class);
+                intent.putExtra("ENERGY_LEVEL", ""+ENERGY_LEVEL);
+                startActivity(intent);
+            }
+        });
 
         drop.setClickable(true);
         drop.setOnClickListener(new View.OnClickListener() {
