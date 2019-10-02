@@ -32,8 +32,8 @@
 
                 <ImageView
                     android:id="@+id/pic_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:src="@drawable/clock"
                     android:contentDescription="pic_time" />
 
@@ -75,8 +75,8 @@
 
                 <ImageView
                     android:id="@+id/pic_height"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:src="@drawable/rising_arrow"
                     android:contentDescription="pic_height"/>
 
@@ -113,8 +113,8 @@
 
                 <ImageView
                     android:id="@+id/pic_distance"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:src="@drawable/distance"
                     android:contentDescription="pic_distance"/>
 
@@ -155,8 +155,8 @@
 
                 <ImageView
                     android:id="@+id/pic_steps"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:src="@drawable/hiker"
                     android:contentDescription="pic_steps"/>
 
