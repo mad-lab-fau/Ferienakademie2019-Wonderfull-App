@@ -20,10 +20,16 @@ import java.util.List;
 
 public class profile extends AppCompatActivity {
 
+    private String caller;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        Intent intent = this.getIntent();
+        caller = intent.getStringExtra("caller");
+
 
         ProfileWrapper profileDB = new ProfileWrapper(this);
         ProfileValues profile = profileDB.getProfile();
@@ -133,7 +139,11 @@ public class profile extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
+        if (caller.compareTo("hike") == 0){
+            startActivity(new Intent(this, HikeMainscreen.class));
+        }else{
+            startActivity(new Intent(this, MainActivity.class));
+        }
 
-        startActivity(new Intent(this, MainActivity.class));
     }
 }

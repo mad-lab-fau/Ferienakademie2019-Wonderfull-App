@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (item.getItemId()) {
             case (R.id.menu_profile):
                 Intent profilIntent = new Intent(this, profile.class);
+                profilIntent.putExtra("caller", "main");
                 startActivity(profilIntent);
                 return true;
             case R.id.menu_plots:
