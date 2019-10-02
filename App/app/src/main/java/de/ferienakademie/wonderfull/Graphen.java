@@ -57,9 +57,10 @@ public class Graphen extends AppCompatActivity {
             //set1.setDrawIcons(true);
             //set1.enableDashedLine(50f, 10f, 0f);
             //set1.enableDashedHighlightLine(100f, 5f, 0f);
-            set1.setColor(Color.BLUE);
+            set1.setColor(getResources().getColor(R.color.darkGreen));
+            set1.setFillColor(getResources().getColor(R.color.backgroundGreen));
             //set1.setCircleColor(Color.DKGRAY);
-            set1.setLineWidth(0f);
+            set1.setLineWidth(1f);
             set1.setCircleRadius(0f);
             //set1.setDrawCircleHole(false);
             set1.setValueTextSize(0f);
@@ -69,22 +70,15 @@ public class Graphen extends AppCompatActivity {
             set1.setFormSize(15.f);
             set1.setDrawCircles(false);
             set1.setAxisDependency(YAxis.AxisDependency.LEFT);
+            mChart.getLegend().setEnabled(false);
 
             mChart.getAxisRight().setEnabled(false);
             XAxis xAxis = mChart.getXAxis();
+           // YAxis yAxis = mChart.getAxisLeft();
 
             xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-
-
-            //mChart.setDescription();
-            //TextView xAxisName = new TextView(this);
-            /*TextView xAxisName;
-            xAxisName = (TextView) findViewById(R.id.x_axis_title);
-            xAxisName.setText("Distanz [km]");
-            TextView yAxisName; // = new TextView(this, null);
-            yAxisName = (TextView) findViewById(R.id.y_axis_title);
-            yAxisName.setText("Yaxis Label");
-*/
+            mChart.getXAxis().setTextSize(15);
+            mChart.getAxisLeft().setTextSize(15);
 
 
             /*if (Utils.getSDKInt() >= 18) {
