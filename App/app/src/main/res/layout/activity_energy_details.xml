@@ -17,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:layout_marginStart="5dp"
             android:gravity="center_vertical"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -29,11 +30,18 @@
                 android:background="#FFFFFF"
                 android:padding="5dp">
 
+                <ImageView
+                    android:id="@+id/pic_time"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/clock"
+                    android:contentDescription="pic_time" />
+
 
                 <TextView
                     android:id="@+id/zeit"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:layout_margin="1dp"
                     android:background="#FFFFFF"
                     android:gravity="center_vertical"
@@ -65,10 +73,17 @@
                 android:background="#FFFFFF"
                 android:padding="5dp">
 
+                <ImageView
+                    android:id="@+id/pic_height"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/rising_arrow"
+                    android:contentDescription="pic_height"/>
+
                 <TextView
                     android:id="@+id/hoehenmeter"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:gravity="center_vertical"
                     android:paddingStart="10dp"
                     android:text="@string/hoehenmeter"
@@ -95,6 +110,13 @@
                 android:layout_weight="1"
                 android:background="#FFFFFF"
                 android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/pic_distance"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/distance"
+                    android:contentDescription="pic_distance"/>
 
                 <TextView
                     android:id="@+id/strecke"
@@ -131,10 +153,17 @@
                 android:background="#FFFFFF"
                 android:padding="5dp">
 
+                <ImageView
+                    android:id="@+id/pic_steps"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/hiker"
+                    android:contentDescription="pic_steps"/>
+
                 <TextView
                     android:id="@+id/schritte"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:layout_margin="1dp"
                     android:background="#FFFFFF"
                     android:gravity="center_vertical"
@@ -163,16 +192,6 @@
 
     </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-    </RelativeLayout>
-
     <TextView
         android:id="@+id/pause"
         android:layout_width="wrap_content"
@@ -182,7 +201,6 @@
         android:padding="10dp"
         android:text="@string/pause"
         android:textAppearance="@style/Headline"
-        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

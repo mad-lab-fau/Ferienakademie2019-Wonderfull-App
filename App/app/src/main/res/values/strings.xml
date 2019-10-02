@@ -85,7 +85,7 @@
     <string name="edit_plus">+</string>
     <string name="edit_minus">-</string>
     <string name="edit_contacts">Notfallkontakte</string>
-    <string name="edit_level">Wanderniveau</string>
+    <string name="edit_level">Wanderniveau:</string>
     <string name="edit_phone">Telefonnummer</string>
 
     <string-array name="level_spinner">
@@ -107,6 +107,15 @@
     <string name="pause">Pause in:</string>
     <string name="pause_p"> </string>
 
+    <string name="verlust">Wasserverlust:</string>
+    <string name="verlust_p"> </string>
+    <string name="trinken">Bisher getrunken:</string>
+    <string name="trinken_p"> </string>
+    <string name="zeitTrinken">Zeit seit letzter \nTrinkpause:</string>
+    <string name="zeitTrinken_p"> </string>
+    <string name="TRINKEN">Jetzt trinken:</string>
+
     <string name="y_axis_title">Höhe [m]</string>
-    <string name="x_axis_title">Distanz [km]</string>
+    <string name="x_axis_title">Zeit [s]</string>
+
 </resources>
