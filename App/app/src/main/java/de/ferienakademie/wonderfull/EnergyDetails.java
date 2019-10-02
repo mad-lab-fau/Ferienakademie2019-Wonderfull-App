@@ -60,8 +60,6 @@ public class EnergyDetails extends AppCompatActivity {
         TextView hoehenmeter_p = (TextView) findViewById(R.id.hoehenmeter_p);
         hoehenmeter_p.setText(String.format("%.0f m",tracker.getDistanceA() - tracker.getDistanceD()));
 
-        Toast.makeText(this, String.format("A %f m\nD %f m", tracker.getDistanceA(), tracker.getDistanceD()), Toast.LENGTH_SHORT).show();
-
         double distance = tracker.getDistanceH();
         TextView strecke_p = (TextView) findViewById(R.id.strecke_p);
         strecke_p.setText(String.format("%.0f %s", distance > 1000 ? distance / 1000 : distance, distance > 1000 ? "km" : "m"));

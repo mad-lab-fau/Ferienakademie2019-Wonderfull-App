@@ -60,7 +60,7 @@
     <string name="vorname">First Name:</string>
     <string name="wanderung_planen">Plan Your Hike</string>
     <string name="wanderung_starten">Start Your Hike</string>
-    <string name="x_axis_title">Time [s]</string>
+    <string name="x_axis_title">Time</string>
     <string name="y_axis_title">Height [m]</string>
     <string name="zeit">Hiking Time:</string>
     <string name="zeitTrinken">Time since the last\ndrinking break:</string>

@@ -119,7 +119,7 @@
     <string name="TRINKEN">Jetzt trinken:</string>
 
     <string name="y_axis_title">Höhe [m]</string>
-    <string name="x_axis_title">Zeit [s]</string>
+    <string name="x_axis_title">Zeit</string>
     <string name="menu_profile">Profil</string>
     <string name="menu_plots">Statistik</string>
     <string name="menu_homescreen">Startseite</string>

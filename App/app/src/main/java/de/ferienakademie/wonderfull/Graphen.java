@@ -7,13 +7,17 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -30,7 +34,7 @@ public class Graphen extends AppCompatActivity {
     {
         for (int i = entryCount; i < values.size(); i++)
         {
-            data.addEntry(values.get(entryCount),0);
+            data.addEntry(values.get(i),0);
         }
         entryCount = values.size();
         mChart.notifyDataSetChanged();
@@ -48,9 +52,12 @@ public class Graphen extends AppCompatActivity {
         //}
     };
 
+    private float maxTime = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_graphen);
 
         mChart = findViewById(R.id.chart);
@@ -85,6 +92,37 @@ public class Graphen extends AppCompatActivity {
         XAxis xAxis = mChart.getXAxis();
 
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setAvoidFirstLastClipping(true);
+        xAxis.setValueFormatter((value, axisBase) ->
+        {
+            synchronized (this)
+            {
+                if (value > maxTime) maxTime = value;
+            }
+
+
+
+            TextView axisTitle = findViewById(R.id.x_axis_title);
+            String unit;
+            if (maxTime > 60)
+            {
+                value /= 60;
+                unit = "min";
+            }
+            else if (maxTime > 60 * 60)
+            {
+                value /= 60 * 60;
+                unit = "h";
+            }
+            else
+            {
+                unit = "s";
+            }
+
+            axisTitle.setText(String.format("%s [%s]", getString(R.string.x_axis_title), unit));
+
+            return String.format("%.1f", value);
+        });
         mChart.setExtraBottomOffset(10);
         mChart.getXAxis().setTextSize(15);
         mChart.getAxisLeft().setTextSize(15);
