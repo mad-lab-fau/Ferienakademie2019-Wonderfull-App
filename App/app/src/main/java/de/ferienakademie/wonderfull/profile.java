@@ -86,7 +86,7 @@ public class profile extends AppCompatActivity {
             TextView contactName = new TextView(this);
             contactName.setText(getResources().getString(R.string.profile_none));
 
-            contactName.setPadding(10,10,10,10);
+            contactName.setPadding(0,10,10,10);
             contactName.setTextAppearance(R.style.TextAppearance_AppCompat_Large);
             contactName.setTextColor(getResources().getColor(R.color.grey));
             contactRow.addView(contactName);
@@ -97,7 +97,7 @@ public class profile extends AppCompatActivity {
                 TableRow contactRow = new TableRow(this);
                 TextView contactName = new TextView(this);
                 contactName.setText(c.getName() + ":");
-                contactName.setPadding(10,10,10,10);
+                contactName.setPadding(0,10,10,10);
                 contactName.setTextAppearance(R.style.TextAppearance_AppCompat_Large);
 
                 contactRow.addView(contactName);

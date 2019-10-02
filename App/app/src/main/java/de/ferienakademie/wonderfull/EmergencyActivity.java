@@ -27,7 +27,7 @@ public class EmergencyActivity extends AppCompatActivity {
     private ProfileWrapper profileDB;
 
 
-    private String number = "12345";
+    private String number = "01781336385";
     private String contact = "Wonderfull";
     private String smsText = "";
 

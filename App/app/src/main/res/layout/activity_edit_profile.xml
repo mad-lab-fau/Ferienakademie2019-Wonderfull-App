@@ -233,7 +233,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_span="2"
-                        android:padding="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="10dp"
                         android:text="@string/edit_contacts"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         android:textStyle="bold"/>
