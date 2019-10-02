@@ -121,16 +121,15 @@ public class HikeMainscreen extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case (R.id.menu_emergency):
-                Intent mainIntent = new Intent(this, EmergencyActivity.class);
-                startActivity(mainIntent);
-                return true;
             case (R.id.menu_profile):
                 Intent profilIntent = new Intent(this, profile.class);
                 startActivity(profilIntent);
                 return true;
             case R.id.menu_plots:
                 startActivity(new Intent(this, Graphen.class));
+                return true;
+            case R.id.menu_home:
+                startActivity(new Intent(this, MainActivity.class));
                 return true;
             default:
                 return false;
@@ -201,5 +200,11 @@ public class HikeMainscreen extends AppCompatActivity {
                 drink_text.setText(R.string.drink_bad);
             }
         }
+    }
+
+    @Override
+    public void onBackPressed(){
+
+        startActivity(new Intent(this, MainActivity.class));
     }
 }

@@ -131,7 +131,9 @@ public class profile extends AppCompatActivity {
         return true;
     }
 
-    public void onBackpressed(){
+    @Override
+    public void onBackPressed(){
+
         startActivity(new Intent(this, MainActivity.class));
     }
 }

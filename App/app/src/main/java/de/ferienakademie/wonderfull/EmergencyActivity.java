@@ -116,7 +116,8 @@ public class EmergencyActivity extends AppCompatActivity {
 
     }
 
-    public void onBackpressed(){
+    @Override
+    public void onBackPressed(){
         timer.cancel();
         Intent mainIntent = new Intent(this, MainActivity.class);
         startActivity(mainIntent);
