@@ -15,148 +15,182 @@
         android:fillViewport="false"
         android:paddingTop="100dp">
 
-        <TableLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:shrinkColumns="2"
-            android:stretchColumns="1">
+            android:orientation="vertical">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:shrinkColumns="2"
+                android:stretchColumns="1">
 
             <TableRow>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="@string/vorname"
-                    android:textSize="20sp"/>
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                 <EditText
                     android:id="@+id/edit_surname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
                     android:layout_span="2"
-                    android:maxLines="1"/>
+                    android:maxLines="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
             </TableRow>
 
             <TableRow>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="@string/name"
-                    android:textSize="20sp"/>
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                 <EditText
                     android:id="@+id/edit_name"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:textSize="20sp"
+                    android:layout_height="wrap_content"
                     android:layout_span="2"
-                    android:maxLines="1"/>
+                    android:maxLines="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
             </TableRow>
 
             <TableRow>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="@string/gr_e_m"
-                    android:textSize="20sp"/>
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                 <EditText
                     android:id="@+id/edit_size"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:textSize="20sp"
+                    android:layout_height="wrap_content"
                     android:layout_span="2"
                     android:inputType="numberDecimal"
                     android:maxLength="5"
-                    android:maxLines="1"/>
+                    android:maxLines="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
             </TableRow>
 
             <TableRow>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="@string/gewicht_kg"
-                    android:textSize="20sp"/>
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                 <EditText
                     android:id="@+id/edit_weight"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:textSize="20sp"
+                    android:layout_height="wrap_content"
                     android:layout_span="2"
                     android:inputType="numberDecimal"
                     android:maxLength="6"
-                    android:maxLines="1"/>
+                    android:maxLines="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
             </TableRow>
 
             <TableRow>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="@string/vorerkrankungen"
-                    android:textSize="20sp"/>
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_span="3"
+                    android:text="@string/vorerkrankungen"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            </TableRow>
+
+            <TableRow>
                 <EditText
                     android:id="@+id/edit_diseases"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:textSize="20sp"
+                    android:padding="10dp"
+                    android:layout_span="3"
                     android:inputType="textMultiLine"
-                    android:lines="3"
-                    android:layout_span="2"/>
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
             </TableRow>
 
             <TableRow>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_span="3"
                     android:text="@string/medikamente"
-                    android:textSize="20sp"/>
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
+            </TableRow>
+
+            <TableRow>
                 <EditText
                     android:id="@+id/edit_medication"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:textSize="20sp"
+                    android:padding="10dp"
+                    android:layout_span="3"
                     android:inputType="textMultiLine"
-                    android:lines="3"
-                    android:layout_span="2"/>
+                    android:layout_gravity="bottom"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
             </TableRow>
 
-
             <TableRow>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_span="3"
                     android:text="@string/allergien"
-                    android:textSize="20sp"/>
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
+            </TableRow>
+
+            <TableRow>
                 <EditText
                     android:id="@+id/edit_allergies"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:textSize="20sp"
+                    android:padding="10dp"
+                    android:layout_span="3"
                     android:inputType="textMultiLine"
-                    android:lines="3"
-                    android:layout_span="2"/>
+                    android:layout_gravity="bottom"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
             </TableRow>
 
-            <TableRow>
+            <TableRow android:layout_marginTop="20dp">
+
                 <TextView
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_span="2"
                     android:padding="10dp"
                     android:text="@string/edit_contacts"
-                    android:textSize="20sp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_span="2"/>
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                 <Button
                     android:id="@+id/edit_add_contact"
@@ -167,59 +201,65 @@
                     android:text="@string/edit_plus"
                     android:gravity="center"
                     android:layout_gravity="center_vertical"
-                    android:textSize="20sp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:onClick="addContact"/>
-
             </TableRow>
 
+                <TableRow>
+                    <LinearLayout
+                        android:id="@+id/edit_current_contacts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_span="3"
+                        android:orientation="vertical"/>
 
-            <TableRow>
-                <LinearLayout
-                    android:id="@+id/edit_current_contacts"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_span="3"
-                    android:orientation="vertical"/>
+                </TableRow>
 
-            </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_span="3"
+                        android:text="@string/edit_level"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                </TableRow>
 
-            <TableRow>
+                <TableRow>
+                    <Spinner
+                        android:id="@+id/edit_select_level"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:padding="10dp"
+                        android:textSize="20sp"
+                        android:entries="@array/level_spinner"
+                        android:layout_span="3"/>
+                </TableRow>
+
+            <TableRow android:paddingTop="20sp">
+
                 <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:padding="10dp"
-                    android:text="@string/edit_level"
-                    android:textSize="20sp"/>
-
-                <Spinner
-                    android:id="@+id/edit_select_level"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:textSize="20sp"
-                    android:entries="@array/level_spinner"
-                    android:layout_span="2"/>
-            </TableRow>
-
-
-            <TableRow>
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""/>
+                    android:text=""
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                 <Button
                     android:id="@+id/edit_save"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:text="@string/edit_save"
-                    android:onClick="saveProfile"
+                    android:layout_height="wrap_content"
+                    android:layout_span="2"
                     android:background="@color/darkGreen"
-                    android:textColor="@color/white"
-                    android:layout_span="2"/>
+                    android:onClick="saveProfile"
+                    android:text="@string/edit_save"
+                    android:textColor="@color/white" />
             </TableRow>
 
-
-        </TableLayout>
+            </TableLayout>
+    </LinearLayout>
 
 
     </ScrollView>

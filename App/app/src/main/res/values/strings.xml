@@ -36,7 +36,7 @@
     <string name="name">Name:</string>
     <string name="gr_e_m">Größe [m]:</string>
     <string name="gewicht_kg">Gewicht [kg]:</string>
-    <string name="vorerkrankungen">Erkrankungen \nund Befunde:</string>
+    <string name="vorerkrankungen">Erkrankungen und Befunde:</string>
     <string name="medikamente">Medikation:</string>
     <string name="notafllkontakte">Notafllkontakte</string>
     <string name="tim">Tim</string>
@@ -67,7 +67,7 @@
     <string name="erkrankungentim">Herzhypertrophie, Leberzirrhose, Trizepssehnenruptur</string>
     <string name="altertim">17. Dezember 1981 (37 Jahre alt)</string>
     <string name="allergientim">Glutenintoleranz</string>
-    <string name="allergien">Allergien und \nUnverträglichkeiten:</string>
+    <string name="allergien">Allergien und Unverträglichkeiten:</string>
     <string name="time">Zeit:</string>
     <string name="h_henzunahme">Höhenzunahme (m):</string>
     <string name="aktivit_t">Aktivität</string>
@@ -86,6 +86,7 @@
     <string name="edit_minus">-</string>
     <string name="edit_contacts">Notfallkontakte</string>
     <string name="edit_level">Wanderniveau</string>
+    <string name="edit_phone">Telefonnummer</string>
 
     <string-array name="level_spinner">
         <item>Profiwanderer</item>
@@ -105,4 +106,7 @@
     <string name="schritte_p"> </string>
     <string name="pause">Pause in:</string>
     <string name="pause_p"> </string>
+
+    <string name="y_axis_title">Höhe [m]</string>
+    <string name="x_axis_title">Distanz [km]</string>
 </resources>
