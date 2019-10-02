@@ -67,7 +67,7 @@
     <string name="erkrankungentim">Herzhypertrophie, Leberzirrhose, Trizepssehnenruptur</string>
     <string name="altertim">17. Dezember 1981 (37 Jahre alt)</string>
     <string name="allergientim">Glutenintoleranz</string>
-    <string name="allergien">Allergien und \nUnverträglichkeiten:</string>
+    <string name="allergien">Allergien und Unverträglichkeiten:</string>
     <string name="time">Zeit:</string>
     <string name="h_henzunahme">Höhenzunahme (m):</string>
     <string name="aktivit_t">Aktivität</string>
@@ -106,4 +106,16 @@
     <string name="schritte_p"> </string>
     <string name="pause">Pause in:</string>
     <string name="pause_p"> </string>
+
+    <string name="verlust">Wasserverlust:</string>
+    <string name="verlust_p"> </string>
+    <string name="trinken">Bisher getrunken:</string>
+    <string name="trinken_p"> </string>
+    <string name="zeitTrinken">Zeit seit letzter \nTrinkpause:</string>
+    <string name="zeitTrinken_p"> </string>
+    <string name="TRINKEN">Jetzt trinken:</string>
+
+    <string name="y_axis_title">Höhe [m]</string>
+    <string name="x_axis_title">Distanz [km]</string>
+
 </resources>
