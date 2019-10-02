@@ -268,22 +268,15 @@
 
                 <TableRow android:paddingTop="20sp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
                     <Button
                         android:id="@+id/edit_save"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_span="2"
+                        android:layout_span="3"
                         android:background="@color/darkGreen"
                         android:onClick="saveProfile"
                         android:text="@string/edit_save"
                         android:textColor="@color/white" />
-
 
                 </TableRow>
 
