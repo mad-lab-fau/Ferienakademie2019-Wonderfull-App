@@ -68,8 +68,6 @@ public class EditProfile extends AppCompatActivity {
 
 
 
-
-
     }
 
     private void loadContacts(){
@@ -91,7 +89,7 @@ public class EditProfile extends AppCompatActivity {
                 lp.gravity = Gravity.CENTER_VERTICAL;
                 contactView.setLayoutParams(lp);
                 int margin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics());
-                contactView.setTextSize(20);
+                contactView.setTextAppearance(R.style.TextAppearance_AppCompat_Large);
                 contactView.setText(c.getName());
                 contactView.setPadding(margin, margin, margin, margin);
                 tr.addView(contactView);
@@ -111,8 +109,8 @@ public class EditProfile extends AppCompatActivity {
                 minus.setGravity(Gravity.CENTER);
                 minus.setOnClickListener(this::removeContact);
                 minus.setBackground(getResources().getDrawable(R.drawable.round_button));
+                minus.setTextAppearance(R.style.TextAppearance_AppCompat_Large);
                 minus.setTextColor(getResources().getColor(R.color.white));
-                minus.setTextSize(textSize);
                 minus.setText(getResources().getText(R.string.edit_minus));
                 tr.addView(minus);
                 emergencyContactsTable.addView(tr);
@@ -216,15 +214,13 @@ public class EditProfile extends AppCompatActivity {
     }
 
     public void removeContact(View v){
+        
+        int id = v.getId();
+        Contact contact = new Contact();
+        contact.setId(id);
+        profileDB.deleteContact(contact);
 
-        Log.d("EditProfile", "remove contact");
-
-       int id = v.getId();
-       Contact contact = new Contact();
-       contact.setId(id);
-       profileDB.deleteContact(contact);
-
-       loadContacts();
+        loadContacts();
     }
 
 }

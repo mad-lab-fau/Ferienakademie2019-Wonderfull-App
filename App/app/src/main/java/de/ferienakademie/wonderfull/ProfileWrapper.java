@@ -16,7 +16,8 @@ public class ProfileWrapper extends SQLiteOpenHelper {
     private static final String EMERGENCY_TABLE_NAME = "emergency_contacts";
     private static final String PROFILE_TABLE_NAME="profile";
     private final String ID = "42";
-    private int contactID = 0;
+    private int id = 0;
+
 
     public ProfileWrapper(Context context){
         super(context, DATABASE_NAME, null, 1);
@@ -27,9 +28,10 @@ public class ProfileWrapper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         Log.d("ProfileWrapper", "onCreate!");
 
-        String createTable = "CREATE TABLE IF NOT EXISTS " + EMERGENCY_TABLE_NAME + " (id INTEGER PRIMARY KEY AUTOINCREMENT," +
+        String createTable = "CREATE TABLE IF NOT EXISTS " + EMERGENCY_TABLE_NAME + " (_id INTEGER PRIMARY KEY AUTOINCREMENT ," +
                 "name TEXT, phone TEXT)";
         sqLiteDatabase.execSQL(createTable);
+
 
         createTable = "CREATE TABLE IF NOT EXISTS " + PROFILE_TABLE_NAME + " ( id INTEGER PRIMARY KEY," + ProfileValues.SURNAME + " TEXT, " +
                 ProfileValues.NAME + " TEXT, " + ProfileValues.SIZE + " REAL, " + ProfileValues.WEIGHT + " REAL, " +
@@ -68,11 +70,10 @@ public class ProfileWrapper extends SQLiteOpenHelper {
     public void insertContact(Contact contact){
         SQLiteDatabase db = this.getWritableDatabase();
 
+
         ContentValues values = new ContentValues();
         values.put("name", contact.getName());
         values.put("phone", contact.getPhone());
-        values.put("id", contactID);
-        contactID += 1;
         db.insert(EMERGENCY_TABLE_NAME, null, values);
         db.close();
 
@@ -88,7 +89,7 @@ public class ProfileWrapper extends SQLiteOpenHelper {
         if(cursor.moveToFirst()){
             do{
                 Contact contact = new Contact();
-                contact.setId(cursor.getColumnIndex("id"));
+                contact.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex("_id"))));
                 contact.setName(cursor.getString(cursor.getColumnIndex("name")));
                 contact.setPhone(cursor.getString(cursor.getColumnIndex("phone")));
                 contacts.add(contact);
@@ -102,7 +103,7 @@ public class ProfileWrapper extends SQLiteOpenHelper {
 
     public void deleteContact(Contact contact){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(EMERGENCY_TABLE_NAME, "id=?", new String[]{String.valueOf(contact.getId())});
+        db.delete(EMERGENCY_TABLE_NAME, "_id=?", new String[]{String.valueOf(contact.getId())});
         db.close();
     }
 
