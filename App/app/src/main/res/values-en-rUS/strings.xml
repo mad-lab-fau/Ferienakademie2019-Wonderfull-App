@@ -63,7 +63,7 @@
     <string name="x_axis_title">Time [s]</string>
     <string name="y_axis_title">Height [m]</string>
     <string name="zeit">Hiking Time:</string>
-    <string name="zeitTrinken">Time since the last\\ndrinking break:</string>
+    <string name="zeitTrinken">Time since the last\ndrinking break:</string>
     <string name="menu_profile">Profile</string>
     <string name="menu_plots">Statistic</string>
     <string name="menu_homescreen">Home</string>
