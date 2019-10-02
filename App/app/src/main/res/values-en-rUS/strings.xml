@@ -81,4 +81,5 @@
     <string name="name">Last Name:</string>
     <string name="plan_toast">Please fill in all fields!</string>
     <string name="loss_of_water_low">low</string>
+    <string name="ueberschrift_graph">Elevation Profile</string>
 </resources>
