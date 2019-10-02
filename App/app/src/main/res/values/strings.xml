@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Wanderfull</string>
+    <string name="app_name">WanderFull</string>
 
     <string name="emergency_title">Notfall</string>
     <string name="emergency_question">Brauchst du Hilfe?</string>
