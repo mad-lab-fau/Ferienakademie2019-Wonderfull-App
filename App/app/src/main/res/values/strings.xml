@@ -34,7 +34,7 @@
     <string name="profil_bearbeiten">Profil bearbeiten</string>
     <string name="profilbild_hochladen">Profilbild hochladen</string>
     <string name="vorname">Vorname:</string>
-    <string name="name" translatable="false">Name:</string>
+    <string name="name">Nachname:</string>
     <string name="gr_e_m">Größe [m]:</string>
     <string name="gewicht_kg">Gewicht [kg]:</string>
     <string name="vorerkrankungen">Erkrankungen und Befunde:</string>
@@ -52,7 +52,7 @@
     <string name="drink_perfect">Perfekt!</string>
     <string name="drink_good">Gut!</string>
     <string name="drink_bad">Bitte trinken!</string>
-    <string name="group_good">Gruppe zusammen!</string>
+    <string name="group_good">Gruppe ist zusammen!</string>
     <string name="group_lost">Gruppe verloren!</string>
     <string name="group_missing">Robert fehlt!</string>
 
@@ -61,7 +61,7 @@
     <string name="distanz">Distanz [km]:</string>
     <string name="verticalDistance_upwards">Aufstieg [m]:</string>
     <string name="verticalDistance_downwards">Abstieg [m]:</string>
-    <string name="berechneteWanderzeit">geschätzte Wanderzeit:</string>
+    <string name="berechneteWanderzeit">Geschätzte Wanderzeit:</string>
     <string name="button_start" translatable="false">button_start</string>
     <string name="button_plan" translatable="false">button_plan</string>
     <string name="erkrankungentim" translatable="false">Herzhypertrophie, Leberzirrhose, Trizepssehnenruptur</string>
@@ -125,5 +125,7 @@
     <string name="menu_plots">Statistik</string>
     <string name="menu_homescreen">Startseite</string>
     <string name="emergency_sendSMS">SMS wurde an %s gesendet</string>
+    <string name="plan_toast">Bitte alle Felder ausfüllen!</string>
+    <string name="loss_of_water_low">gering</string>
 
 </resources>
