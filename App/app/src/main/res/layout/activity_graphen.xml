@@ -34,7 +34,7 @@
             android:layout_alignStart="@+id/chart"
             android:layout_alignEnd="@+id/chart"
             android:gravity="center_horizontal"
-            android:text="Zeit [s]"
+            android:text="Time [s]"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <TextView
@@ -65,7 +65,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="-60dp"
             android:gravity="center_horizontal"
-            android:text="Höhenprofil"
+            android:text="Elevation Profile"
             android:textAppearance="@style/Headline" />
         <!--android:layout_alignTop="@+id/chart"
         android:layout_alignLeft="@+id/chart"
