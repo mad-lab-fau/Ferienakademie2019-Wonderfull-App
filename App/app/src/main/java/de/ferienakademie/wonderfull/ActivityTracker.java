@@ -142,7 +142,7 @@ public class ActivityTracker
     private Point2D computeVerticalDistances(double[] altitude)
     {
         double[] altitudes;
-        if (!hasProcessedBefore)
+        if (hasProcessedBefore)
         {
             altitudes = new double[altitude.length + 1];
             altitudes[0] = lastAltitude;
