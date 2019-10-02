@@ -22,7 +22,6 @@ import java.util.TimerTask;
 
 public class EmergencyActivity extends AppCompatActivity {
 
-    private String emergencyText = "%s wird in %d Sekunden angerufen.";
     private int time = 30;
     private Timer timer;
     private ProfileWrapper profileDB;
@@ -49,7 +48,7 @@ public class EmergencyActivity extends AppCompatActivity {
         String name = profile.getSurname() + " " + profile.getName();
         smsText = String.format(getResources().getString(R.string.emergency_SMS), name);
 
-        textview.setText(String.format(emergencyText, contact, 30));
+        textview.setText(String.format(getResources().getString(R.string.emergency_call_in), contact, 30));
         timer = new Timer();
 
         timer.schedule(new TimerTask() {
@@ -60,7 +59,7 @@ public class EmergencyActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        textview.setText(String.format(emergencyText, contact, time));
+                        textview.setText(String.format(getResources().getString(R.string.emergency_call_in), contact, time));
                     }
                 });
 
@@ -104,7 +103,7 @@ public class EmergencyActivity extends AppCompatActivity {
         smsManager.sendTextMessage(number, null, smsText, null, null);
 
         Context context = getApplicationContext();
-        String text = String.format("SMS was send to %s", contact);
+        String text = String.format(getResources().getString(R.string.emergency_sendSMS), contact);
         Toast toast = Toast.makeText(context, text, Toast.LENGTH_LONG);
         toast.show();
 

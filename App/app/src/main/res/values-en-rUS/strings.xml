@@ -66,4 +66,6 @@
     <string name="zeitTrinken">Time since the last [...]</string>
     <string name="menu_profile">Profile</string>
     <string name="menu_homescreen">Home</string>
+    <string name="emergency_sendSMS">A message has been sent to %s.</string>
+    <string name="emergency_SMS">%s has had an accident.</string>
 </resources>
