@@ -21,7 +21,7 @@ public class EnergyDetails extends AppCompatActivity {
         hoehenmeter_p.append("80" + " mBar");
 
         TextView strecke_p = (TextView) findViewById(R.id.strecke_p);
-        strecke_p.append("2,5" + " km");
+        strecke_p.append("\n2,5" + " km");
 
         TextView schritte_p = (TextView) findViewById(R.id.schritte_p);
         schritte_p.append("1042");

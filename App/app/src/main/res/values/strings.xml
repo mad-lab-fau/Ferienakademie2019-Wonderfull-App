@@ -106,4 +106,13 @@
     <string name="schritte_p"> </string>
     <string name="pause">Pause in:</string>
     <string name="pause_p"> </string>
+
+    <string name="verlust">Wasserverlust:</string>
+    <string name="verlust_p"> </string>
+    <string name="trinken">Bis jetzt getrunken:</string>
+    <string name="trinken_p"> </string>
+    <string name="zeitTrinken">Zeit seit letzter \nTrinkpause:</string>
+    <string name="zeitTrinken_p"> </string>
+    <string name="TRINKEN">Jetzt trinken:</string>
+
 </resources>
