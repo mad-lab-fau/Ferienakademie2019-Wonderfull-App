@@ -7,6 +7,7 @@
  */
 package de.ferienakademie.wonderfull.service;
 
+import android.annotation.TargetApi;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
@@ -16,7 +17,10 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.data.Entry;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -38,6 +42,7 @@ import de.fau.sensorlib.sensors.Recordable;
 import de.fau.sensorlib.sensors.Resettable;
 import de.fau.sensorlib.sensors.logging.Session;
 import de.fau.sensorlib.sensors.logging.SessionDownloader;
+import de.ferienakademie.wonderfull.HeightChangeCallback;
 import de.ferienakademie.wonderfull.OnFallDetectionCallback;
 import de.ferienakademie.wonderfull.StepCountCallback;
 import de.ferienakademie.wonderfull.StepCounter;
@@ -93,20 +98,36 @@ public class BleService extends Service {
         stepCountCallbacks.add(callback);
     }
 
+    private static HashSet<StepCountCallback> stepCountCallbacks = new HashSet<>();
+
     public static boolean deregisterStepCounterCallback(StepCountCallback callback)
     {
         return stepCountCallbacks.remove(callback);
     }
 
+    public static void registerHeightChangedCallback(HeightChangeCallback callback)
+    {
+        heightChangeCallbacks.add(callback);
+    }
+
+    public static boolean deregisterHeightChangedCallback(HeightChangeCallback callback)
+    {
+         return heightChangeCallbacks.remove(callback);
+    }
+
+    private static HashSet<HeightChangeCallback> heightChangeCallbacks = new HashSet<>();
+
     private StepCounter stepCounter = new StepCounter();
-    private static HashSet<StepCountCallback> stepCountCallbacks = new HashSet<>();
-    private ArrayList<Double> heightHistory = new ArrayList<>();
+
+    private ArrayList<Entry> heightHistory = new ArrayList<>();
     private int stepCounterWindowIndex = 0;
     private int stepCounterWindowSize;
     private double[] accBufferX;
     private double[] accBufferY;
     private double[] accBufferZ;
     private double[] timeBuffer;
+    private double[] barometerBuffer;
+    private int timeIndex = 0;
 
     private boolean fall = false;
     double height = 0;
@@ -145,6 +166,7 @@ public class BleService extends Service {
             return mean;
         }
 
+        @TargetApi(24)
         @Override
         public void onNewData(SensorDataFrame data) {
             // TODO data from the sensor enters the service HERE! => here you can implement
@@ -162,6 +184,7 @@ public class BleService extends Service {
                 accBufferX = new double[stepCounterWindowSize];
                 accBufferY = new double[stepCounterWindowSize];
                 accBufferZ = new double[stepCounterWindowSize];
+                barometerBuffer = new double[stepCounterWindowSize];
             }
 
             if (counter >= window_size) {
@@ -199,9 +222,8 @@ public class BleService extends Service {
             accBufferX[stepCounterWindowIndex] = df.getAccelX();
             accBufferY[stepCounterWindowIndex] = df.getAccelY();
             accBufferZ[stepCounterWindowIndex] = df.getAccelZ();
-            // TODO: ACTIVITY TRACKER BARO
+            barometerBuffer[stepCounterWindowIndex] = df.getBarometricPressure();
             timeBuffer[stepCounterWindowIndex] = System.currentTimeMillis() / 1000.0;
-            heightHistory.add(computeHeight(df.getBarometricPressure()));
 
             if (++stepCounterWindowIndex == stepCounterWindowSize)
             {
@@ -210,6 +232,15 @@ public class BleService extends Service {
                 for (StepCountCallback callback : stepCountCallbacks)
                 {
                     callback.onStepsChanged(stepCounter);
+                }
+
+                double baro = Arrays.stream(barometerBuffer).average().getAsDouble();
+                double time = 0.5 * (timeBuffer[timeBuffer.length - 1] + timeBuffer[0]);
+                heightHistory.add(new Entry((float)++timeIndex, (float)computeHeight(baro)));
+
+                for (HeightChangeCallback callback : heightChangeCallbacks)
+                {
+                    callback.onHeightChanged(heightHistory);
                 }
 
                 stepCounterWindowIndex = 0;
