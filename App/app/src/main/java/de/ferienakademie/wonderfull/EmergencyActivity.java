@@ -97,11 +97,9 @@ public class EmergencyActivity extends AppCompatActivity {
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED
                 || ActivityCompat.checkSelfPermission(this,Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED){
-            Log.d("EmergencyActivity", "Asking for permission");
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS, Manifest.permission.READ_PHONE_STATE}, 100);
         }
 
-        Log.d("EmergencyActivtity", "I will send an SMS now!");
         SmsManager smsManager = SmsManager.getDefault();
         smsManager.sendTextMessage(number, null, smsText, null, null);
 
