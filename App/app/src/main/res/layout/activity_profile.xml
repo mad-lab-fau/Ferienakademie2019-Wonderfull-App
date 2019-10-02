@@ -41,7 +41,8 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         android:text="@string/gewicht"
-                        android:layout_margin="10dp"/>
+                        android:layout_margin="10dp"
+                        android:textStyle="italic"/>
 
                     <TextView
                         android:id="@+id/profile_weight"
@@ -58,7 +59,8 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         android:text="@string/gr_e"
-                        android:layout_margin="10dp"/>
+                        android:layout_margin="10dp"
+                        android:textStyle="italic"/>
 
                     <TextView
                         android:id="@+id/profile_height"
@@ -77,7 +79,8 @@
                         android:text="@string/vorerkrankungen"
                         android:layout_span="2"
                         android:layout_marginTop="40dp"
-                        android:layout_marginStart="10dp"/>
+                        android:layout_marginStart="10dp"
+                        android:textStyle="italic"/>
 
                 </TableRow>
 
@@ -99,7 +102,8 @@
                         android:text="@string/medikamente"
                         android:layout_span="2"
                         android:layout_marginTop="40dp"
-                        android:layout_marginStart="10dp"/>
+                        android:layout_marginStart="10dp"
+                        android:textStyle="italic"/>
                 </TableRow>
 
                 <TableRow>
@@ -120,7 +124,8 @@
                         android:text="@string/allergien"
                         android:layout_span="2"
                         android:layout_marginTop="40dp"
-                        android:layout_marginStart="10dp"/>
+                        android:layout_marginStart="10dp"
+                        android:textStyle="italic"/>
                 </TableRow>
 
                 <TableRow>
@@ -142,7 +147,8 @@
                         android:layout_marginTop="40dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="10dp"/>
+                        android:layout_marginBottom="10dp"
+                        android:textStyle="italic"/>
 
                     <TextView
                         android:id="@+id/profile_level"
@@ -162,11 +168,12 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         android:text="@string/notfallkontakte"
                         android:layout_span="2"
-                        android:layout_margin="10dp"/>
+                        android:layout_margin="10dp"
+                        android:textStyle="italic"/>
                 </TableRow>
 
                 <TableRow>
-                    <LinearLayout
+                    <TableLayout
                         android:id="@+id/profile_contacts"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -180,115 +187,6 @@
 
         </LinearLayout>
 
-
-
-        <!-- <TextView
-            android:id="@+id/height"
-            android:layout_width="202dp"
-            android:layout_height="29dp"
-            android:text="@string/_1_80_m"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/heightText"
-            app:layout_constraintTop_toTopOf="@+id/heightText" />
-
-        <TextView
-            android:id="@+id/weight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/_80_kg"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toEndOf="@+id/weightText"
-            app:layout_constraintTop_toTopOf="@+id/weightText" />
-
-        <TextView
-            android:id="@+id/emergencyContacts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="@string/notfallkontakte"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/allergientim"
-            app:layout_constraintTop_toBottomOf="@+id/allergientim" />
-
-        <TextView
-            android:id="@+id/diseasesText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="42dp"
-            android:text="@string/vorerkrankungen"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/weightText"
-            app:layout_constraintTop_toBottomOf="@+id/weightText" />
-
-        <TextView
-            android:id="@+id/medicationText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="@string/medikamente"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/diseasesText"
-            app:layout_constraintTop_toBottomOf="@+id/diseases" />
-
-        <TextView
-            android:id="@+id/diseases"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/erkrankungentim"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/diseasesText"
-            app:layout_constraintTop_toBottomOf="@+id/diseasesText" />
-
-        <TextView
-            android:id="@+id/medication"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/beispielmedikation"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/medicationText"
-            app:layout_constraintTop_toBottomOf="@+id/medicationText" />
-
-        <TextView
-            android:id="@+id/emergencyContact1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/jon_doe"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/emergencyContacts"
-            app:layout_constraintTop_toBottomOf="@+id/emergencyContacts" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@string/altertim"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fullName" />
-
-        <TextView
-            android:id="@+id/allergien"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="@string/allergien"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/medicationText"
-            app:layout_constraintTop_toBottomOf="@+id/medication" />
-
-        <TextView
-            android:id="@+id/allergientim"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/allergientim"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/allergien"
-            app:layout_constraintTop_toBottomOf="@+id/allergien" /> -->
     </ScrollView>
 
 
