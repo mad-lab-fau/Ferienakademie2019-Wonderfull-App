@@ -17,14 +17,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 public class plan_hiking extends AppCompatActivity {
 
 
 
-    private Integer gesamtStrecke = 15;
-    private Integer hoch = 600;
-    private Integer runter = 400;
+    private double gesamtStrecke = 15;
+    private double hoch = 600;
+    private double runter = 400;
     private TextView unitText;
 
 
@@ -36,40 +37,48 @@ public class plan_hiking extends AppCompatActivity {
     }
 
 
+
     // getter and setter
-    public void setGesamtStrecke(){
-        EditText total = findViewById(R.id.streckenLaenge);
-        gesamtStrecke = Integer.parseInt(total.getText().toString());
+    public void setGesamtStrecke(EditText total){
+        String totalString = total.getText().toString();
+            gesamtStrecke = Double.parseDouble(totalString);
     }
 
-    public int getGesamtStrecke(){
+    public double getGesamtStrecke(){
         return gesamtStrecke;
     }
 
-    public void setHoch(){
-        EditText nachOben = findViewById(R.id.nach_oben);
-        hoch=Integer.parseInt(nachOben.getText().toString());
+    public void setHoch(EditText nachOben){
+        String nachObenString = nachOben.getText().toString();
+            hoch=Double.parseDouble(nachObenString);
     }
 
-    public int getHoch(){
+    public double getHoch(){
         return hoch;
     }
 
-    public void setRunter(){
-        EditText nachUnten = findViewById(R.id.nach_unten);
-        runter=Integer.parseInt(nachUnten.getText().toString());
+    public void setRunter(EditText nachUnten){
+        String nachUntenString = nachUnten.getText().toString();
+            runter=Double.parseDouble(nachUntenString);
     }
 
-    public int getRunter(){
+    public double getRunter(){
         return runter;
     }
 
     // helper methods
     int hikingTime;
     public void getTime(View v){
-        setGesamtStrecke();
-        setHoch();
-        setRunter();
+        EditText total = findViewById(R.id.streckenLaenge);
+        EditText nachOben = findViewById(R.id.nach_oben);
+        EditText nachUnten = findViewById(R.id.nach_unten);
+        if(checkInput(total, nachOben, nachUnten)){
+            Toast.makeText(getApplicationContext(),"Bitte alle Felder ausfüllen!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        setGesamtStrecke(total);
+        setHoch(nachOben);
+        setRunter(nachUnten);
         double hikingTimeUp;
         double hikingTimeFlat;
         double hikingTimeDown;
@@ -83,11 +92,27 @@ public class plan_hiking extends AppCompatActivity {
     }
 
     public void getUnits(){
+        unitText = (TextView) findViewById(R.id.zeit_Einheit);
+        //if(check == false){
+         //   unitText.setText("bitte Zahlen eingeben!");
+        //}
         int hikingHours = hikingTime/60;
         int hikingMinutes = hikingTime%60;
-        unitText = (TextView) findViewById(R.id.zeit_Einheit);
         unitText.setText(Integer.toString(hikingHours) + " h  " + Integer.toString(hikingMinutes)+ " min");
     }
+
+    public boolean checkInput(EditText a, EditText b, EditText c){
+        String s = a.getText().toString();
+        String v = b.getText().toString();
+        String w = c.getText().toString();
+        if(s.isEmpty() || v.isEmpty() || w.isEmpty()) {
+            return true;  // positive oder neg ganze Zahl
+        }
+        return false;
+    }
+
+
+
 
 }
 

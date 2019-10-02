@@ -52,8 +52,8 @@ public class EditProfile extends AppCompatActivity {
         EditText allergies = findViewById(R.id.edit_allergies);
         allergies.setText(profile.getAllergies());
 
-        Spinner niveau = findViewById(R.id.edit_select_level);
-        niveau.setSelection(profile.fitnessToInt());
+        //Spinner niveau = findViewById(R.id.edit_select_level);
+        //niveau.setSelection(profile.fitnessToInt());
 
         // insert contacts into edit screen
         LinearLayout emergencyContactsLayout = findViewById(R.id.edit_current_contacts);
@@ -92,8 +92,8 @@ public class EditProfile extends AppCompatActivity {
         EditText medication = findViewById(R.id.edit_medication);
         profile.setMedication(medication.getText().toString());
 
-        Spinner niveau = findViewById(R.id.edit_select_level);
-        profile.setFitness(profile.intToFitness(niveau.getSelectedItemPosition()));
+       // Spinner niveau = findViewById(R.id.edit_select_level);
+        //profile.setFitness(profile.intToFitness(niveau.getSelectedItemPosition()));
 
         // write values to database
         Log.d("EditProfile", "name: " + profile.getSurname());
