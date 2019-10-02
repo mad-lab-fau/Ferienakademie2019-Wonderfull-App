@@ -60,8 +60,8 @@ public class EditProfile extends AppCompatActivity {
         EditText allergies = findViewById(R.id.edit_allergies);
         allergies.setText(profile.getAllergies());
 
-        //Spinner niveau = findViewById(R.id.edit_select_level);
-        //niveau.setSelection(profile.fitnessToInt());
+        Spinner niveau = findViewById(R.id.edit_select_level);
+        niveau.setSelection(profile.fitnessToInt());
 
         // insert contacts into edit screen
         loadContacts();
@@ -147,8 +147,8 @@ public class EditProfile extends AppCompatActivity {
         EditText medication = findViewById(R.id.edit_medication);
         profile.setMedication(medication.getText().toString());
 
-       // Spinner niveau = findViewById(R.id.edit_select_level);
-        //profile.setFitness(profile.intToFitness(niveau.getSelectedItemPosition()));
+        Spinner niveau = findViewById(R.id.edit_select_level);
+        profile.setFitness(profile.intToFitness(niveau.getSelectedItemPosition()));
 
         // write values to database
         profileDB.setProfile(profile);
@@ -160,11 +160,17 @@ public class EditProfile extends AppCompatActivity {
             TableRow tr = (TableRow) tl.getChildAt(0);
             EditText et = (EditText) tr.getChildAt(1);
             Contact contact = new Contact();
-            contact.setName(et.getText().toString());
+            String text = et.getText().toString();
+
+            contact.setName(text);
 
             tr = (TableRow) tl.getChildAt(1);
             et = (EditText) tr.getChildAt(1);
-            contact.setPhone(et.getText().toString());
+            text = et.getText().toString();
+            if (text.isEmpty()){
+                continue;
+            }
+            contact.setPhone(text);
 
             profileDB.insertContact(contact);
 
@@ -182,27 +188,29 @@ public class EditProfile extends AppCompatActivity {
         TableRow contactNameRow = new TableRow(this);
         TextView contactName = new TextView(this);
         contactName.setText("Name: ");
-        contactName.setTextSize(20);
+        contactName.setTextAppearance(R.style.TextAppearance_AppCompat_Large);
         contactName.setPadding(10, 10, 10, 10);
         contactNameRow.addView(contactName);
 
         EditText editContactName = new EditText(this);
-        editContactName.setTextSize(20);
         editContactName.setMaxLines(1);
+        editContactName.setTextAppearance(R.style.TextAppearance_AppCompat_Large);
+        editContactName.setPadding(0,0,0,10);
         contactNameRow.addView(editContactName);
         newContactTable.addView(contactNameRow);
 
         TableRow contactPhoneRow = new TableRow(this);
         TextView contactPhone = new TextView(this);
         contactPhone.setText("Telefonnummer: ");
-        contactPhone.setTextSize(20);
+        contactPhone.setTextAppearance(R.style.TextAppearance_AppCompat_Large);
         contactPhone.setPadding(10,10,10,10);
         contactPhoneRow.addView(contactPhone);
 
         EditText editContactPhone = new EditText(this);
-        editContactPhone.setTextSize(20);
         editContactPhone.setMaxLines(1);
+        editContactPhone.setPadding(0,0,0,10);
         editContactPhone.setInputType(InputType.TYPE_CLASS_NUMBER);
+        editContactPhone.setTextAppearance(R.style.TextAppearance_AppCompat_Large);
         contactPhoneRow.addView(editContactPhone);
         newContactTable.addView(contactPhoneRow);
 
@@ -214,7 +222,7 @@ public class EditProfile extends AppCompatActivity {
     }
 
     public void removeContact(View v){
-        
+
         int id = v.getId();
         Contact contact = new Contact();
         contact.setId(id);

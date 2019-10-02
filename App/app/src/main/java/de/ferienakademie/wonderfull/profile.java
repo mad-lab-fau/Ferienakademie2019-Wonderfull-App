@@ -6,9 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
+
+import java.util.List;
 
 public class profile extends AppCompatActivity {
 
@@ -41,6 +46,28 @@ public class profile extends AppCompatActivity {
         TextView level = findViewById(R.id.profile_level);
         level.setText(profile.getFitness());
 
+
+        TableLayout contactLayout = findViewById(R.id.profile_contacts);
+        List<Contact> contacts = profileDB.getContacts();
+
+        for(Contact c: contacts){
+            TableRow contactRow = new TableRow(this);
+            TextView contactName = new TextView(this);
+            contactName.setText(c.getName() + ":");
+            contactName.setPadding(10,10,10,10);
+            contactName.setTextAppearance(R.style.TextAppearance_AppCompat_Large);
+
+            contactRow.addView(contactName);
+
+            TextView contactPhone = new TextView(this);
+            contactPhone.setText(c.getPhone());
+            contactPhone.setPadding(0,10,10,10);
+            contactPhone.setTextAppearance(R.style.TextAppearance_AppCompat_Large);
+
+            contactRow.addView(contactPhone);
+
+            contactLayout.addView(contactRow);
+        }
 
 
 
