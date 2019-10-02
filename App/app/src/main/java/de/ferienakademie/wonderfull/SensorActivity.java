@@ -100,6 +100,8 @@ public class SensorActivity extends AppCompatActivity implements OnStreamingFoot
 
     public void startStreaming() {
         mServiceManager.sendStartStreaming(mConnectedSensors);
+        Intent hikeIntent = new Intent(this, HikeMainscreen.class);
+        startActivity(hikeIntent);
     }
 
     public void stopStreaming() {
@@ -257,6 +259,7 @@ public class SensorActivity extends AppCompatActivity implements OnStreamingFoot
     public void onSensorConnected(AbstractSensor sensor) {
         mSensorEventGenerator.broadcastStateEvent(sensor, SensorState.CONNECTED);
         mConnectedSensors.add(sensor);
+        startStreaming();
         if (sensor instanceof NilsPodSensor) {
             ((NilsPodSensor) sensor).updateRtc();
         }
