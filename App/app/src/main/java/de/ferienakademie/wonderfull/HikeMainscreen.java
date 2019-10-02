@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -91,6 +93,39 @@ public class HikeMainscreen extends AppCompatActivity {
         switchEnergyLevel(energy_bar, energy, energy_text, break_text);
 
         switchDrinkStatus(drink_bar, drop, drink_text);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case (R.id.menu_emergency):
+                Intent mainIntent = new Intent(this, EmergencyActivity.class);
+                startActivity(mainIntent);
+                return true;
+            case (R.id.menu_profile):
+                Intent profilIntent = new Intent(this, profile.class);
+                startActivity(profilIntent);
+                return true;
+            case (R.id.menu_hike):
+                Intent hikeIntent = new Intent(this, HikeMainscreen.class);
+                startActivity(hikeIntent);
+                return true;
+            case R.id.menu_sensor:
+                startActivity(new Intent(this, SensorActivity.class));
+                return true;
+            case R.id.menu_plots:
+                startActivity(new Intent(this, Graphen.class));
+                return true;
+            default:
+                return false;
+        }
     }
 
     public void switchEnergyLevel(View energy_bar, ImageView energy, TextView energy_text, TextView break_text){
