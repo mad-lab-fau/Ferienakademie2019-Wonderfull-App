@@ -7,10 +7,17 @@
  */
 package de.ferienakademie.wonderfull.service;
 
+import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Binder;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
@@ -42,7 +49,10 @@ import de.fau.sensorlib.sensors.Recordable;
 import de.fau.sensorlib.sensors.Resettable;
 import de.fau.sensorlib.sensors.logging.Session;
 import de.fau.sensorlib.sensors.logging.SessionDownloader;
+import de.ferienakademie.wonderfull.ActivityTracker;
+import de.ferienakademie.wonderfull.ActivityTrackingCallback;
 import de.ferienakademie.wonderfull.HeightChangeCallback;
+import de.ferienakademie.wonderfull.LocationSampler;
 import de.ferienakademie.wonderfull.OnFallDetectionCallback;
 import de.ferienakademie.wonderfull.StepCountCallback;
 import de.ferienakademie.wonderfull.StepCounter;
@@ -93,31 +103,39 @@ public class BleService extends Service {
     private ArrayList<Double> acc_yBuffer = new ArrayList<>();
     private ArrayList<Double> acc_zBuffer = new ArrayList<>();
 
-    public static void registerStepCounterCallback(StepCountCallback callback)
-    {
+    public static void registerStepCounterCallback(StepCountCallback callback) {
         stepCountCallbacks.add(callback);
     }
 
     private static HashSet<StepCountCallback> stepCountCallbacks = new HashSet<>();
 
-    public static boolean deregisterStepCounterCallback(StepCountCallback callback)
-    {
+    public static boolean deregisterStepCounterCallback(StepCountCallback callback) {
         return stepCountCallbacks.remove(callback);
     }
 
-    public static void registerHeightChangedCallback(HeightChangeCallback callback)
-    {
+    public static void registerHeightChangedCallback(HeightChangeCallback callback) {
         heightChangeCallbacks.add(callback);
     }
 
-    public static boolean deregisterHeightChangedCallback(HeightChangeCallback callback)
-    {
-         return heightChangeCallbacks.remove(callback);
+    public static boolean deregisterHeightChangedCallback(HeightChangeCallback callback) {
+        return heightChangeCallbacks.remove(callback);
     }
 
     private static HashSet<HeightChangeCallback> heightChangeCallbacks = new HashSet<>();
 
+    public static void registerActivityTrackingCallback(ActivityTrackingCallback callback) {
+        activityTrackingCallbacks.add(callback);
+    }
+
+    public static boolean deregisterActivityTrackingCallback(ActivityTrackingCallback callback) {
+        return activityTrackingCallbacks.remove(callback);
+    }
+
+    private static HashSet<ActivityTrackingCallback> activityTrackingCallbacks = new HashSet<>();
+
+    private LocationSampler locationSampler;
     private StepCounter stepCounter = new StepCounter();
+    private ActivityTracker activityTracker = new ActivityTracker(8);
 
     private ArrayList<Entry> heightHistory = new ArrayList<>();
     private int stepCounterWindowIndex = 0;
@@ -149,8 +167,7 @@ public class BleService extends Service {
 
         private int counter = 0;
 
-        public double computeHeight(double baro)
-        {
+        public double computeHeight(double baro) {
             return 44330 * (1.0 - (Math.pow((baro / 1013.0), 0.1903)));
         }
 
@@ -177,8 +194,7 @@ public class BleService extends Service {
             //Log.d("SensorActivty", "Fs: " + Double.toString(fs));
             window_size = (int) (8.2 * fs);
             stepCounterWindowSize = (int) (1.0 * fs);
-            if (timeBuffer == null || stepCounterWindowSize != timeBuffer.length)
-            {
+            if (timeBuffer == null || stepCounterWindowSize != timeBuffer.length) {
                 stepCounterWindowIndex = 0;
                 timeBuffer = new double[stepCounterWindowSize];
                 accBufferX = new double[stepCounterWindowSize];
@@ -211,9 +227,9 @@ public class BleService extends Service {
                 counter = acc_xBuffer.size();
             } else {
                 baroBuffer.add(df.getBarometricPressure());
-                acc_xBuffer.add(df.getAccelX()/2048);
-                acc_yBuffer.add(df.getAccelY()/2048);
-                acc_zBuffer.add(df.getAccelZ()/2048);
+                acc_xBuffer.add(df.getAccelX() / 2048);
+                acc_yBuffer.add(df.getAccelY() / 2048);
+                acc_zBuffer.add(df.getAccelZ() / 2048);
                 counter++;
                 //Log.d("SensorActivity", Integer.toString(acc_xBuffer.size()));
 
@@ -225,21 +241,25 @@ public class BleService extends Service {
             barometerBuffer[stepCounterWindowIndex] = df.getBarometricPressure();
             timeBuffer[stepCounterWindowIndex] = System.currentTimeMillis() / 1000.0;
 
-            if (++stepCounterWindowIndex == stepCounterWindowSize)
-            {
+            if (++stepCounterWindowIndex == stepCounterWindowSize) {
                 stepCounter.process(accBufferX, accBufferY, accBufferZ, timeBuffer);
 
-                for (StepCountCallback callback : stepCountCallbacks)
-                {
+                for (StepCountCallback callback : stepCountCallbacks) {
                     callback.onStepsChanged(stepCounter);
+                }
+
+                LocationSampler.Samples samples = locationSampler.extractSamples();
+                ActivityTracker.WindowStats stats = activityTracker.process(barometerBuffer, timeBuffer, samples.longitude, samples.latitude, samples.time);
+
+                for (ActivityTrackingCallback callback : activityTrackingCallbacks) {
+                    callback.onActivity(stats, activityTracker);
                 }
 
                 double baro = Arrays.stream(barometerBuffer).average().getAsDouble();
                 double time = 0.5 * (timeBuffer[timeBuffer.length - 1] + timeBuffer[0]);
-                heightHistory.add(new Entry((float)++timeIndex, (float)computeHeight(baro)));
+                heightHistory.add(new Entry((float) ++timeIndex, (float) computeHeight(baro)));
 
-                for (HeightChangeCallback callback : heightChangeCallbacks)
-                {
+                for (HeightChangeCallback callback : heightChangeCallbacks) {
                     callback.onHeightChanged(heightHistory);
                 }
 
@@ -579,12 +599,24 @@ public class BleService extends Service {
         }
     }
 
+
+    @TargetApi(23)
     @Override
     public IBinder onBind(Intent intent) {
         Log.d(TAG, "onBind!");
 
         mAttachedSensors.clear();
         mInternalHandler = new InternalHandler(mAttachedSensors);
+
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationSampler = new LocationSampler();
+        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "LOCATION PERMISSION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", Toast.LENGTH_LONG);
+        }
+        else
+        {
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5.0f, locationSampler);
+        }
 
         return mBinder;
     }
