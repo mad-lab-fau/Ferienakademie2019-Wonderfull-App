@@ -64,12 +64,12 @@ public class ProfileWrapper extends SQLiteOpenHelper {
         //onCreate(sqLiteDatabase);
     }
 
-    public void insertContact(String name, String phone){
+    public void insertContact(Contact contact){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put("name", name);
-        values.put("phone", phone);
+        values.put("name", contact.getName());
+        values.put("phone", contact.getPhone());
         db.insert(EMERGENCY_TABLE_NAME, null, values);
         db.close();
 

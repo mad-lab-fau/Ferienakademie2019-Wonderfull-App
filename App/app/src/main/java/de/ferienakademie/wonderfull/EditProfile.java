@@ -4,8 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -13,11 +18,13 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EditProfile extends AppCompatActivity {
 
     private ProfileWrapper profileDB;
+    private List<TableLayout> addedContacts = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,12 +65,43 @@ public class EditProfile extends AppCompatActivity {
         niveau.setSelection(profile.fitnessToInt());
 
         // insert contacts into edit screen
-        LinearLayout emergencyContactsLayout = findViewById(R.id.edit_current_contacts);
-        for(Contact c: contacts){
-            TextView contactView = new TextView(this);
-            contactView.setText(c.getName());
-            emergencyContactsLayout.addView(contactView);
+
+        if(!contacts.isEmpty()){
+            LinearLayout emergencyContactsLayout = findViewById(R.id.edit_current_contacts);
+            TableLayout emergencyContactsTable = new TableLayout(this);
+            emergencyContactsTable.setColumnStretchable(0, true);
+            for(Contact c: contacts){
+                TableRow tr = new TableRow(this);
+
+                TextView contactView = new TextView(this);
+                contactView.setTextSize(20);
+                contactView.setText(c.getName());
+                tr.addView(contactView);
+
+
+
+                Button minus = new Button(this);
+                int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30, getResources().getDisplayMetrics());
+                int margin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics());
+                TableRow.LayoutParams params = new TableRow.LayoutParams(width, width);
+                params.setMargins(margin,margin, 0, margin);
+                minus.setLayoutParams(params);
+                minus.setClickable(true);
+                minus.setOnClickListener(this::removeContact);
+                minus.setBackground(getResources().getDrawable(R.drawable.round_button));
+                minus.setTextColor(getResources().getColor(R.color.white));
+                minus.setTextSize(20);
+                minus.setText(getResources().getText(R.string.edit_minus));
+                minus.setId(c.getId());
+                minus.setGravity(Gravity.CENTER);
+                tr.addView(minus);
+                emergencyContactsTable.addView(tr);
+
+            }
+
+            emergencyContactsLayout.addView(emergencyContactsTable);
         }
+
 
 
     }
@@ -98,8 +136,25 @@ public class EditProfile extends AppCompatActivity {
         profile.setFitness(profile.intToFitness(niveau.getSelectedItemPosition()));
 
         // write values to database
-        Log.d("EditProfile", "name: " + profile.getSurname());
         profileDB.setProfile(profile);
+
+
+
+        // get possibly new emergency contacts
+        for(TableLayout tl:addedContacts){
+            TableRow tr = (TableRow) tl.getChildAt(0);
+            EditText et = (EditText) tr.getChildAt(1);
+            Contact contact = new Contact();
+            contact.setName(et.getText().toString());
+
+            tr = (TableRow) tl.getChildAt(1);
+            et = (EditText) tr.getChildAt(1);
+            contact.setPhone(et.getText().toString());
+
+            profileDB.insertContact(contact);
+
+
+        }
 
         startActivity(new Intent(this, profile.class));
     }
@@ -107,10 +162,44 @@ public class EditProfile extends AppCompatActivity {
     public void addContact(View v){
         LinearLayout emergencyContactsLayout = findViewById(R.id.edit_current_contacts);
         TableLayout newContactTable = new TableLayout(this);
+        newContactTable.setStretchAllColumns(true);
 
         TableRow contactNameRow = new TableRow(this);
         TextView contactName = new TextView(this);
         contactName.setText("Name: ");
+        contactName.setTextSize(20);
+        contactName.setPadding(10, 10, 10, 10);
+        contactNameRow.addView(contactName);
+
+        EditText editContactName = new EditText(this);
+        editContactName.setTextSize(20);
+        editContactName.setMaxLines(1);
+        contactNameRow.addView(editContactName);
+        newContactTable.addView(contactNameRow);
+
+        TableRow contactPhoneRow = new TableRow(this);
+        TextView contactPhone = new TextView(this);
+        contactPhone.setText("Telefonnummer: ");
+        contactPhone.setTextSize(20);
+        contactPhone.setPadding(10,10,10,10);
+        contactPhoneRow.addView(contactPhone);
+
+        EditText editContactPhone = new EditText(this);
+        editContactPhone.setTextSize(20);
+        editContactPhone.setMaxLines(1);
+        editContactPhone.setInputType(InputType.TYPE_CLASS_NUMBER);
+        contactPhoneRow.addView(editContactPhone);
+        newContactTable.addView(contactPhoneRow);
+
+
+        emergencyContactsLayout.addView(newContactTable);
+
+        addedContacts.add(newContactTable);
+
+    }
+
+    public void removeContact(View v){
+        Log.d("EditProfile", "remove contact");
     }
 
 }
