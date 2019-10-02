@@ -118,4 +118,8 @@
     <string name="y_axis_title">Höhe [m]</string>
     <string name="x_axis_title">Zeit [s]</string>
 
+    <string name="title_activity_splahscreen">Splahscreen</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
 </resources>
