@@ -34,7 +34,8 @@
                         android:layout_height="wrap_content"
                         android:padding="10dp"
                         android:text="@string/vorname"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textStyle="bold"/>
 
                     <EditText
                         android:id="@+id/edit_surname"
@@ -53,7 +54,8 @@
                         android:layout_height="wrap_content"
                         android:padding="10dp"
                         android:text="@string/name"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textStyle="bold"/>
 
                     <EditText
                         android:id="@+id/edit_name"
@@ -73,7 +75,8 @@
                         android:layout_height="wrap_content"
                         android:padding="10dp"
                         android:text="@string/gr_e_m"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textStyle="bold"/>
 
                     <EditText
                         android:id="@+id/edit_size"
@@ -95,7 +98,8 @@
                         android:layout_height="wrap_content"
                         android:padding="10dp"
                         android:text="@string/gewicht_kg"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textStyle="bold"/>
 
                     <EditText
                         android:id="@+id/edit_weight"
@@ -121,7 +125,8 @@
                         android:paddingTop="10dp"
                         android:paddingRight="10dp"
                         android:text="@string/vorerkrankungen"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textStyle="bold"/>
                 </TableRow>
 
                 <TableRow>
@@ -147,7 +152,8 @@
                         android:paddingTop="10dp"
                         android:paddingRight="10dp"
                         android:text="@string/medikamente"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textStyle="bold"/>
 
                 </TableRow>
 
@@ -175,7 +181,8 @@
                         android:paddingTop="10dp"
                         android:paddingRight="10dp"
                         android:text="@string/allergien"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textStyle="bold"/>
 
                 </TableRow>
 
@@ -203,7 +210,8 @@
                         android:paddingTop="10dp"
                         android:paddingRight="10dp"
                         android:text="@string/edit_level"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textStyle="bold"/>
                 </TableRow>
 
                 <TableRow>
@@ -227,7 +235,8 @@
                         android:layout_span="2"
                         android:padding="10dp"
                         android:text="@string/edit_contacts"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textStyle="bold"/>
 
                     <Button
                         android:id="@+id/edit_add_contact"
@@ -257,6 +266,12 @@
 
                 <TableRow android:paddingTop="20sp">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
                     <Button
                         android:id="@+id/edit_save"
                         android:layout_width="wrap_content"
@@ -267,11 +282,7 @@
                         android:text="@string/edit_save"
                         android:textColor="@color/white" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
                 </TableRow>
 
             </TableLayout>

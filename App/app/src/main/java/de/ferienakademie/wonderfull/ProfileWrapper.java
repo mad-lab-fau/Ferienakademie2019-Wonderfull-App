@@ -41,11 +41,14 @@ public class ProfileWrapper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(createTable);
 
         // insert some values which are later updated
-
+        ContentValues values = new ContentValues();
+        values.put("name","Wonderfull");
+        values.put("phone", "12345");
+        sqLiteDatabase.insert(EMERGENCY_TABLE_NAME, null, values);
 
         ProfileValues profile = new ProfileValues();
 
-        ContentValues values = new ContentValues();
+        values = new ContentValues();
         values.put("id", ID);
         values.put(ProfileValues.SURNAME, profile.getSurname());
         values.put(ProfileValues.NAME, profile.getName());

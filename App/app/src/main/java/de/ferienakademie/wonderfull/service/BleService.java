@@ -7,6 +7,7 @@
  */
 package de.ferienakademie.wonderfull.service;
 
+import android.annotation.TargetApi;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
@@ -16,7 +17,11 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.data.Entry;
+
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -37,7 +42,10 @@ import de.fau.sensorlib.sensors.Recordable;
 import de.fau.sensorlib.sensors.Resettable;
 import de.fau.sensorlib.sensors.logging.Session;
 import de.fau.sensorlib.sensors.logging.SessionDownloader;
+import de.ferienakademie.wonderfull.HeightChangeCallback;
 import de.ferienakademie.wonderfull.OnFallDetectionCallback;
+import de.ferienakademie.wonderfull.StepCountCallback;
+import de.ferienakademie.wonderfull.StepCounter;
 
 import static de.fau.sensorlib.sensors.NilsPodSensor.*;
 
@@ -85,6 +93,42 @@ public class BleService extends Service {
     private ArrayList<Double> acc_yBuffer = new ArrayList<>();
     private ArrayList<Double> acc_zBuffer = new ArrayList<>();
 
+    public static void registerStepCounterCallback(StepCountCallback callback)
+    {
+        stepCountCallbacks.add(callback);
+    }
+
+    private static HashSet<StepCountCallback> stepCountCallbacks = new HashSet<>();
+
+    public static boolean deregisterStepCounterCallback(StepCountCallback callback)
+    {
+        return stepCountCallbacks.remove(callback);
+    }
+
+    public static void registerHeightChangedCallback(HeightChangeCallback callback)
+    {
+        heightChangeCallbacks.add(callback);
+    }
+
+    public static boolean deregisterHeightChangedCallback(HeightChangeCallback callback)
+    {
+         return heightChangeCallbacks.remove(callback);
+    }
+
+    private static HashSet<HeightChangeCallback> heightChangeCallbacks = new HashSet<>();
+
+    private StepCounter stepCounter = new StepCounter();
+
+    private ArrayList<Entry> heightHistory = new ArrayList<>();
+    private int stepCounterWindowIndex = 0;
+    private int stepCounterWindowSize;
+    private double[] accBufferX;
+    private double[] accBufferY;
+    private double[] accBufferZ;
+    private double[] timeBuffer;
+    private double[] barometerBuffer;
+    private int timeIndex = 0;
+
     private boolean fall = false;
     double height = 0;
 
@@ -105,6 +149,10 @@ public class BleService extends Service {
 
         private int counter = 0;
 
+        public double computeHeight(double baro)
+        {
+            return 44330 * (1.0 - (Math.pow((baro / 1013.0), 0.1903)));
+        }
 
         public double computeMean(ArrayList<Double> buffer) {
             int zähler = 0;
@@ -118,6 +166,7 @@ public class BleService extends Service {
             return mean;
         }
 
+        @TargetApi(24)
         @Override
         public void onNewData(SensorDataFrame data) {
             // TODO data from the sensor enters the service HERE! => here you can implement
@@ -127,12 +176,21 @@ public class BleService extends Service {
             fs = df.getOriginatingSensor().getSamplingRate();
             //Log.d("SensorActivty", "Fs: " + Double.toString(fs));
             window_size = (int) (8.2 * fs);
-
+            stepCounterWindowSize = (int) (1.0 * fs);
+            if (timeBuffer == null || stepCounterWindowSize != timeBuffer.length)
+            {
+                stepCounterWindowIndex = 0;
+                timeBuffer = new double[stepCounterWindowSize];
+                accBufferX = new double[stepCounterWindowSize];
+                accBufferY = new double[stepCounterWindowSize];
+                accBufferZ = new double[stepCounterWindowSize];
+                barometerBuffer = new double[stepCounterWindowSize];
+            }
 
             if (counter >= window_size) {
                 // call method to compute mean here
                 double mean = computeMean(baroBuffer);
-                height = 44330 * (1.0 - (Math.pow((mean / 1013.0), 0.1903)));
+                height = computeHeight(mean);
 
                 mFallDetectionCallback.onNewHeightData(df.getTimestamp(), height);
                 //Log.e(TAG, "class: " + acc_xBuffer.to.getClass());
@@ -159,6 +217,33 @@ public class BleService extends Service {
                 counter++;
                 //Log.d("SensorActivity", Integer.toString(acc_xBuffer.size()));
 
+            }
+
+            accBufferX[stepCounterWindowIndex] = df.getAccelX();
+            accBufferY[stepCounterWindowIndex] = df.getAccelY();
+            accBufferZ[stepCounterWindowIndex] = df.getAccelZ();
+            barometerBuffer[stepCounterWindowIndex] = df.getBarometricPressure();
+            timeBuffer[stepCounterWindowIndex] = System.currentTimeMillis() / 1000.0;
+
+            if (++stepCounterWindowIndex == stepCounterWindowSize)
+            {
+                stepCounter.process(accBufferX, accBufferY, accBufferZ, timeBuffer);
+
+                for (StepCountCallback callback : stepCountCallbacks)
+                {
+                    callback.onStepsChanged(stepCounter);
+                }
+
+                double baro = Arrays.stream(barometerBuffer).average().getAsDouble();
+                double time = 0.5 * (timeBuffer[timeBuffer.length - 1] + timeBuffer[0]);
+                heightHistory.add(new Entry((float)++timeIndex, (float)computeHeight(baro)));
+
+                for (HeightChangeCallback callback : heightChangeCallbacks)
+                {
+                    callback.onHeightChanged(heightHistory);
+                }
+
+                stepCounterWindowIndex = 0;
             }
 
             // send sensor data to activity

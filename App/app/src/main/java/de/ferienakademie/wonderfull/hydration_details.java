@@ -15,7 +15,7 @@ public class hydration_details extends AppCompatActivity {
         String drink_level = getIntent().getStringExtra("DRINK_STATUS");
 
         TextView verlust_p = (TextView) findViewById(R.id.verlust_p);
-        verlust_p.append("gering");
+        verlust_p.append(getString(R.string.loss_of_water_low));
 
         TextView trinken_p = (TextView) findViewById(R.id.trinken_p);
         trinken_p.append("1,5" + " L");
