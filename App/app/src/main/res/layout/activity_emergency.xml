@@ -34,7 +34,8 @@
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:text="@string/emergency_fine"
-            android:textSize="22sp"
+            android:textColor="@color/white"
+            android:textAppearance="@style/Headline"
             android:background="@drawable/green_button_round"
             android:onClick="fineButtonClick"/>
 
@@ -48,8 +49,9 @@
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:text="@string/emergency_sos"
-            android:drawableStart="@drawable/sos"
-            android:textSize="30sp"
+            android:drawableStart="@drawable/ambulance"
+            android:textColor="@color/white"
+            android:textAppearance="@style/Headline"
             android:background="@drawable/red_button_round"
             android:onClick="sosButtonClick"/>
 
