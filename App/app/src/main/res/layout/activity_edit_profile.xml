@@ -53,7 +53,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
-                        android:text="@string/name"
+                        android:text="@string/nachname"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         android:textStyle="bold"/>
 

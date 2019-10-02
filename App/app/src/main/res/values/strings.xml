@@ -34,7 +34,8 @@
     <string name="profil_bearbeiten">Profil bearbeiten</string>
     <string name="profilbild_hochladen">Profilbild hochladen</string>
     <string name="vorname">Vorname:</string>
-    <string name="name">Nachname:</string>
+    <string name="nachname">Nachname:</string>
+    <string name="name"> Name: </string>
     <string name="gr_e_m">Größe [m]:</string>
     <string name="gewicht_kg">Gewicht [kg]:</string>
     <string name="vorerkrankungen">Erkrankungen und Befunde:</string>

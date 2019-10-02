@@ -45,6 +45,7 @@
     <string name="medikamente">Medication:</string>
     <string name="menu_emergency">Emergency</string>
     <string name="notfallkontakte">Emergency Contacts:</string>
+    <string name="name"> Name: </string>
     <string name="pace">Velocity:</string>
     <string name="pause">Break in:</string>
     <string name="profil_bearbeiten">Edit Profile:</string>
@@ -78,7 +79,7 @@
         <item>Occasional Hiker</item>
         <item>Hiking Beginner</item>
     </string-array>
-    <string name="name">Last Name:</string>
+    <string name="nachname">Last Name:</string>
     <string name="plan_toast">Please fill in all fields!</string>
     <string name="loss_of_water_low">low</string>
     <string name="ueberschrift_graph">Elevation Profile</string>

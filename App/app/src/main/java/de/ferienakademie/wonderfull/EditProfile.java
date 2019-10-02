@@ -8,8 +8,8 @@ import android.text.InputType;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -61,6 +61,9 @@ public class EditProfile extends AppCompatActivity {
         allergies.setText(profile.getAllergies());
 
         Spinner niveau = findViewById(R.id.edit_select_level);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item, getResources().getStringArray(R.array.level_spinner));
+        niveau.setAdapter(adapter);
+
         niveau.setSelection(profile.fitnessToInt());
 
         // insert contacts into edit screen
