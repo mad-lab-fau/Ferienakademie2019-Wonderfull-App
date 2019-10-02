@@ -64,8 +64,8 @@ public class SensorActivity extends AppCompatActivity implements OnStreamingFoot
         mStatusBar = findViewById(R.id.status_bar);
         mSensorInfoBar = findViewById(R.id.sensor_info_bar);
 
-        mBaroTextView = findViewById(R.id.tv_barometer);
-        mBaroTextView.setText(getString(R.string.string_barometer, mDf.format(0.0)));
+       // mBaroTextView = findViewById(R.id.tv_barometer);
+       // mBaroTextView.setText(getString(R.string.string_barometer, mDf.format(0.0)));
 
         mStreamingFooter = findViewById(R.id.streaming_footer);
         mStreamingFooter.setOnStreamingFooterClickListener(this);
