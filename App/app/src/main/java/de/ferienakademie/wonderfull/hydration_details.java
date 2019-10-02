@@ -12,7 +12,7 @@ public class hydration_details extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hydration_details);
 
-        String drink_level = getIntent().getStringExtra("ENERGY_LEVEL");
+        String drink_level = getIntent().getStringExtra("DRINK_STATUS");
 
         TextView verlust_p = (TextView) findViewById(R.id.verlust_p);
         verlust_p.append("gering");
@@ -28,6 +28,5 @@ public class hydration_details extends AppCompatActivity {
 
         this.setTitle(getResources().getString(R.string.drinklevel_headline) + ": " + drink_level + "%");
     }
-
 
 }
