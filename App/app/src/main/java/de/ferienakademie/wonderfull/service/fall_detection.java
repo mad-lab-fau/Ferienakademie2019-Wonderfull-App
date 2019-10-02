@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class fall_detection {
     public static boolean fall_detections(Double[] acc_x, Double[] acc_y, Double[] acc_z, double fs) {
         //Log.d("detect fall", acc_x.toString());
-        double peak_thr = 9.0;
+        double peak_thr = 8.0;
         int time_diff = (int) (2 * fs);
         int pause = (int) (0.5 * fs);
         int time_b = (int) (1.5 * fs);
@@ -22,7 +22,7 @@ public class fall_detection {
         }
 
         // intervalle für winkel
-        int start_engel = (int) Math.toRadians(60);
+        int start_engel = (int) Math.toRadians(45);
         int stop_engel = (int) Math.toRadians(120);
 
         class Event {

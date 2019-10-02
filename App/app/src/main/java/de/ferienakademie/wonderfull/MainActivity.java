@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         playClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, HikeMainscreen.class));
+                startActivity(new Intent(MainActivity.this, SensorActivity.class));
             }
         });
 
@@ -74,10 +74,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case (R.id.menu_profile):
                 Intent profilIntent = new Intent(this, profile.class);
                 startActivity(profilIntent);
-                return true;
-            case (R.id.menu_hike):
-                Intent hikeIntent = new Intent(this, HikeMainscreen.class);
-                startActivity(hikeIntent);
                 return true;
             case R.id.menu_sensor:
                 startActivity(new Intent(this, SensorActivity.class));
