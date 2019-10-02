@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundGreen"
+    android:background="@color/white"
     tools:context=".plan_hiking">
+    <!--    android:background="@color/backgroundGreen"-->
 
 
     <TextView
@@ -53,10 +54,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.812" />
+        app:layout_constraintTop_toTopOf="@+id/imageButton"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
+
         android:id="@+id/streckenLaenge"
         android:layout_width="60dp"
         android:layout_height="40dp"
@@ -64,7 +66,7 @@
         android:layout_centerVertical="true"
         android:layout_gravity="bottom|center_horizontal"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="numberDecimal"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,7 +83,7 @@
         android:layout_centerVertical="true"
         android:layout_gravity="bottom|center_horizontal"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="numberDecimal"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -98,7 +100,7 @@
         android:layout_centerVertical="true"
         android:layout_gravity="bottom|center_horizontal"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="numberDecimal"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -120,30 +122,33 @@
         app:srcCompat="@drawable/distance_to_travel" />
 
 
-    <ImageButton
+    <Button
         android:id="@+id/imageButton"
         android:layout_width="48dp"
-        android:layout_height="43dp"
-        android:background="#E5F9E3"
+        android:layout_height="50dp"
         android:onClick="getTime"
-        android:scaleType="fitXY"
+        android:scaleType="fitCenter"
+        android:drawableTop="@drawable/calc_klein"
+        android:background="@color/white"
+        android:paddingTop="7dp"
+        android:paddingBottom="0dp"
+        android:adjustViewBounds="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.101"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.848"
-        app:srcCompat="@drawable/calculator" />
+       />
+
 
     <TextView
         android:id="@+id/zeit_Einheit"
-        android:layout_width="105dp"
-        android:layout_height="36dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.893" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/Wanderzeit"
+        app:layout_constraintStart_toStartOf="@+id/Wanderzeit"
+        app:layout_constraintTop_toBottomOf="@+id/Wanderzeit" />
 
     <ImageView
         android:id="@+id/rising"
@@ -168,5 +173,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.525"
         app:srcCompat="@drawable/down" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

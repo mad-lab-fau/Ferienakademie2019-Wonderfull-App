@@ -26,4 +26,8 @@ public class profile extends AppCompatActivity {
         startActivity(new Intent(this, EditProfile.class));
         return true;
     }
+
+    public void onBackpressed(){
+        startActivity(new Intent(this, MainActivity.class));
+    }
 }

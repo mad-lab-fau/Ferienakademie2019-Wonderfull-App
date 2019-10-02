@@ -36,7 +36,7 @@
     <string name="name">Name:</string>
     <string name="gr_e_m">Größe [m]:</string>
     <string name="gewicht_kg">Gewicht [kg]:</string>
-    <string name="vorerkrankungen">Erkrankungen &amp; Befunde:</string>
+    <string name="vorerkrankungen">Erkrankungen \nund Befunde:</string>
     <string name="medikamente">Medikation:</string>
     <string name="notafllkontakte">Notafllkontakte</string>
     <string name="tim">Tim</string>
@@ -54,13 +54,13 @@
     <string name="drink_bad">Bitte trinken!</string>
     <string name="group_good">Gruppe zusammen!</string>
     <string name="group_lost">Gruppe verloren!</string>
-    <string name="group_missing">Jemand fehlt!</string>
+    <string name="group_missing">Robert fehlt!</string>
 
     <string name="wanderung_planen">Wanderung planen</string>
     <string name="wanderung_starten">Wanderung starten</string>
     <string name="distanz">Distanz [km]:</string>
-    <string name="verticalDistance_upwards">Aufstieg [Hm]:</string>
-    <string name="verticalDistance_downwards">Abstieg [Hm]:</string>
+    <string name="verticalDistance_upwards">Aufstieg [m]:</string>
+    <string name="verticalDistance_downwards">Abstieg [m]:</string>
     <string name="berechneteWanderzeit">geschätzte Wanderzeit:</string>
     <string name="button_start">button_start</string>
     <string name="button_plan">button_plan</string>
@@ -84,6 +84,14 @@
     <string name="edit_save">Speichern</string>
     <string name="edit_plus">+</string>
     <string name="edit_minus">-</string>
+    <string name="edit_contacts">Notfallkontakte</string>
+    <string name="edit_level">Wanderniveau</string>
+
+    <string-array name="level_spinner">
+        <item>Profiwanderer</item>
+        <item>Gelegenheitswanderer</item>
+        <item>Anfängerwanderer</item>
+    </string-array>
 
     <string name="herzfrequenz">Herzfrequenz:</string>
     <string name="herzfrequenz_p"> </string>
@@ -97,7 +105,4 @@
     <string name="schritte_p"> </string>
     <string name="pause">Pause in:</string>
     <string name="pause_p"> </string>
-
-    <string name="energy_title">Energie-Level:</string>
-
 </resources>

@@ -79,10 +79,11 @@ public class BleService extends Service {
     private double fs;
     private int window_size;
 
-    private ArrayList<Double> baroBuffer = new ArrayList<>(100);
-    private ArrayList<Double> acc_xBuffer = new ArrayList<>(100);
-    private ArrayList<Double> acc_yBuffer = new ArrayList<>(100);
-    private ArrayList<Double> acc_zBuffer = new ArrayList<>(100);
+
+    private ArrayList<Double> baroBuffer = new ArrayList<>();
+    private ArrayList<Double> acc_xBuffer = new ArrayList<>();
+    private ArrayList<Double> acc_yBuffer = new ArrayList<>();
+    private ArrayList<Double> acc_zBuffer = new ArrayList<>();
 
     private boolean fall = false;
     double height = 0;
@@ -104,14 +105,16 @@ public class BleService extends Service {
 
         private int counter = 0;
 
+
         public double computeMean(ArrayList<Double> buffer) {
+            int zähler = 0;
             double mean = 0;
             for (int k = 0; k < buffer.size(); k++) {
                 mean += buffer.get(k);
-                counter++;
+                zähler++;
             }
 
-            mean = mean / counter;
+            mean = mean / zähler;
             return mean;
         }
 
@@ -122,33 +125,39 @@ public class BleService extends Service {
             NilsPodDataFrame df = (NilsPodDataFrame) data;
 
             fs = df.getOriginatingSensor().getSamplingRate();
+            //Log.d("SensorActivty", "Fs: " + Double.toString(fs));
             window_size = (int) (8.2 * fs);
 
 
-            if (counter == window_size) {
+            if (counter >= window_size) {
                 // call method to compute mean here
                 double mean = computeMean(baroBuffer);
                 height = 44330 * (1.0 - (Math.pow((mean / 1013.0), 0.1903)));
 
                 mFallDetectionCallback.onNewHeightData(df.getTimestamp(), height);
-
-                if (fall_detection.fall_detections((Double[]) acc_xBuffer.toArray(), (Double[]) acc_yBuffer.toArray(), (Double[]) acc_zBuffer.toArray(), fs)) {
+                //Log.e(TAG, "class: " + acc_xBuffer.to.getClass());
+                if (fall_detection.fall_detections((Double[]) acc_xBuffer.toArray(new Double[acc_xBuffer.size()]), (Double[]) acc_yBuffer.toArray(new Double[acc_xBuffer.size()]), (Double[]) acc_zBuffer.toArray(new Double[acc_xBuffer.size()]), fs)) {
                     mFallDetectionCallback.onFallDetected(System.currentTimeMillis());
-                }
 
+
+                }
+                //boolean falling = fall_detection.fall_detections((Double[]) acc_xBuffer.toArray(new Double[acc_xBuffer.size()]), (Double[]) acc_yBuffer.toArray(new Double[acc_xBuffer.size()]), (Double[]) acc_zBuffer.toArray(new Double[acc_xBuffer.size()]), fs);
+                //Log.d("detect fall", Boolean.toString(falling));
 
                 baroBuffer.subList(0, (int) (window_size / 2 + 1)).clear();
                 acc_xBuffer.subList(0, (int) (window_size / 2 + 1)).clear();
                 acc_yBuffer.subList(0, (int) (window_size / 2 + 1)).clear();
                 acc_zBuffer.subList(0, (int) (window_size / 2 + 1)).clear();
+                //Log.d("delete half of list", Integer.toString(acc_xBuffer.size()));
 
                 counter = acc_xBuffer.size();
             } else {
                 baroBuffer.add(df.getBarometricPressure());
-                acc_xBuffer.add(df.getAccelX());
-                acc_yBuffer.add(df.getAccelY());
-                acc_zBuffer.add(df.getAccelZ());
+                acc_xBuffer.add(df.getAccelX()/2048);
+                acc_yBuffer.add(df.getAccelY()/2048);
+                acc_zBuffer.add(df.getAccelZ()/2048);
                 counter++;
+                //Log.d("SensorActivity", Integer.toString(acc_xBuffer.size()));
 
             }
 

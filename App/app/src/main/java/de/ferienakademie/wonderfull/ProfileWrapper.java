@@ -5,43 +5,63 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import de.ferienakademie.wonderfull.Contact;
-import de.ferienakademie.wonderfull.ProfileValues;
-
 public class ProfileWrapper extends SQLiteOpenHelper {
 
-    private SQLiteDatabase profileDatabase;
-
-    private static final String DATABASE_NAME = "ProfileDatabase";
+    public static final String DATABASE_NAME = "ProfileDatabase.db";
     private static final String EMERGENCY_TABLE_NAME = "emergency_contacts";
     private static final String PROFILE_TABLE_NAME="profile";
+    private final String ID = "42";
 
     public ProfileWrapper(Context context){
         super(context, DATABASE_NAME, null, 1);
+
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String createTable = "CREATE TABLE " + EMERGENCY_TABLE_NAME + " (id INTEGER PRIMARY KEY AUTOINCREMENT," +
+        Log.d("ProfileWrapper", "onCreate!");
+
+        String createTable = "CREATE TABLE IF NOT EXISTS " + EMERGENCY_TABLE_NAME + " (id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "name TEXT, phone TEXT)";
         sqLiteDatabase.execSQL(createTable);
 
-        createTable = "CREATE TABLE " + PROFILE_TABLE_NAME + " (" + ProfileValues.SURNAME + " TEXT, " +
+        createTable = "CREATE TABLE IF NOT EXISTS " + PROFILE_TABLE_NAME + " ( id INTEGER PRIMARY KEY," + ProfileValues.SURNAME + " TEXT, " +
                 ProfileValues.NAME + " TEXT, " + ProfileValues.SIZE + " REAL, " + ProfileValues.WEIGHT + " REAL, " +
                 ProfileValues.DISEASES + " TEXT," + ProfileValues.MEDICATION + " TEXT, " + ProfileValues.ALLERGIES
                 + " TEXT," + ProfileValues.FITNESS + " TEXT );";
+
         sqLiteDatabase.execSQL(createTable);
+
+        // insert some values which are later updated
+
+
+        ProfileValues profile = new ProfileValues();
+
+        ContentValues values = new ContentValues();
+        values.put("id", ID);
+        values.put(ProfileValues.SURNAME, profile.getSurname());
+        values.put(ProfileValues.NAME, profile.getName());
+        values.put(ProfileValues.WEIGHT, profile.getWeight());
+        values.put(ProfileValues.SIZE, profile.getSize());
+        values.put(ProfileValues.DISEASES, profile.getDiseases());
+        values.put(ProfileValues.MEDICATION, profile.getMedication());
+        values.put(ProfileValues.ALLERGIES, profile.getAllergies());
+        values.put(ProfileValues.FITNESS, profile.getFitness());
+        sqLiteDatabase.insert(PROFILE_TABLE_NAME, null, values);
+
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + DATABASE_NAME);
-
-        onCreate(sqLiteDatabase);
+        //sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + DATABASE_NAME);
+        Log.d("onUpgrade", "update requested");
+        //onCreate(sqLiteDatabase);
     }
 
     public void insertContact(String name, String phone){
@@ -50,7 +70,7 @@ public class ProfileWrapper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put("name", name);
         values.put("phone", phone);
-        db.insert(DATABASE_NAME, null, values);
+        db.insert(EMERGENCY_TABLE_NAME, null, values);
         db.close();
 
     }
@@ -86,6 +106,8 @@ public class ProfileWrapper extends SQLiteOpenHelper {
     public void setProfile(ProfileValues profile){
         SQLiteDatabase db = this.getWritableDatabase();
 
+        Log.d("EditProfile", "name: " + profile.getSurname());
+
         ContentValues values = new ContentValues();
         values.put(ProfileValues.SURNAME, profile.getSurname());
         values.put(ProfileValues.NAME, profile.getName());
@@ -96,7 +118,7 @@ public class ProfileWrapper extends SQLiteOpenHelper {
         values.put(ProfileValues.ALLERGIES, profile.getAllergies());
         values.put(ProfileValues.FITNESS, profile.getFitness());
 
-        db.insert(DATABASE_NAME, null, values);
+        db.update(PROFILE_TABLE_NAME, values, "id=?", new String[]{ID});
         db.close();
 
     }
@@ -120,6 +142,9 @@ public class ProfileWrapper extends SQLiteOpenHelper {
         }
         db.close();
         cursor.close();
+
+        Log.d("EditProfile", "surname get : " + profile.getSurname());
+
 
         return profile;
     }

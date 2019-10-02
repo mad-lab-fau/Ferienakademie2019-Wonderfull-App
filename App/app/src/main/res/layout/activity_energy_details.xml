@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EnergyDetails">
+    tools:context=".EnergyDetails"
+    android:background="@color/white">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -24,9 +25,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="1dp"
-                android:padding="5dp"
                 android:layout_weight="1"
-                android:background="#FFFFFF">
+                android:background="#FFFFFF"
+                android:padding="5dp">
 
 
                 <TextView
@@ -38,6 +39,7 @@
                     android:gravity="center_vertical"
                     android:paddingStart="10dp"
                     android:text="@string/zeit"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textSize="22sp" />
 
                 <TextView
@@ -49,6 +51,7 @@
                     android:gravity="start"
                     android:paddingStart="2dp"
                     android:text="@string/zeit_p"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textSize="22sp" />
 
 
@@ -58,9 +61,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="1dp"
-                android:padding="5dp"
                 android:layout_weight="1"
-                android:background="#FFFFFF">
+                android:background="#FFFFFF"
+                android:padding="5dp">
 
                 <TextView
                     android:id="@+id/hoehenmeter"
@@ -69,6 +72,7 @@
                     android:gravity="center_vertical"
                     android:paddingStart="10dp"
                     android:text="@string/hoehenmeter"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textSize="22sp" />
 
 
@@ -79,6 +83,7 @@
                     android:gravity="center_vertical"
                     android:paddingStart="2dp"
                     android:text="@string/hoehenmeter_p"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textSize="22sp" />
 
             </TableRow>
@@ -87,9 +92,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="1dp"
-                android:padding="5dp"
                 android:layout_weight="1"
-                android:background="#FFFFFF">
+                android:background="#FFFFFF"
+                android:padding="5dp">
 
                 <TextView
                     android:id="@+id/strecke"
@@ -100,6 +105,7 @@
                     android:gravity="center_vertical"
                     android:paddingStart="10dp"
                     android:text="@string/strecke"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textSize="22sp" />
 
 
@@ -112,6 +118,7 @@
                     android:gravity="bottom"
                     android:paddingStart="2dp"
                     android:text="@string/strecke_p"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textSize="22sp" />
 
             </TableRow>
@@ -120,9 +127,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="1dp"
-                android:padding="5dp"
                 android:layout_weight="1"
-                android:background="#FFFFFF">
+                android:background="#FFFFFF"
+                android:padding="5dp">
 
                 <TextView
                     android:id="@+id/schritte"
@@ -133,6 +140,7 @@
                     android:gravity="center_vertical"
                     android:paddingStart="10dp"
                     android:text="@string/schritte"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textSize="22sp" />
 
 
@@ -145,6 +153,7 @@
                     android:gravity="center_vertical"
                     android:paddingStart="2dp"
                     android:text="@string/schritte_p"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textSize="22sp" />
 
             </TableRow>
@@ -154,18 +163,31 @@
 
     </LinearLayout>
 
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+    </RelativeLayout>
+
     <TextView
         android:id="@+id/pause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="150dp"
-        android:background="#0f5d16"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/border"
         android:padding="10dp"
         android:text="@string/pause"
+        android:textAppearance="@style/Headline"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

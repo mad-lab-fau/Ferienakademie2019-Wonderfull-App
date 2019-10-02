@@ -1,13 +1,15 @@
 package de.ferienakademie.wonderfull.service;
 
+import android.util.Log;
+
 import java.lang.Math;
 
 import java.util.ArrayList;
 
 public class fall_detection {
     public static boolean fall_detections(Double[] acc_x, Double[] acc_y, Double[] acc_z, double fs) {
-
-        double peak_thr = 7.0;
+        //Log.d("detect fall", acc_x.toString());
+        double peak_thr = 9.0;
         int time_diff = (int) (2 * fs);
         int pause = (int) (0.5 * fs);
         int time_b = (int) (1.5 * fs);
@@ -41,6 +43,7 @@ public class fall_detection {
             if (norm[i] >= peak_thr) {
                 Event a = new Event(i, norm[i]);
                 impact.add(a);
+                //Log.d("SensorActivity", "Firsst Impact!");
             }
         }
 
