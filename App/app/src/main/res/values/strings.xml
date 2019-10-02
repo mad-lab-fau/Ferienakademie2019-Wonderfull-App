@@ -109,7 +109,7 @@
 
     <string name="verlust">Wasserverlust:</string>
     <string name="verlust_p"> </string>
-    <string name="trinken">Bis jetzt getrunken:</string>
+    <string name="trinken">Bisher getrunken:</string>
     <string name="trinken_p"> </string>
     <string name="zeitTrinken">Zeit seit letzter \nTrinkpause:</string>
     <string name="zeitTrinken_p"> </string>

@@ -19,7 +19,7 @@ public class hydration_details extends AppCompatActivity {
         trinken_p.append("1,5" + " L");
 
         TextView zeitTrinken_p = (TextView) findViewById(R.id.zeitTrinken_p);
-        zeitTrinken_p.append("42" + " min");
+        zeitTrinken_p.append("\n42" + " min");
 
         TextView TRINKEN = (TextView) findViewById(R.id.TRINKEN);
         TRINKEN.append(" " + "350" + " mL");

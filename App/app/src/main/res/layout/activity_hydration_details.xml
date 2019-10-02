@@ -27,6 +27,7 @@
                 android:id="@+id/pic_drops"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="2dp"
                 android:src="@drawable/drops"
                 android:contentDescription="pic_drops" />
 
@@ -68,6 +69,7 @@
                 android:id="@+id/pic_bottle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="2dp"
                 android:src="@drawable/water_bottle"
                 android:contentDescription="pic_water-bottle" />
 
@@ -111,6 +113,7 @@
                 android:id="@+id/pic_timer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="2dp"
                 android:src="@drawable/timer"
                 android:contentDescription="pic_timer" />
 
