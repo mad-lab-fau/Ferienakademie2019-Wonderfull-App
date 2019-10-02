@@ -124,5 +124,6 @@
     <string name="menu_profile">Profil</string>
     <string name="menu_plots" translatable="false">Plots</string>
     <string name="menu_homescreen">Startseite</string>
+    <string name="emergency_sendSMS">SMS wurde an %s gesendet</string>
 
 </resources>
