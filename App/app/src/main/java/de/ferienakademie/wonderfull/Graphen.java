@@ -77,11 +77,14 @@ public class Graphen extends AppCompatActivity {
 
 
             //mChart.setDescription();
-            TextView xAxisName = new TextView(this);
+            //TextView xAxisName = new TextView(this);
+            /*TextView xAxisName;
+            xAxisName = (TextView) findViewById(R.id.x_axis_title);
             xAxisName.setText("Distanz [km]");
-            TextView yAxisName = new TextView(this, null);
+            TextView yAxisName; // = new TextView(this, null);
+            yAxisName = (TextView) findViewById(R.id.y_axis_title);
             yAxisName.setText("Yaxis Label");
-
+*/
 
 
             /*if (Utils.getSDKInt() >= 18) {

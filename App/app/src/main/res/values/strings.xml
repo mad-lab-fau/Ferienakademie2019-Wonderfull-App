@@ -105,4 +105,7 @@
     <string name="schritte_p"> </string>
     <string name="pause">Pause in:</string>
     <string name="pause_p"> </string>
+
+    <string name="y_axis_title">Höhe [m]</string>
+    <string name="x_axis_title">Distanz [km]</string>
 </resources>
