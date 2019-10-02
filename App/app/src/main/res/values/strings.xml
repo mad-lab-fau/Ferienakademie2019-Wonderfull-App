@@ -22,7 +22,6 @@
     <string name="menu_share" translatable="false">Share</string>
     <string name="menu_send" translatable="false">Send</string>
     <string name="menu_emergency">Notfall</string>
-    <string name="menu_plots">Höhenprofil</string>
 
     <string name="_1_80_m" translatable="false">1,93 m</string>
     <string name="gewicht">Gewicht:</string>
@@ -121,6 +120,7 @@
 
     <string name="y_axis_title">Höhe [m]</string>
     <string name="x_axis_title">Zeit [s]</string>
+    <string name="ueberschrift_graph">Höhenprofil</string>
     <string name="menu_profile">Profil</string>
     <string name="menu_plots" translatable="false">Plots</string>
     <string name="menu_homescreen">Startseite</string>

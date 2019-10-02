@@ -85,6 +85,7 @@ public class Graphen extends AppCompatActivity {
         XAxis xAxis = mChart.getXAxis();
 
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        mChart.setExtraBottomOffset(10);
         mChart.getXAxis().setTextSize(15);
         mChart.getAxisLeft().setTextSize(15);
 
