@@ -75,10 +75,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent profilIntent = new Intent(this, profile.class);
                 startActivity(profilIntent);
                 return true;
-            case (R.id.menu_hike):
-                Intent hikeIntent = new Intent(this, HikeMainscreen.class);
-                startActivity(hikeIntent);
-                return true;
             case R.id.menu_sensor:
                 startActivity(new Intent(this, SensorActivity.class));
                 return true;
