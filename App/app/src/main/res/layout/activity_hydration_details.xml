@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".hydration_details">
 
     <TableLayout
@@ -13,6 +14,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginStart="5dp"
         android:gravity="center_vertical"
+        android:background="@color/white"
         app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
@@ -25,8 +27,8 @@
 
             <ImageView
                 android:id="@+id/pic_drops"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:padding="2dp"
                 android:src="@drawable/drops"
                 android:contentDescription="pic_drops" />
@@ -67,8 +69,8 @@
 
             <ImageView
                 android:id="@+id/pic_bottle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:padding="2dp"
                 android:src="@drawable/water_bottle"
                 android:contentDescription="pic_water-bottle" />
@@ -111,8 +113,8 @@
 
             <ImageView
                 android:id="@+id/pic_timer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:padding="2dp"
                 android:src="@drawable/timer"
                 android:contentDescription="pic_timer" />

@@ -25,4 +25,9 @@
         android:title="Plots"
         android:showAsAction="never" />
 
+    <item
+        android:id="@+id/menu_home"
+        android:orderInCategory="10"
+        android:title="Startseite"
+        android:showAsAction="never" />
 </menu>

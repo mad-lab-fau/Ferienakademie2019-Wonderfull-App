@@ -55,6 +55,8 @@ public class HikeMainscreen extends AppCompatActivity {
         TextView drink_text = (TextView) findViewById(R.id.textView4);
         TextView break_text = (TextView) findViewById(R.id.breaktext);
         TextView energy_headline = (TextView) findViewById(R.id.textView);
+        TextView drink_headline = (TextView) findViewById(R.id.textView2);
+
 
         View.OnClickListener openEnergy = new View.OnClickListener() {
             @Override
@@ -65,10 +67,24 @@ public class HikeMainscreen extends AppCompatActivity {
             };
         };
 
+        View.OnClickListener openDrink = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HikeMainscreen.this, hydration_details.class);
+                intent.putExtra("DRINK_STATUS", ""+DRINK_STATUS);
+                startActivity(intent);
+            };
+        };
+
         energy_text.setClickable(true);
         energy_text.setOnClickListener(openEnergy);
         energy_headline.setClickable(true);
         energy_headline.setOnClickListener(openEnergy);
+
+        drink_text.setClickable(true);
+        drink_text.setOnClickListener(openDrink);
+        drink_headline.setClickable(true);
+        drink_headline.setOnClickListener(openDrink);
 
         drop.setClickable(true);
         drop.setOnClickListener(new View.OnClickListener() {
@@ -98,7 +114,7 @@ public class HikeMainscreen extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getMenuInflater().inflate(R.menu.hike_menu, menu);
         return true;
     }
 
@@ -118,6 +134,9 @@ public class HikeMainscreen extends AppCompatActivity {
                 return true;
             case R.id.menu_plots:
                 startActivity(new Intent(this, Graphen.class));
+                return true;
+            case R.id.menu_home:
+                startActivity(new Intent(this, MainActivity.class));
                 return true;
             default:
                 return false;
