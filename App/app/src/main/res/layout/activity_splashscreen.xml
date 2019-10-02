@@ -44,7 +44,7 @@
             android:layout_marginTop="450dp"
             android:fontFamily="sans-serif-smallcaps"
             android:gravity="center_horizontal"
-            android:text="Wanderfull"
+            android:text="WanderFull"
             android:textColor="@color/white"
             android:textSize="50sp" />
 
