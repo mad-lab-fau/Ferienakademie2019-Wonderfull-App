@@ -2,6 +2,7 @@ package de.ferienakademie.wonderfull;
 
 import android.annotation.TargetApi;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.lang.Math;
 import java.util.stream.DoubleStream;
@@ -12,6 +13,7 @@ public class StepCounter
     public static double DEFAULT_MIN_DELTA_TIME = 0.2;
     public static double DEFAULT_MAX_DELTA_TIME = 5.0;
 
+    private boolean hasProcessedBefore;
     private double maxThresh;
     private double minThresh;
     private double lastStepTime;
@@ -21,6 +23,8 @@ public class StepCounter
     private final double maxDeltaTime;
     private final SumFilter filter;
 
+    private ArrayList<Double> stepHistory;
+
     
     static private double normalize(double accelerationX, double accelerationY, double accelerationZ)
     {
@@ -29,27 +33,26 @@ public class StepCounter
                        + accelerationZ * accelerationZ);
     }
 
-    public StepCounter(double minThresh, double maxThresh, double firstStepTime, double minDeltaTime, double maxDeltaTime, int filterSize)
+    public StepCounter(double minDeltaTime, double maxDeltaTime, int filterSize)
     {
-        this.maxThresh = maxThresh;
-        this.minThresh = minThresh;
-        
         this.filter = new SumFilter(filterSize);
         this.minDeltaTime = minDeltaTime;
         this.maxDeltaTime = maxDeltaTime;
-        this.lastStepTime = firstStepTime;
-        this.lastTime = firstStepTime;
         this.lastAcceleration = this.getDynamicThreshold();
+
+        this.stepHistory = new ArrayList<>();
+        hasProcessedBefore = false;
     }
     
-    public StepCounter(double minThresh, double maxThresh, double firstStepTime)
+    public StepCounter()
     {
-        this(minThresh, maxThresh, firstStepTime, DEFAULT_MIN_DELTA_TIME, DEFAULT_MAX_DELTA_TIME, SumFilter.DEFAULT_SIZE);
+        this(DEFAULT_MIN_DELTA_TIME, DEFAULT_MAX_DELTA_TIME, SumFilter.DEFAULT_SIZE);
     }
 
     public double getMinThreshold() { return this.minThresh; }
     public double getDynamicThreshold() { return 0.5 * (this.maxThresh + this.minThresh); }
     public double getMaxThreshold() { return this.maxThresh; }
+    public int getStepCount() { return stepHistory.size(); }
 
     @TargetApi(24)
     public double[] process(double[] accelerationX, double[] accelerationY, double[] accelerationZ, double[] accelerationTime)
@@ -114,11 +117,21 @@ public class StepCounter
         this.lastTime = time[time.length - 1];
         this.lastAcceleration = data[data.length - 1];
 
-        if (stepTimes.length > 0)
+        if (hasProcessedBefore && stepTimes.length > 0)
         {
             this.lastStepTime = stepTimes[stepTimes.length - 1];
+
+            for (double stepTime: stepTimes)
+            {
+                stepHistory.add(stepTime);
+            }
+        }
+        else if (!hasProcessedBefore)
+        {
+            lastStepTime = lastTime;
         }
 
+        hasProcessedBefore = true;
         return stepTimes;
     }
 }

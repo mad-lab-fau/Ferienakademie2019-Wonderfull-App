@@ -5,7 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import de.ferienakademie.wonderfull.service.BleService;
+
 public class EnergyDetails extends AppCompatActivity {
+
+    private StepCountCallback callback = counter ->
+    {
+        TextView schritte_p = (TextView) findViewById(R.id.schritte_p);
+        schritte_p.setText(Integer.toString(counter.getStepCount()));
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,5 +42,19 @@ public class EnergyDetails extends AppCompatActivity {
 
         this.setTitle(getResources().getString(R.string.energyLevel_headline) + ": " + energy_level + "%");
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        BleService.registerStepCounterCallback(callback);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        BleService.deregisterStepCounterCallback(callback);
     }
 }
