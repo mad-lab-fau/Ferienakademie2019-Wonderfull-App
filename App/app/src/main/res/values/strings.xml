@@ -115,7 +115,8 @@
     <string name="zeitTrinken_p"> </string>
     <string name="TRINKEN">Jetzt trinken:</string>
 
-    <string name="y_axis_title">Altitude [m]</string>
-    <string name="x_axis_title">Time [s]</string>
+    <string name="y_axis_title">Höhe [m]</string>
+    <string name="x_axis_title">Zeit [s]</string>
+    <string name="ueberschrift_graph">Höhenprofil</string>
 
 </resources>
