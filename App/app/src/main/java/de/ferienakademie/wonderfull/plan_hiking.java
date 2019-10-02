@@ -33,7 +33,7 @@ public class plan_hiking extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plan_hiking);
-
+        this.setTitle(getResources().getString(R.string.wanderung_planen));
     }
 
 

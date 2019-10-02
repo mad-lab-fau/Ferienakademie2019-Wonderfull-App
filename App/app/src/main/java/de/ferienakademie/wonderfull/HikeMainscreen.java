@@ -98,7 +98,7 @@ public class HikeMainscreen extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getMenuInflater().inflate(R.menu.hike_menu, menu);
         return true;
     }
 
@@ -118,6 +118,9 @@ public class HikeMainscreen extends AppCompatActivity {
                 return true;
             case R.id.menu_plots:
                 startActivity(new Intent(this, Graphen.class));
+                return true;
+            case R.id.menu_home:
+                startActivity(new Intent(this, MainActivity.class));
                 return true;
             default:
                 return false;
