@@ -60,6 +60,7 @@ public class SensorActivity extends AppCompatActivity implements OnStreamingFoot
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sensor);
 
+
         mStatusBar = findViewById(R.id.status_bar);
         mSensorInfoBar = findViewById(R.id.sensor_info_bar);
 
@@ -73,7 +74,7 @@ public class SensorActivity extends AppCompatActivity implements OnStreamingFoot
         mServiceManager.setSensorCallback(this);
         mServiceManager.setLoggingCallback(this);
         mServiceManager.setFallDetectionCallback(this);
-
+        showSensorPicker();
     }
 
     @Override
@@ -85,6 +86,7 @@ public class SensorActivity extends AppCompatActivity implements OnStreamingFoot
             mSensorEventGenerator.addSensorEventListener(mStatusBar);
             mSensorEventGenerator.addSensorEventListener(mSensorInfoBar);
             mSensorEventGenerator.addSensorEventListener(mStreamingFooter);
+
         }
     }
 
@@ -209,6 +211,8 @@ public class SensorActivity extends AppCompatActivity implements OnStreamingFoot
             stopStreaming();
         } else {
             startStreaming();
+            Intent hikeIntent = new Intent(this, HikeMainscreen.class);
+            startActivity(hikeIntent);
         }
 
     }
@@ -353,5 +357,6 @@ public class SensorActivity extends AppCompatActivity implements OnStreamingFoot
     @Override
     public void onNewHeightData(double timestamp, double height) {
         // TODO UPDATE PLOT
+
     }
 }
