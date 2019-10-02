@@ -27,8 +27,8 @@ public class ActivityTracker
         public double distanceH;
     }
 
-    public static double SLOPE_THRESHOLD_ASCENDING = 5.0;
-    public static double SLOPE_THRESHOLD_DESCENDING = -5.0;
+    public static double SLOPE_THRESHOLD_ASCENDING = 2.0;
+    public static double SLOPE_THRESHOLD_DESCENDING = -2.0;
     public static double DISTANCE_THRESHOLD_PAUSE = 10.0;
 
     private Activity lastActivity;
