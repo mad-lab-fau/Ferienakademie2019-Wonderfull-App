@@ -16,6 +16,7 @@ public class ProfileWrapper extends SQLiteOpenHelper {
     private static final String EMERGENCY_TABLE_NAME = "emergency_contacts";
     private static final String PROFILE_TABLE_NAME="profile";
     private final String ID = "42";
+    private int contactID = 0;
 
     public ProfileWrapper(Context context){
         super(context, DATABASE_NAME, null, 1);
@@ -70,6 +71,8 @@ public class ProfileWrapper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put("name", contact.getName());
         values.put("phone", contact.getPhone());
+        values.put("id", contactID);
+        contactID += 1;
         db.insert(EMERGENCY_TABLE_NAME, null, values);
         db.close();
 

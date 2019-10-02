@@ -36,7 +36,6 @@ public class EditProfile extends AppCompatActivity {
         // get database and values
         profileDB = new ProfileWrapper(this);
         ProfileValues profile = profileDB.getProfile();
-        List<Contact> contacts = profileDB.getContacts();
 
         // insert profile values into edit screen
         EditText surname = findViewById(R.id.edit_surname);
@@ -65,35 +64,56 @@ public class EditProfile extends AppCompatActivity {
         //niveau.setSelection(profile.fitnessToInt());
 
         // insert contacts into edit screen
+        loadContacts();
 
-        if(!contacts.isEmpty()){
-            LinearLayout emergencyContactsLayout = findViewById(R.id.edit_current_contacts);
+
+
+
+
+    }
+
+    private void loadContacts(){
+
+        List<Contact> contacts = profileDB.getContacts();
+
+        LinearLayout emergencyContactsLayout = findViewById(R.id.edit_current_contacts);
+        emergencyContactsLayout.removeAllViews();
+
+        if(!contacts.isEmpty()) {
+
             TableLayout emergencyContactsTable = new TableLayout(this);
             emergencyContactsTable.setColumnStretchable(0, true);
-            for(Contact c: contacts){
+            for (Contact c : contacts) {
                 TableRow tr = new TableRow(this);
 
                 TextView contactView = new TextView(this);
+                TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
+                lp.gravity = Gravity.CENTER_VERTICAL;
+                contactView.setLayoutParams(lp);
+                int margin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics());
                 contactView.setTextSize(20);
                 contactView.setText(c.getName());
+                contactView.setPadding(margin, margin, margin, margin);
                 tr.addView(contactView);
-
 
 
                 Button minus = new Button(this);
                 int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30, getResources().getDisplayMetrics());
-                int margin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics());
+                int textSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 10, getResources().getDisplayMetrics());
                 TableRow.LayoutParams params = new TableRow.LayoutParams(width, width);
-                params.setMargins(margin,margin, 0, margin);
+                params.gravity = Gravity.CENTER;
+                params.weight = 1.0f;
+                params.setMargins(0, 0, 0, 0);
+                Log.d("EditContact","Name: " + c.getName() + " id: " + c.getId());
                 minus.setLayoutParams(params);
-                minus.setClickable(true);
+                minus.setId(c.getId());
+                minus.setPadding(0, 0, 0, 0);
+                minus.setGravity(Gravity.CENTER);
                 minus.setOnClickListener(this::removeContact);
                 minus.setBackground(getResources().getDrawable(R.drawable.round_button));
                 minus.setTextColor(getResources().getColor(R.color.white));
-                minus.setTextSize(20);
+                minus.setTextSize(textSize);
                 minus.setText(getResources().getText(R.string.edit_minus));
-                minus.setId(c.getId());
-                minus.setGravity(Gravity.CENTER);
                 tr.addView(minus);
                 emergencyContactsTable.addView(tr);
 
@@ -101,9 +121,6 @@ public class EditProfile extends AppCompatActivity {
 
             emergencyContactsLayout.addView(emergencyContactsTable);
         }
-
-
-
     }
 
     public void saveProfile(View v){
@@ -199,7 +216,15 @@ public class EditProfile extends AppCompatActivity {
     }
 
     public void removeContact(View v){
+
         Log.d("EditProfile", "remove contact");
+
+       int id = v.getId();
+       Contact contact = new Contact();
+       contact.setId(id);
+       profileDB.deleteContact(contact);
+
+       loadContacts();
     }
 
 }
