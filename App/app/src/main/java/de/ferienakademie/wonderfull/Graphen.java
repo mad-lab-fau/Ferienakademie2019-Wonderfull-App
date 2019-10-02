@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
@@ -16,10 +17,36 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
 import java.util.ArrayList;
 
+import de.ferienakademie.wonderfull.service.BleService;
+
 
 public class Graphen extends AppCompatActivity {
 
     private LineChart mChart;
+    private LineData data;
+    private int entryCount;
+
+    private HeightChangeCallback callback = values ->
+    {
+        for (int i = entryCount; i < values.size(); i++)
+        {
+            data.addEntry(values.get(entryCount),0);
+        }
+        entryCount = values.size();
+        mChart.notifyDataSetChanged();
+        mChart.invalidate();
+
+
+        //if (mChart.getData() != null &&
+        //        mChart.getData().getDataSetCount() > 0) {
+        //    set1 = (LineDataSet) mChart.getData().getDataSetByIndex(0);
+        //    set1.setValues(values);
+        //    mChart.getData().notifyDataChanged();
+        //    mChart.notifyDataSetChanged();
+        //} else {
+        //
+        //}
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,54 +57,43 @@ public class Graphen extends AppCompatActivity {
         mChart.setTouchEnabled(true);
         mChart.setPinchZoom(true);
 
-        setData();
-    }
-
-    private void setData() {
+        LineDataSet set1;
 
         ArrayList<Entry> values = new ArrayList<>();
-        values.add(new Entry(1, 50));
-        values.add(new Entry(2, 200));
-        values.add(new Entry(3, 80));
-        values.add(new Entry(4, 120));
-        values.add(new Entry(5, 110));
-        values.add(new Entry(7, 150));
-        values.add(new Entry(8, 10));
-        values.add(new Entry(9, 190));
+        entryCount = values.size();
 
-        LineDataSet set1;
-        if (mChart.getData() != null &&
-                mChart.getData().getDataSetCount() > 0) {
-            set1 = (LineDataSet) mChart.getData().getDataSetByIndex(0);
-            set1.setValues(values);
-            mChart.getData().notifyDataChanged();
-            mChart.notifyDataSetChanged();
-        } else {
-            set1 = new LineDataSet(values, "Altitude");
-            //set1.setDrawIcons(true);
-            //set1.enableDashedLine(50f, 10f, 0f);
-            //set1.enableDashedHighlightLine(100f, 5f, 0f);
-            set1.setColor(Color.BLUE);
-            //set1.setCircleColor(Color.DKGRAY);
-            set1.setLineWidth(0f);
-            set1.setCircleRadius(0f);
-            //set1.setDrawCircleHole(false);
-            set1.setValueTextSize(0f);
-            set1.setDrawFilled(true);
-            set1.setFormLineWidth(1f);
-            //set1.setFormLineDashEffect(new DashPathEffect(new float[]{10f, 5f}, 0f));
-            set1.setFormSize(15.f);
-            set1.setDrawCircles(false);
-            set1.setAxisDependency(YAxis.AxisDependency.LEFT);
+        set1 = new LineDataSet(values, "Altitude");
+        //set1.setDrawIcons(true);
+        //set1.enableDashedLine(50f, 10f, 0f);
+        //set1.enableDashedHighlightLine(100f, 5f, 0f);
+        set1.setColor(getResources().getColor(R.color.darkGreen));
+        set1.setFillColor(getResources().getColor(R.color.backgroundGreen));
+        //set1.setCircleColor(Color.DKGRAY);
+        set1.setLineWidth(1f);
+        set1.setCircleRadius(0f);
+        //set1.setDrawCircleHole(false);
+        set1.setValueTextSize(0f);
+        set1.setDrawFilled(true);
+        set1.setFormLineWidth(1f);
+        //set1.setFormLineDashEffect(new DashPathEffect(new float[]{10f, 5f}, 0f));
+        set1.setFormSize(15.f);
+        set1.setDrawCircles(false);
+        set1.setAxisDependency(YAxis.AxisDependency.LEFT);
+        mChart.getLegend().setEnabled(false);
 
-            mChart.getAxisRight().setEnabled(false);
-            XAxis xAxis = mChart.getXAxis();
+        mChart.getAxisRight().setEnabled(false);
+        XAxis xAxis = mChart.getXAxis();
 
-            xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        mChart.getXAxis().setTextSize(15);
+        mChart.getAxisLeft().setTextSize(15);
+
+        Description des = mChart.getDescription();
+        des.setEnabled(false);
 
 
-            //mChart.setDescription();
-            //TextView xAxisName = new TextView(this);
+        //mChart.setDescription();
+        //TextView xAxisName = new TextView(this);
             /*TextView xAxisName;
             xAxisName = (TextView) findViewById(R.id.x_axis_title);
             xAxisName.setText("Distanz [km]");
@@ -93,11 +109,23 @@ public class Graphen extends AppCompatActivity {
             } else {
                 set1.setFillColor(Color.DKGRAY);
             }*/
-            ArrayList<ILineDataSet> dataSets = new ArrayList<>();
-            dataSets.add(set1);
-            LineData data = new LineData(dataSets);
-            mChart.setData(data);
-        }
 
+        data = new LineData();
+        data.addDataSet(set1);
+        mChart.setData(data);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        BleService.registerHeightChangedCallback(callback);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        BleService.deregisterHeightChangedCallback(callback);
     }
 }
