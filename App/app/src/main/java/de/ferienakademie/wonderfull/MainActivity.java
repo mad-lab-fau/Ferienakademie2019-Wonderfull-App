@@ -13,8 +13,22 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.navigation.ui.AppBarConfiguration;
+import androidx.core.content.ContextCompat;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+
+import io.ticofab.androidgpxparser.parser.GPXParser;
+import io.ticofab.androidgpxparser.parser.domain.Gpx;
+import io.ticofab.androidgpxparser.parser.domain.Track;
+import io.ticofab.androidgpxparser.parser.domain.TrackPoint;
+import io.ticofab.androidgpxparser.parser.domain.TrackSegment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private GPXParser mParser = new GPXParser();
+    private Gpx parsedGpx = null;
+    public double gpsLongitude = 0;
+    public double gpsLatitude = 0;
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -95,6 +109,74 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //code what should happen
                 break;
         }
+    }
+
+    public class MyLocationListener implements LocationListener {
+        @Override
+        public void onLocationChanged(Location loc) {
+            gpsLongitude = loc.getLongitude();
+            gpsLatitude = loc.getLatitude();
+            gpsAltitude = loc.getAltitude();
+        }
+
+        @Override
+        public void onProviderDisabled(String provider) {
+            // TODO Auto-generated method stub
+        }
+
+        @Override
+        public void onProviderEnabled(String provider) {
+            // TODO Auto-generated method stub
+        }
+
+        @Override
+        public void onStatusChanged(String provider,
+                                    int status, Bundle extras) {
+            // TODO Auto-generated method stub
+        }
+    }
+
+    private LocationManager locationManager = null;
+    private LocationListener locationListener = null;
+    private final int MY_PERMISSIONS_REQUEST_LOCATION = 0;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        
+    }
+
+    public void onLocationChanged(Location loc) {
+        locationListener = new MyLocationListener();
+        locationManager = (LocationManager)
+                getSystemService(Context.LOCATION_SERVICE);
+
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            // Permission is not granted
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.ACCESS_FINE_LOCATION)) {
+                // Show an explanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the usre
+                // sees the explanation, try again to request the permission.
+            } else {
+                // No explanation needed; request the permission
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                        MY_PERMISSIONS_REQUEST_LOCATION);
+
+                // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+                // app-defined int constant. The callback method gets the
+                // result of the request.
+            }
+        } else {
+            // Permission has already been granted
+            locationManager.requestLocationUpdates(LocationManager
+                    .GPS_PROVIDER, 5000, 10, locationListener);
+        }
+        locationListener.onLocationChanged();
     }
 
 }
