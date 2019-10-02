@@ -99,6 +99,12 @@ public class EmergencyActivity extends AppCompatActivity {
 
     }
 
+    public void onBackpressed(){
+        timer.cancel();
+        Intent mainIntent = new Intent(this, MainActivity.class);
+        startActivity(mainIntent);
+    }
+
 
 
 }

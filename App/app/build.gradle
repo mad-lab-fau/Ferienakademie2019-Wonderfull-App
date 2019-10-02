@@ -39,6 +39,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.0.0'
     implementation 'androidx.navigation:navigation-ui:2.0.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation 'com.github.hannesa2:MPAndroidChart:3.0.6'
 
     implementation 'com.github.mad-lab-fau.SensorLib:sensorlib:0.12.0'
     implementation 'com.github.mad-lab-fau.SensorLib:sls-portabiles:0.12.0'

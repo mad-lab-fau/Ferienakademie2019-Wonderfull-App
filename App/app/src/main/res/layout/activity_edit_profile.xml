@@ -34,7 +34,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
-                    android:layout_span="2"/>
+                    android:layout_span="2"
+                    android:maxLines="1"/>
             </TableRow>
 
             <TableRow>
@@ -50,7 +51,8 @@
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:textSize="20sp"
-                    android:layout_span="2"/>
+                    android:layout_span="2"
+                    android:maxLines="1"/>
             </TableRow>
 
             <TableRow>
@@ -66,7 +68,10 @@
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:textSize="20sp"
-                    android:layout_span="2"/>
+                    android:layout_span="2"
+                    android:inputType="numberDecimal"
+                    android:maxLength="5"
+                    android:maxLines="1"/>
             </TableRow>
 
             <TableRow>
@@ -82,7 +87,10 @@
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:textSize="20sp"
-                    android:layout_span="2"/>
+                    android:layout_span="2"
+                    android:inputType="numberDecimal"
+                    android:maxLength="6"
+                    android:maxLines="1"/>
             </TableRow>
 
             <TableRow>
@@ -145,7 +153,7 @@
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:padding="10dp"
-                    android:text="@string/notfallkontakte"
+                    android:text="@string/edit_contacts"
                     android:textSize="20sp"
                     android:layout_gravity="center_horizontal"
                     android:layout_span="2"/>
@@ -155,6 +163,7 @@
                     android:layout_height="30dp"
                     android:layout_width="30dp"
                     android:background="@drawable/round_button"
+                    android:textColor="@color/white"
                     android:text="@string/edit_plus"
                     android:gravity="center"
                     android:layout_gravity="center_vertical"
@@ -162,6 +171,7 @@
                     android:onClick="addContact"/>
 
             </TableRow>
+
 
             <TableRow>
                 <LinearLayout
@@ -175,6 +185,24 @@
 
             <TableRow>
                 <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/edit_level"
+                    android:textSize="20sp"/>
+
+                <Spinner
+                    android:id="@+id/edit_select_level"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="20sp"
+                    android:entries="@array/level_spinner"
+                    android:layout_span="2"/>
+            </TableRow>
+
+
+            <TableRow>
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=""/>
@@ -184,106 +212,15 @@
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:text="@string/edit_save"
-                    android:onClick="saveProfile"/>
+                    android:onClick="saveProfile"
+                    android:background="@color/darkGreen"
+                    android:textColor="@color/white"
+                    android:layout_span="2"/>
             </TableRow>
 
 
         </TableLayout>
 
-
-
-
-        <!--
-        <TextView
-            android:id="@+id/emergencyContactsText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="92dp"
-            android:text="@string/notfallkontakte"
-            android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/medicationText" />
-
-
-
-        <EditText
-            android:id="@+id/nameEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="@string/wiesel"
-            android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@id/nameText"
-            app:layout_constraintTop_toTopOf="@id/nameText" />
-
-        <EditText
-            android:id="@+id/heightEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            app:layout_constraintStart_toEndOf="@id/heightText"
-            app:layout_constraintTop_toTopOf="@id/heightText" />
-
-        <EditText
-            android:id="@+id/weightEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            app:layout_constraintStart_toEndOf="@id/weightText"
-            app:layout_constraintTop_toTopOf="@id/weightText" />
-
-        <EditText
-            android:id="@+id/diseasesEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="@string/beispielkrankheit"
-            android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/diseasesText" />
-
-        <EditText
-            android:id="@+id/medicationEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="@string/beispielmedikament"
-            android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/medicationText" />
-
-        <EditText
-            android:id="@+id/emergencyContactName1"
-            android:layout_width="113dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="@string/jon_doe"
-            android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/emergencyContactsText" />
-
-        <EditText
-            android:id="@+id/emergencyNumber1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:ems="10"
-            android:inputType="phone"
-            app:layout_constraintStart_toEndOf="@id/emergencyContactName1"
-            app:layout_constraintTop_toTopOf="@id/emergencyContactName1" /> -->
 
     </ScrollView>
 

@@ -3,6 +3,10 @@
     android:shape="rectangle"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- view background color -->
+    <solid
+        android:color="@color/darkGreen" >
+    </solid>
     <!-- Here is the corner radius -->
     <corners
         android:radius="50dp"   >

@@ -4,7 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ public class HikeMainscreen extends AppCompatActivity {
     public int DRINK_STATUS = 10;
     public static final boolean GROUP = true;
     public int GROUP_STATUS = 0; //0=together, 1=someone is missing, 2=group lost
+    public int factor = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +39,11 @@ public class HikeMainscreen extends AppCompatActivity {
                 }
             });
 
+            factor = 4;
+
         } else {
             setContentView(R.layout.activity_hike_mainscreen_without_group);
+            factor = 6;
         }
 
         ImageView energy = (ImageView) findViewById(R.id.imageView);
@@ -49,16 +54,21 @@ public class HikeMainscreen extends AppCompatActivity {
         TextView energy_text = (TextView) findViewById(R.id.textView3);
         TextView drink_text = (TextView) findViewById(R.id.textView4);
         TextView break_text = (TextView) findViewById(R.id.breaktext);
+        TextView energy_headline = (TextView) findViewById(R.id.textView);
 
-        energy_text.setClickable(true);
-        energy_text.setOnClickListener(new View.OnClickListener() {
+        View.OnClickListener openEnergy = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HikeMainscreen.this, EnergyDetails.class);
                 intent.putExtra("ENERGY_LEVEL", ""+ENERGY_LEVEL);
                 startActivity(intent);
-            }
-        });
+            };
+        };
+
+        energy_text.setClickable(true);
+        energy_text.setOnClickListener(openEnergy);
+        energy_headline.setClickable(true);
+        energy_headline.setOnClickListener(openEnergy);
 
         drop.setClickable(true);
         drop.setOnClickListener(new View.OnClickListener() {
@@ -85,11 +95,44 @@ public class HikeMainscreen extends AppCompatActivity {
         switchDrinkStatus(drink_bar, drop, drink_text);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case (R.id.menu_emergency):
+                Intent mainIntent = new Intent(this, EmergencyActivity.class);
+                startActivity(mainIntent);
+                return true;
+            case (R.id.menu_profile):
+                Intent profilIntent = new Intent(this, profile.class);
+                startActivity(profilIntent);
+                return true;
+            case (R.id.menu_hike):
+                Intent hikeIntent = new Intent(this, HikeMainscreen.class);
+                startActivity(hikeIntent);
+                return true;
+            case R.id.menu_sensor:
+                startActivity(new Intent(this, SensorActivity.class));
+                return true;
+            case R.id.menu_plots:
+                startActivity(new Intent(this, Graphen.class));
+                return true;
+            default:
+                return false;
+        }
+    }
+
     public void switchEnergyLevel(View energy_bar, ImageView energy, TextView energy_text, TextView break_text){
         energy_text.setText(ENERGY_LEVEL+"%");
         break_text.setVisibility(View.INVISIBLE);
 
-        int new_height = 4 * ENERGY_LEVEL;
+        int new_height = factor * ENERGY_LEVEL;
 
         if(new_height==0){
             energy_bar.getLayoutParams().height = 1;
@@ -130,7 +173,7 @@ public class HikeMainscreen extends AppCompatActivity {
 
     public void switchDrinkStatus(View drink_bar, ImageView drop, TextView drink_text){
 
-        int new_height = 4 * DRINK_STATUS;
+        int new_height = factor * DRINK_STATUS;
 
         if(new_height == 0){
             drink_bar.getLayoutParams().height = 1;
