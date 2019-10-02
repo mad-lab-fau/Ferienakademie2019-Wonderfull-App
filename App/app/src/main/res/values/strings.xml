@@ -128,6 +128,11 @@
     <string name="loss_of_water_low">gering</string>
     <string name="ueberschrift_graph">Höhenprofil</string>
 
-    <string name="sensors_connect">Verbindung wird hergestellt...</string>
+    <string name="title_activity_splahscreen">Splahscreen</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+<string name="sensors_connect">Verbindung wird hergestellt...</string>
+
 
 </resources>
