@@ -20,6 +20,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:shrinkColumns="2"
+                android:stretchColumns="1">
+
             <TableRow>
 
                 <TextView
@@ -197,68 +203,41 @@
                     android:layout_gravity="center_vertical"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:onClick="addContact"/>
+            </TableRow>
 
                 <TableRow>
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/edit_current_contacts"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:padding="10dp"
-                        android:text="@string/edit_level"
-                        android:textSize="20sp"/>
+                        android:layout_span="3"
+                        android:orientation="vertical"/>
 
-                    <Spinner
-                        android:id="@+id/edit_select_level"
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:textSize="20sp"
-                        android:entries="@array/level_spinner"
-                        android:layout_span="2"/>
                 </TableRow>
 
                 <TableRow>
                     <TextView
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_span="3"
+                        android:text="@string/edit_level"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                </TableRow>
+
+                <TableRow>
+                    <Spinner
+                        android:id="@+id/edit_select_level"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
                         android:padding="10dp"
-                        android:text="@string/edit_contacts"
                         android:textSize="20sp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_span="2"/>
-
-                    <Button
-                        android:id="@+id/edit_add_contact"
-                        android:layout_height="30dp"
-                        android:layout_width="30dp"
-                        android:background="@drawable/round_button"
-                        android:textColor="@color/white"
-                        android:text="@string/edit_plus"
-                        android:gravity="center"
-                        android:layout_gravity="center_vertical"
-                        android:textSize="20sp"
-                        android:onClick="addContact"/>
-
-            <TableRow>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="@string/edit_level"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-            </TableRow>
-
-            <TableRow>
-                <Spinner
-                    android:id="@+id/edit_select_level"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:textSize="20sp"
-                    android:entries="@array/level_spinner"
-                    android:layout_span="3"
-                    android:paddingLeft="10dp"/>
-            </TableRow>
-
-            </TableLayout>
+                        android:entries="@array/level_spinner"
+                        android:layout_span="3"/>
+                </TableRow>
 
             <TableRow android:paddingTop="20sp">
 
@@ -279,17 +258,8 @@
                     android:textColor="@color/white" />
             </TableRow>
 
-            <Button
-                android:id="@+id/edit_save"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="@string/edit_save"
-                android:onClick="saveProfile"
-                android:background="@color/darkGreen"
-                android:textColor="@color/white"
-                android:layout_gravity="end"/>
-
-        </LinearLayout>
+            </TableLayout>
+    </LinearLayout>
 
 
     </ScrollView>
