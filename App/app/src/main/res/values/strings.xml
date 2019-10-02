@@ -128,4 +128,6 @@
     <string name="loss_of_water_low">gering</string>
     <string name="ueberschrift_graph">Höhenprofil</string>
 
+    <string name="sensors_connect">Verbindung wird hergestellt...</string>
+
 </resources>
