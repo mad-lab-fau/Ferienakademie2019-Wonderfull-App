@@ -20,7 +20,7 @@
     <string name="drinklevel_headline">Drink Status</string>
     <string name="edit_contacts">Emergency Contacts</string>
     <string name="edit_level">Hiking Level:</string>
-    <string name="edit_phone">Phone Number</string>
+    <string name="edit_phone">Phone Number:</string>
     <string name="edit_save">Save</string>
     <string name="edit_title">Edit Profile</string>
     <string name="emergency_call_in">%s will automatically be called in %d seconds.</string>
@@ -45,7 +45,7 @@
     <string name="medikamente">Medication:</string>
     <string name="menu_emergency">Emergency</string>
     <string name="notfallkontakte">Emergency Contacts:</string>
-    <string name="name"> Name: </string>
+    <string name="name">"Name: "</string>
     <string name="pace">Velocity:</string>
     <string name="pause">Break in:</string>
     <string name="profil_bearbeiten">Edit Profile:</string>
