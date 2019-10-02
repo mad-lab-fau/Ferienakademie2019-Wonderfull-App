@@ -10,24 +10,12 @@
     <item
         android:id="@+id/menu_profile"
         android:orderInCategory="90"
-        android:title="Profil"
-        android:showAsAction="never" />
-
-    <item
-        android:id="@+id/menu_sensor"
-        android:orderInCategory="20"
-        android:title="@string/menu_sensor"
+        android:title="@string/profile_label"
         android:showAsAction="never" />
 
     <item
         android:id="@+id/menu_plots"
         android:orderInCategory="70"
-        android:title="Plots"
-        android:showAsAction="never" />
-
-    <item
-        android:id="@+id/menu_home"
-        android:orderInCategory="10"
-        android:title="Startseite"
+        android:title="@string/menu_plots"
         android:showAsAction="never" />
 </menu>

@@ -1,11 +1,12 @@
 <resources>
-    <string name="app_name">Wonderfull</string>
+    <string name="app_name">Wanderfull</string>
 
-    <string name="emergency_title">Nofall</string>
+    <string name="emergency_title">Notfall</string>
     <string name="emergency_question">Brauchst du Hilfe?</string>
     <string name="emergency_sos">   Hilfe rufen!</string>
     <string name="emergency_fine"> Mir geht es gut. </string>
     <string name="emergency_call_in">John Doe wird in 30 Sekunden automatisch angerufen.</string>
+    <string name="emergency_SMS">%s hatte einen Unfall.</string>
 
     <string name="title_activity_main_menu">MainMenuActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -21,6 +22,7 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="menu_emergency">Notfall</string>
+    <string name="menu_plots">Höhenprofil</string>
 
     <string name="_1_80_m">1,93 m</string>
     <string name="gewicht">Gewicht:</string>
@@ -86,7 +88,10 @@
     <string name="edit_minus">-</string>
     <string name="edit_contacts">Notfallkontakte</string>
     <string name="edit_level">Wanderniveau:</string>
-    <string name="edit_phone">Telefonnummer</string>
+    <string name="edit_phone">Telefonnummer:</string>
+    <string name="profile_edit">Bitte Profil bearbeiten!</string>
+    <string name="profile_none">keine</string>
+    <string name="profile_label">Profil</string>
 
     <string-array name="level_spinner">
         <item>Profiwanderer</item>
