@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:visibility="visible"
     tools:context=".SensorActivity">
 
     <de.fau.sensorlib.widgets.StatusBar
@@ -12,14 +13,14 @@
         android:layout_height="16dp"
         android:layout_alignParentTop="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:state="disconnected" />
 
     <de.fau.sensorlib.widgets.SensorInfoBar
         android:id="@+id/sensor_info_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="358dp"
+        android:layout_height="95dp"
         android:layout_below="@+id/status_bar"
         android:layout_margin="8dp"
         android:minHeight="60dp"
@@ -27,16 +28,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/status_bar" />
 
-
-    <TextView
-        android:id="@+id/tv_barometer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="64dp"
-        android:text="@string/string_barometer"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sensor_info_bar" />
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:src="@drawable/hiker_animated"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="85dp" />
 
     <de.fau.sensorlib.widgets.StreamingFooter
         android:id="@+id/streaming_footer"
@@ -44,6 +43,21 @@
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="600dp"
+        android:layout_marginEnd="500dp"
+        android:text="Connecting..."
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/sensor_info_bar"
+        app:layout_constraintHorizontal_bias="0.388"
+        app:layout_constraintStart_toStartOf="@id/gifImageView"
+        app:layout_constraintTop_toBottomOf="@+id/sensor_info_bar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

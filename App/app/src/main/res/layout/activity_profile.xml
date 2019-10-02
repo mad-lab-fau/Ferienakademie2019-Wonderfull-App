@@ -42,7 +42,7 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         android:text="@string/gewicht"
                         android:layout_margin="10dp"
-                        android:textStyle="italic"/>
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/profile_weight"
@@ -60,7 +60,7 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         android:text="@string/gr_e"
                         android:layout_margin="10dp"
-                        android:textStyle="italic"/>
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/profile_height"
@@ -80,7 +80,7 @@
                         android:layout_span="2"
                         android:layout_marginTop="40dp"
                         android:layout_marginStart="10dp"
-                        android:textStyle="italic"/>
+                        android:textStyle="bold"/>
 
                 </TableRow>
 
@@ -103,7 +103,7 @@
                         android:layout_span="2"
                         android:layout_marginTop="40dp"
                         android:layout_marginStart="10dp"
-                        android:textStyle="italic"/>
+                        android:textStyle="bold"/>
                 </TableRow>
 
                 <TableRow>
@@ -125,7 +125,7 @@
                         android:layout_span="2"
                         android:layout_marginTop="40dp"
                         android:layout_marginStart="10dp"
-                        android:textStyle="italic"/>
+                        android:textStyle="bold"/>
                 </TableRow>
 
                 <TableRow>
@@ -148,7 +148,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="10dp"
-                        android:textStyle="italic"/>
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/profile_level"
@@ -169,7 +169,7 @@
                         android:text="@string/notfallkontakte"
                         android:layout_span="2"
                         android:layout_margin="10dp"
-                        android:textStyle="italic"/>
+                        android:textStyle="bold"/>
                 </TableRow>
 
                 <TableRow>
@@ -178,7 +178,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_margin="10dp"/>
+                        android:layout_margin="10dp"
+                        android:layout_span="2"/>
                 </TableRow>
 
 

@@ -19,8 +19,10 @@
         <activity android:name=".hydration_details"></activity>
         <activity android:name=".EnergyDetails" />
         <activity android:name=".SensorActivity" />
-        <activity android:name=".EmergencyActivity" />
-        <activity android:name=".profile" />
+        <activity android:name=".EmergencyActivity"
+            android:label="@string/emergency_title"/>
+        <activity android:name=".profile"
+            android:label="@string/profile_label"/>
         <activity android:name=".plan_hiking" />
         <activity android:name=".HikeMainscreen" />
         <activity android:name=".Graphen" />

@@ -1,30 +1,31 @@
 <resources>
-    <string name="app_name">Wonderfull</string>
+    <string name="app_name">Wanderfull</string>
 
-    <string name="emergency_title">Nofall</string>
+    <string name="emergency_title">Notfall</string>
     <string name="emergency_question">Brauchst du Hilfe?</string>
     <string name="emergency_sos">   Hilfe rufen!</string>
     <string name="emergency_fine"> Mir geht es gut. </string>
-    <string name="emergency_call_in">John Doe wird in 30 Sekunden automatisch angerufen.</string>
+    <string name="emergency_SMS">%s hatte einen Unfall.</string>
+    <string name="emergency_call_in">%s wird in %d Sekunden automatisch angerufen.</string>
 
-    <string name="title_activity_main_menu">MainMenuActivity</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
+    <string name="title_activity_main_menu" translatable="false">MainMenuActivity</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_title" translatable="false">Android Studio</string>
+    <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
+    <string name="nav_header_desc" translatable="false">Navigation header</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
-    <string name="menu_share">Share</string>
-    <string name="menu_send">Send</string>
+    <string name="menu_home" translatable="false">Home</string>
+    <string name="menu_gallery" translatable="false">Gallery</string>
+    <string name="menu_slideshow" translatable="false">Slideshow</string>
+    <string name="menu_tools" translatable="false">Tools</string>
+    <string name="menu_share" translatable="false">Share</string>
+    <string name="menu_send" translatable="false">Send</string>
     <string name="menu_emergency">Notfall</string>
 
-    <string name="_1_80_m">1,93 m</string>
+    <string name="_1_80_m" translatable="false">1,93 m</string>
     <string name="gewicht">Gewicht:</string>
-    <string name="_80_kg">129 kg</string>
+    <string name="_80_kg" translatable="false">129 kg</string>
     <string name="gr_e">Größe:</string>
     <string name="notfallkontakte">Notfallkontakte:</string>
     <string name="beispielerkrankungen">… Beispielerkrankungen</string>
@@ -33,15 +34,14 @@
     <string name="profil_bearbeiten">Profil bearbeiten</string>
     <string name="profilbild_hochladen">Profilbild hochladen</string>
     <string name="vorname">Vorname:</string>
-    <string name="name">Name:</string>
+    <string name="name" translatable="false">Name:</string>
     <string name="gr_e_m">Größe [m]:</string>
     <string name="gewicht_kg">Gewicht [kg]:</string>
     <string name="vorerkrankungen">Erkrankungen und Befunde:</string>
     <string name="medikamente">Medikation:</string>
-    <string name="notafllkontakte">Notafllkontakte</string>
-    <string name="tim">Tim</string>
-    <string name="wiesel">Wiesel</string>
-    <string name="tim_wiesel">Tim Wiesel</string>
+    <string name="tim" translatable="false">Tim</string>
+    <string name="wiesel" translatable="false">Wiesel</string>
+    <string name="tim_wiesel" translatable="false">Tim Wiesel</string>
     <string name="beispielkrankheit">Beispielkrankheit</string>
     <string name="beispielmedikament">Beispielmedikament</string>
 
@@ -58,35 +58,38 @@
 
     <string name="wanderung_planen">Wanderung planen</string>
     <string name="wanderung_starten">Wanderung starten</string>
-    <string name="distanz">Distance [km]:</string>
-    <string name="verticalDistance_upwards">Ascent [m]:</string>
-    <string name="verticalDistance_downwards">Descent [m]:</string>
-    <string name="berechneteWanderzeit">Estimated hiking time:</string>
-    <string name="button_start">button_start</string>
-    <string name="button_plan">button_plan</string>
-    <string name="erkrankungentim">Herzhypertrophie, Leberzirrhose, Trizepssehnenruptur</string>
+    <string name="distanz">Distanz [km]:</string>
+    <string name="verticalDistance_upwards">Aufstieg [m]:</string>
+    <string name="verticalDistance_downwards">Abstieg [m]:</string>
+    <string name="berechneteWanderzeit">geschätzte Wanderzeit:</string>
+    <string name="button_start" translatable="false">button_start</string>
+    <string name="button_plan" translatable="false">button_plan</string>
+    <string name="erkrankungentim" translatable="false">Herzhypertrophie, Leberzirrhose, Trizepssehnenruptur</string>
     <string name="altertim">17. Dezember 1981 (37 Jahre alt)</string>
     <string name="allergientim">Glutenintoleranz</string>
     <string name="allergien">Allergien und Unverträglichkeiten:</string>
     <string name="time">Zeit:</string>
     <string name="h_henzunahme">Höhenzunahme (m):</string>
     <string name="aktivit_t">Aktivität</string>
-    <string name="activityTimeVal">04:59:02</string>
-    <string name="activityDistanceVal">20,51</string>
-    <string name="activityAltitudeVal">1.200</string>
+    <string name="activityTimeVal" translatable="false">04:59:02</string>
+    <string name="activityDistanceVal" translatable="false">20,51</string>
+    <string name="activityAltitudeVal" translatable="false">1.200</string>
     <string name="pace">Geschwindigkeit</string>
     <string name="h_he">Höhe</string>
-    <string name="menu_sensor">Sensors</string>
-    <string name="string_barometer">Barometer Value: %1$s mBar</string>
+    <string name="menu_sensor" translatable="false">Sensors</string>
+    <string name="string_barometer" translatable="false">Barometer Value: %1$s mBar</string>
     <string name="distance">Distanz (km):</string>
 
     <string name="edit_title">Profil bearbeiten</string>
     <string name="edit_save">Speichern</string>
-    <string name="edit_plus">+</string>
-    <string name="edit_minus">-</string>
+    <string name="edit_plus" translatable="false">+</string>
+    <string name="edit_minus" translatable="false">-</string>
     <string name="edit_contacts">Notfallkontakte</string>
     <string name="edit_level">Wanderniveau:</string>
-    <string name="edit_phone">Telefonnummer</string>
+    <string name="edit_phone">Telefonnummer:</string>
+    <string name="profile_edit">Bitte Profil bearbeiten!</string>
+    <string name="profile_none">keine</string>
+    <string name="profile_label">Profil</string>
 
     <string-array name="level_spinner">
         <item>Profiwanderer</item>
@@ -95,28 +98,31 @@
     </string-array>
 
     <string name="herzfrequenz">Herzfrequenz:</string>
-    <string name="herzfrequenz_p"> </string>
+    <string name="herzfrequenz_p" translatable="false"> </string>
     <string name="hoehenmeter">Höhenmeter:</string>
-    <string name="hoehenmeter_p"> </string>
+    <string name="hoehenmeter_p" translatable="false"> </string>
     <string name="strecke">Zurückgelegte\nStrecke:</string>
-    <string name="strecke_p"> </string>
+    <string name="strecke_p" translatable="false"> </string>
     <string name="zeit">Wanderzeit:</string>
-    <string name="zeit_p"> </string>
+    <string name="zeit_p" translatable="false"> </string>
     <string name="schritte">Schrittzähler:</string>
-    <string name="schritte_p"> </string>
+    <string name="schritte_p" translatable="false"> </string>
     <string name="pause">Pause in:</string>
-    <string name="pause_p"> </string>
+    <string name="pause_p" translatable="false"> </string>
 
     <string name="verlust">Wasserverlust:</string>
-    <string name="verlust_p"> </string>
+    <string name="verlust_p" translatable="false"> </string>
     <string name="trinken">Bisher getrunken:</string>
-    <string name="trinken_p"> </string>
+    <string name="trinken_p" translatable="false"> </string>
     <string name="zeitTrinken">Zeit seit letzter \nTrinkpause:</string>
-    <string name="zeitTrinken_p"> </string>
+    <string name="zeitTrinken_p" translatable="false"> </string>
     <string name="TRINKEN">Jetzt trinken:</string>
 
     <string name="y_axis_title">Höhe [m]</string>
     <string name="x_axis_title">Zeit [s]</string>
     <string name="ueberschrift_graph">Höhenprofil</string>
+    <string name="menu_profile">Profil</string>
+    <string name="menu_plots" translatable="false">Plots</string>
+    <string name="menu_homescreen">Startseite</string>
 
 </resources>
