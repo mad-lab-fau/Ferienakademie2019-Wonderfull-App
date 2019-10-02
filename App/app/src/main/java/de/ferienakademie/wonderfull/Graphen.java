@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
@@ -79,6 +80,9 @@ public class Graphen extends AppCompatActivity {
             xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
             mChart.getXAxis().setTextSize(15);
             mChart.getAxisLeft().setTextSize(15);
+
+            Description des = mChart.getDescription();
+            des.setEnabled(false);
 
 
             /*if (Utils.getSDKInt() >= 18) {

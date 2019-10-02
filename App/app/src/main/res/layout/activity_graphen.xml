@@ -34,7 +34,7 @@
             android:layout_alignStart="@+id/chart"
             android:layout_alignEnd="@+id/chart"
             android:gravity="center_horizontal"
-            android:text="Distanz [km]"
+            android:text="Zeit [s]"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <TextView

@@ -116,6 +116,6 @@
     <string name="TRINKEN">Jetzt trinken:</string>
 
     <string name="y_axis_title">Höhe [m]</string>
-    <string name="x_axis_title">Distanz [km]</string>
+    <string name="x_axis_title">Zeit [s]</string>
 
 </resources>
