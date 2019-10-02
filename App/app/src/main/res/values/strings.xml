@@ -120,12 +120,12 @@
 
     <string name="y_axis_title">Höhe [m]</string>
     <string name="x_axis_title">Zeit [s]</string>
-    <string name="ueberschrift_graph">Höhenprofil</string>
     <string name="menu_profile">Profil</string>
     <string name="menu_plots">Statistik</string>
     <string name="menu_homescreen">Startseite</string>
     <string name="emergency_sendSMS">SMS wurde an %s gesendet</string>
     <string name="plan_toast">Bitte alle Felder ausfüllen!</string>
     <string name="loss_of_water_low">gering</string>
+    <string name="ueberschrift_graph">Höhenprofil</string>
 
 </resources>
