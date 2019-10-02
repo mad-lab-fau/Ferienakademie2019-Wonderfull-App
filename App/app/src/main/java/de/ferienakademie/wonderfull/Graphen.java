@@ -121,7 +121,11 @@ public class Graphen extends AppCompatActivity {
 
             axisTitle.setText(String.format("%s [%s]", getString(R.string.x_axis_title), unit));
 
+            if(unit.equals("s")) {
+                return String.format("%.0f", value);
+            }else {
             return String.format("%.1f", value);
+        }
         });
         mChart.setExtraBottomOffset(10);
         mChart.getXAxis().setTextSize(15);
