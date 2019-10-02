@@ -133,7 +133,9 @@ public class profile extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
-        startActivity(new Intent(this, EditProfile.class));
+        Intent intent = new Intent(this, EditProfile.class);
+        intent.putExtra("caller", caller);
+        startActivity(intent);
         return true;
     }
 

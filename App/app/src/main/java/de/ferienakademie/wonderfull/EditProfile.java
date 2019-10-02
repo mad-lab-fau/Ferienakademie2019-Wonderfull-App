@@ -25,6 +25,7 @@ public class EditProfile extends AppCompatActivity {
 
     private ProfileWrapper profileDB;
     private List<TableLayout> addedContacts = new ArrayList<>();
+    private String caller = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,9 @@ public class EditProfile extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+
+        Intent intent = this.getIntent();
+        caller = intent.getStringExtra("caller");
 
         // get database and values
         profileDB = new ProfileWrapper(this);
@@ -180,7 +184,9 @@ public class EditProfile extends AppCompatActivity {
 
         }
 
-        startActivity(new Intent(this, profile.class));
+        Intent intent = new Intent(this, profile.class);
+        intent.putExtra("caller", caller);
+        startActivity(intent);
     }
 
     public void addContact(View v){
@@ -232,6 +238,15 @@ public class EditProfile extends AppCompatActivity {
         profileDB.deleteContact(contact);
 
         loadContacts();
+    }
+
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(this, profile.class);
+        intent.putExtra("caller", caller);
+        startActivity(intent);
+
+
     }
 
 }

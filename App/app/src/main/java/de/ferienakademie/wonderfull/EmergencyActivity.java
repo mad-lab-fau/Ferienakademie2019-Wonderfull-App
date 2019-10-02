@@ -28,7 +28,7 @@ public class EmergencyActivity extends AppCompatActivity {
 
 
     private String number = "01781336385";
-    private String contact = "Wonderfull";
+    private String contact = getResources().getString(R.string.app_name);
     private String smsText = "";
 
     @Override
