@@ -5,7 +5,7 @@ public class ProfileValues {
     public enum Fitness {
         Profi("Profi"),
         Gelegenheit ("Gelegenheit"),
-        Anfänger ("Anfänger");
+        Anfaenger("Anfaenger");
 
         private String name = "";
 
@@ -117,7 +117,7 @@ public class ProfileValues {
                 return 0;
             case Gelegenheit:
                 return 1;
-            case Anfänger:
+            case Anfaenger:
                 return 2;
             default:
                 return -1;
@@ -131,7 +131,7 @@ public class ProfileValues {
             case 1:
                 return Fitness.Gelegenheit;
             case 2:
-                return Fitness.Anfänger;
+                return Fitness.Anfaenger;
             default:
                 return null;
         }

@@ -85,22 +85,14 @@ public class Graphen extends AppCompatActivity {
         XAxis xAxis = mChart.getXAxis();
 
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        mChart.setExtraBottomOffset(10);
         mChart.getXAxis().setTextSize(15);
         mChart.getAxisLeft().setTextSize(15);
-
+        mChart.getAxisLeft().setGranularity(1.0f);
+        mChart.getAxisLeft().setGranularityEnabled(true);
         Description des = mChart.getDescription();
         des.setEnabled(false);
 
-
-        //mChart.setDescription();
-        //TextView xAxisName = new TextView(this);
-            /*TextView xAxisName;
-            xAxisName = (TextView) findViewById(R.id.x_axis_title);
-            xAxisName.setText("Distanz [km]");
-            TextView yAxisName; // = new TextView(this, null);
-            yAxisName = (TextView) findViewById(R.id.y_axis_title);
-            yAxisName.setText("Yaxis Label");
-*/
 
 
             /*if (Utils.getSDKInt() >= 18) {

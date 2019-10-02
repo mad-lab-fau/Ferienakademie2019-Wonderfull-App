@@ -67,16 +67,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case (R.id.menu_emergency):
-                Intent mainIntent = new Intent(this, EmergencyActivity.class);
-                startActivity(mainIntent);
-                return true;
             case (R.id.menu_profile):
                 Intent profilIntent = new Intent(this, profile.class);
                 startActivity(profilIntent);
-                return true;
-            case R.id.menu_sensor:
-                startActivity(new Intent(this, SensorActivity.class));
                 return true;
             case R.id.menu_plots:
                 startActivity(new Intent(this, Graphen.class));

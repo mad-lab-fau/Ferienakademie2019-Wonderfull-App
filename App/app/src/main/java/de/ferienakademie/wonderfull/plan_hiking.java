@@ -73,7 +73,7 @@ public class plan_hiking extends AppCompatActivity {
         EditText nachOben = findViewById(R.id.nach_oben);
         EditText nachUnten = findViewById(R.id.nach_unten);
         if(checkInput(total, nachOben, nachUnten)){
-            Toast.makeText(getApplicationContext(),"Bitte alle Felder ausfüllen!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.plan_toast), Toast.LENGTH_SHORT).show();
             return;
         }
         setGesamtStrecke(total);

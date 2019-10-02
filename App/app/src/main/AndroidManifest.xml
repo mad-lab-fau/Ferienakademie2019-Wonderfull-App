@@ -17,18 +17,25 @@
         android:roundIcon="@mipmap/app_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".hydration_details"></activity>
+        <activity android:name=".hydration_details" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".EnergyDetails" />
         <activity android:name=".SensorActivity" />
-        <activity android:name=".EmergencyActivity" />
-        <activity android:name=".profile" />
+        <activity android:name=".EmergencyActivity"
+            android:label="@string/emergency_title"/>
+        <activity android:name=".profile"
+            android:label="@string/profile_label"/>
         <activity android:name=".plan_hiking" />
         <activity android:name=".HikeMainscreen" />
-        <activity android:name=".Graphen" />
+        <activity android:name=".Graphen"
+            android:label="@string/menu_plots"/>
         <activity
             android:name=".EditProfile"
             android:label="@string/edit_title" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashScreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_splahscreen"
+            android:theme="@style/FullscreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
