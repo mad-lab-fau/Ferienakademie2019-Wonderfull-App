@@ -122,7 +122,7 @@
     <string name="x_axis_title">Zeit [s]</string>
     <string name="ueberschrift_graph">Höhenprofil</string>
     <string name="menu_profile">Profil</string>
-    <string name="menu_plots" translatable="false">Plots</string>
+    <string name="menu_plots">Statistik</string>
     <string name="menu_homescreen">Startseite</string>
     <string name="emergency_sendSMS">SMS wurde an %s gesendet</string>
 

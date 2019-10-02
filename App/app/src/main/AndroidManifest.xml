@@ -25,7 +25,8 @@
             android:label="@string/profile_label"/>
         <activity android:name=".plan_hiking" />
         <activity android:name=".HikeMainscreen" />
-        <activity android:name=".Graphen" />
+        <activity android:name=".Graphen"
+            android:label="@string/menu_plots"/>
         <activity
             android:name=".EditProfile"
             android:label="@string/edit_title" />
