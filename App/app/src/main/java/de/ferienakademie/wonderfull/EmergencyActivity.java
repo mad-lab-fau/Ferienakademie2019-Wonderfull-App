@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.telephony.SmsManager;
 import android.widget.Toast;
 
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -24,14 +25,30 @@ public class EmergencyActivity extends AppCompatActivity {
     private String emergencyText = "%s wird in %d Sekunden angerufen.";
     private int time = 30;
     private Timer timer;
-    private String phoneNumber = "00491781336385"; // "004915734766438"
-    private String smsText = "Test";
+    private ProfileWrapper profileDB;
+
+
+    private String number = "12345";
+    private String contact = "Wonderfull";
+    private String smsText = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emergency);
         final TextView textview = (TextView) findViewById(R.id.emergency_call_in);
-        final String contact = "John Doe"; //TODO get emergency contact
+
+        profileDB = new ProfileWrapper(this);
+        List<Contact> contacts = profileDB.getContacts();
+        if (!contacts.isEmpty()){
+            number = contacts.get(0).getPhone();
+            contact = contacts.get(0).getName();
+        }
+
+        ProfileValues profile = profileDB.getProfile();
+        String name = profile.getSurname() + " " + profile.getName();
+        smsText = String.format(getResources().getString(R.string.emergency_SMS), name);
+
         textview.setText(String.format(emergencyText, contact, 30));
         timer = new Timer();
 
@@ -86,10 +103,10 @@ public class EmergencyActivity extends AppCompatActivity {
 
         Log.d("EmergencyActivtity", "I will send an SMS now!");
         SmsManager smsManager = SmsManager.getDefault();
-        smsManager.sendTextMessage(phoneNumber, null, smsText, null, null);
+        smsManager.sendTextMessage(number, null, smsText, null, null);
 
         Context context = getApplicationContext();
-        CharSequence text = "SMS was send to John Doe."; //TODO real name
+        String text = String.format("SMS was send to %s", contact);
         Toast toast = Toast.makeText(context, text, Toast.LENGTH_LONG);
         toast.show();
 

@@ -129,14 +129,8 @@ public class HikeMainscreen extends AppCompatActivity {
                 Intent profilIntent = new Intent(this, profile.class);
                 startActivity(profilIntent);
                 return true;
-            case R.id.menu_sensor:
-                startActivity(new Intent(this, SensorActivity.class));
-                return true;
             case R.id.menu_plots:
                 startActivity(new Intent(this, Graphen.class));
-                return true;
-            case R.id.menu_home:
-                startActivity(new Intent(this, MainActivity.class));
                 return true;
             default:
                 return false;

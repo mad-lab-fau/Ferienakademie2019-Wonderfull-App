@@ -183,11 +183,11 @@ public class EditProfile extends AppCompatActivity {
     public void addContact(View v){
         LinearLayout emergencyContactsLayout = findViewById(R.id.edit_current_contacts);
         TableLayout newContactTable = new TableLayout(this);
-        newContactTable.setStretchAllColumns(true);
+        newContactTable.setColumnStretchable(1, true);
 
         TableRow contactNameRow = new TableRow(this);
         TextView contactName = new TextView(this);
-        contactName.setText("Name: ");
+        contactName.setText(getResources().getString(R.string.name));
         contactName.setTextAppearance(R.style.TextAppearance_AppCompat_Large);
         contactName.setPadding(10, 10, 10, 10);
         contactNameRow.addView(contactName);
@@ -201,7 +201,7 @@ public class EditProfile extends AppCompatActivity {
 
         TableRow contactPhoneRow = new TableRow(this);
         TextView contactPhone = new TextView(this);
-        contactPhone.setText("Telefonnummer: ");
+        contactPhone.setText(getResources().getString(R.string.edit_phone));
         contactPhone.setTextAppearance(R.style.TextAppearance_AppCompat_Large);
         contactPhone.setPadding(10,10,10,10);
         contactPhoneRow.addView(contactPhone);
